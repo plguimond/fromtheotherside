@@ -14,11 +14,20 @@ try{
 
     if (isset($_GET['action'])) {
 
-        if ($_GET['action'] == 'testUser'){
-            $frontController->testUser();
+        if ($_GET['action'] == 'bandPage'){
+            $frontController->bandFront();
         }
-        else{
-            echo "Erreur du test user";
+        elseif ($_GET['action'] == 'newsPage'){
+            $frontController->newsFront();
+        }
+        elseif ($_GET['action'] == 'concertsPage'){
+            $frontController->concertsFront();
+        }
+        elseif ($_GET['action'] == 'contactPage'){
+            $frontController->contactFront();
+        }
+        elseif ($_GET['action'] == 'loginPage'){
+            $frontController->loginFront();
         }
         // if($_GET['action'] == 'contact'){
         //     $frontController->contactFront();

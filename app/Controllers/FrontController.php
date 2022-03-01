@@ -8,14 +8,34 @@ class FrontController{
     {
         require 'app/Views/front/home.php';
     }
-    
-    function testUser()
+    function bandFront()
     {
-        $testUser = new \Projet\Models\HomeModel();
-        $userTest = $testUser->testUser();
-        $users = $userTest->fetchAll();
-        require 'app/Views/front/home.php';
+        require 'app/Views/front/band.php';
     }
+    function newsFront()
+    {
+        require 'app/Views/front/news.php';
+    }
+    function concertsFront()
+    {
+        require 'app/Views/front/concerts.php';
+    }
+    function contactFront()
+    {
+        require 'app/Views/front/contact.php';
+    }
+    function loginFront()
+    {
+        require 'app/Views/front/login.php';
+    }
+    
+    // function testUser()
+    // {
+    //     $testUser = new \Projet\Models\HomeModel();
+    //     $userTest = $testUser->testUser();
+    //     $users = $userTest->fetchAll();
+    //     require 'app/Views/front/home.php';
+    // }
 
 //     function contactFront()
 //     {

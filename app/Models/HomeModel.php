@@ -3,7 +3,7 @@ namespace Projet\Models;
 
 class HomeModel extends Manager
 {
-    public function testUser(){
+    public function getUser(){
         $bdd = $this->dbConnect();
         $req = $bdd->query('SELECT * FROM users');
         return $req;
