@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Kercode\\Fromtheotherside\\' => array($baseDir . '/src'),
+    'Projet\\' => array($baseDir . '/app'),
 );

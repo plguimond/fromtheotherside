@@ -1,13 +1,48 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
+<?php
 
-</body>
-</html>
+// important pour la sécurité de vos scripts : les sessions
+// démarre une session
+
+session_start();
+
+// autoload.php généré avec composer
+require_once __DIR__ . '/vendor/autoload.php';
+
+
+try{
+    $frontController = new \Projet\Controllers\FrontController(); // objet controler
+
+    if (isset($_GET['action'])) {
+
+        if ($_GET['action'] == 'testUser'){
+            $frontController->testUser();
+        }
+        else{
+            echo "Erreur du test user";
+        }
+        // if($_GET['action'] == 'contact'){
+        //     $frontController->contactFront();
+        // }
+        // elseif($_GET['action'] == 'about'){
+        //     $frontController->aboutFront();
+        // }
+        // elseif($_GET['action'] == 'contactPost'){
+        //     $lastname = htmlspecialchars($_POST['name']);
+        //     $firstname = htmlspecialchars($_POST['firstname']);
+        //     $mail = htmlspecialchars($_POST['mail']);
+        //     $phone = htmlspecialchars($_POST['phone']);
+        //     $objet = htmlspecialchars($_POST['object']);
+        //     $content = htmlspecialchars($_POST['content']);
+            
+        //     if (!empty($lastname) && (!empty($firstname) && (!empty($mail) && (!empty($phone) && (!empty($mail) && (!empty($objet) && (!empty($content)))))))){
+        //         $frontController->contactPost($lastname, $firstname, $mail, $phone, $objet, $content);
+        //     }else {
+        //         throw new Exception('Tous les champs ne sont pas remplis');
+        //     }
+        // } 
+    }else{
+        $frontController->home();
+    }
+}catch (Exception $e){
+    require 'app/Views/front/errorLoading.php';
+}
