@@ -1,0 +1,15 @@
+{
+    "name": "kercode/fromtheotherside",
+    "autoload": {
+        "psr-4": {
+            "Projet\\": "./app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Pierre-Luc GUIMOND",
+            "email": "plguimond@hotmail.com"
+        }
+    ],
+    "require": {}
+}
