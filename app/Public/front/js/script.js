@@ -1,11 +1,20 @@
-/* Sélection des éléments HTML */
-let link = document.getElementById('link')
-let burger = document.getElementById('burger')
-let ul = document.querySelector('ul')
+/* ========================================*/
+      /* Function pour menu burger */
+/* ========================================*/
 
-/* gestionnaire d'événement sur le a#link pour venir changer l'attribution de la classe .open à la ul et au span#burger */
-link.addEventListener('click', function(e) {
-  e.preventDefault()
-  burger.classList.toggle('open')
-  ul.classList.toggle('open')
+/* Sélection des éléments HTML */
+let burgerLink = document.getElementById('burger-link');
+let burger = document.getElementById('burger');
+let ul = document.querySelector('ul');
+// let logo = document.getElementById("logo-header")
+
+/* permet d'ajouter la classe display au burger et à l'ul du menu */
+burgerLink.addEventListener('click', function() {
+  burger.classList.toggle('display');
+  ul.classList.toggle('display');
+  // logo.classList.toggle('display')
 })
+
+/* ========================================*/
+      /* Function pour  */
+/* ========================================*/

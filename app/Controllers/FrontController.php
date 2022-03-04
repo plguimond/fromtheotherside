@@ -6,6 +6,9 @@ class FrontController{
    
     function home()
     {
+        $getBand = new \Projet\Models\HomeModel();
+        $bandMembers = $getBand->getBand();
+        $members = $bandMembers->fetchAll();
         require 'app/Views/front/home.php';
     }
     function bandFront()

@@ -9,6 +9,11 @@ class HomeModel extends Manager
         return $req;
        }
 
+    public function getBand(){
+        $bdd = $this->dbConnect();
+        $req = $bdd->query('SELECT firstname, `type`, excerpt, picture FROM bandmembers');
+        return $req;
+    }
 
 //    public function postMail($lastname, $firstname, $mail, $phone, $objet, $content){
 //        $bdd = $this->dbConnect();

@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* ===========================*/
+      /*réglages globaux*/
+/* ===========================*/
+li{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+body{
+  /* background: rgb(0,0,0); */
+  /* background: linear-gradient( black 0%, black 40%, rgb(121, 118, 119) 55%, rgb(175, 172, 173) 65%, rgba(255,255,255,1) 78%, rgba(255,255,255,1) 100%); */
+  height: 100vh;
+  font-size: 16px;
+}
+h1, h2, h3{
+  margin-bottom: 20px;
+}
+h1{
+  font-size: 1.4rem;
+  text-align: center;
+}
+h2{
+  font-size: 1.2rem;
+}
+section{
+  margin-bottom: 30px;
+}
+.container{ 
+max-width: 1200px;
+}
+
+/*ADMIN SLIDER */
+
+.update-slider{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin: 10px;
+
+}
+.admin-slider{
+  width: 30%;
+}
+.slider-form{
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+.slider-form button{
+  width: 20%;
+  margin-top: 10px;
+}
+

@@ -1,45 +1,49 @@
-<!DOCTYPE html>
-<html lang="fr">
+<?php
+    include('app/Views/front/layouts/header.php');
+?>
+<main>
+    <div class="mobile-banner">
+        <img src="app/Public/front/images/photoconcertsallesombre.jpg"
+            alt="Groupe de musique sur scène en avec éclairage sombre">
+    </div>
+    <div class=slider-banner>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </div>
+    <Section id="intro-home" class="container">
+        <H1 class="title-h1">Du rock, du métal et plus encore!</H1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu tellus pulvinar, porta nulla sit amet, luctus felis. Vivamus volutpat, nulla et ultricies faucibus, eros elit posuere ipsum,
+             nec tempus velit augue ut quam. Nullam est libero porta ante.</p>
 
-    <title>From The Other Side - Groupe de musique rock en Bretagne</title>
+    </Section>
+    <section id=next-show class="container">
 
-    <link rel="stylesheet" href="app/Public/front/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
-</head>
+    </section>
+    <section id=last-news class="container">
 
-<body>
-    <header>
-        <div class="head container">
-            <!-- <div>
-                <i class="fa-solid fa-bars"></i><span class=hide_mobile>Menu</span>
-            </div> -->
-            <nav>
-                <a id="link" href="#"><span id="burger"></span></a>
-                <ul>
-                    <li><a href="index.php?action=bandPage">Le groupe</a></li>
-                    <li><a href="index.php?action=newsPage">Les news</a></li>
-                    <li><a href="index.php?action=concertsPage">Prochaines dates</a></li>
-                    <li><a href="index.php?action=contactPage">Nous contacter</a></li>
-                    <li><a href="index.php?action=loginPage">Compte utilisateur</a></li>
-                </ul>
-            </nav>
-            <div>
-                <p>Logo</p>
+    </section>
+    <section id="band-members" class="container">
+        <h2>Les membres du groupe</h2>
+       
+
+        <div id="band-pictures">
+            <?php foreach($members as $member){ ?>
+            <div class="band-cards">
+                <div class="band-picture">
+                    <img class="band-pic" src="<?= $member['picture']; ?>" alt="photo du chanteur">
+                    <div class='member-info'>
+                        <p><?= $member['firstname']; ?></p>
+                        <p><?= $member['type']; ?></p>
+                    </div>
+                    
+                </div>
+                <p><?= $member['excerpt'];?></p>
             </div>
+            <?php } ?>
+
         </div>
-    </header>
-    <main>
-        <H1>From The Other Side, un condensé de musique rock et métal</H1>
-    </main>
-    <footer>
+    </section>
+</main>
 
-    </footer>
-    <script src="../../Public/front/js/script.js"></script>
-</body>
-
-</html>
+<?php
+    include('app/Views/front/layouts/footer.php');
+?>
