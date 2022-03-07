@@ -20,11 +20,12 @@
 
 <body>
     <header id="head">
-        <div class="head-content container">
+        <div class="head-content">
            
-            <nav id="menu_head">
+            <nav id="menu-head">
                 <a id="burger-link" href="#"><span id="burger"></span></a>
                 <ul>
+                    <li><a href="index.php">Accueil</a></li>
                     <li><a href="index.php?action=bandPage">Le groupe</a></li>
                     <li><a href="index.php?action=newsPage">Les news</a></li>
                     <li><a href="index.php?action=concertsPage">Prochaines dates</a></li>

@@ -22,8 +22,11 @@ a{
 body{
   /* background: rgb(0,0,0); */
   /* background: linear-gradient( black 0%, black 40%, rgb(121, 118, 119) 55%, rgb(175, 172, 173) 65%, rgba(255,255,255,1) 78%, rgba(255,255,255,1) 100%); */
-  height: 100vh;
+  height: 70vh;
   font-size: 16px;
+}
+main{
+  min-height: 100%;
 }
 h1, h2, h3{
   margin-bottom: 20px;
@@ -40,6 +43,7 @@ section{
 }
 .container{ 
 max-width: 1200px;
+margin: 0 auto;
 }
 /* ===========================*/
     /* Section header */
@@ -61,7 +65,7 @@ header{
   margin-top: 10px;
   padding-left: 10px;
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
 #burger {
@@ -113,8 +117,8 @@ header{
 }
 
 /* mise en page du menu */
-ul {
-  background:rgba(0, 0, 0, 0.562);
+#menu-head ul {
+  background:rgba(0, 0, 0, 0.8);
   position:absolute;
   width:100%;
   left:0;
@@ -123,16 +127,17 @@ ul {
   transform:scaleY(0);
   transform-origin:center top;
   transition:all 0.3s ease;
+  z-index: 2;
 }
 /* Ouverture du menu de haut en bas*/
-ul.display {
+#menu-head ul.display {
   transform:scaleY(1);
 }
-ul li {
-  padding:10px 0;
+#menu-head ul li {
+  padding:8px 0;
   text-align:center
 }
-ul li a {
+#menu-head ul li a {
   color: white;
 }
 
@@ -140,17 +145,18 @@ ul li a {
 
 #logo-header{
   position: absolute;
-  top: 100%;
-  left: 50%;
   width: 100%;
-  text-align: center;
-  transform: translate(-50% , -60%);
+ 
+  /* transform: translate(-50% , -60%); */
 }
 .logo{
+  width: 100%;
  font-size: 2rem;
  font-family: 'Metal Mania', cursive;
- color: white;
- text-shadow: 0 0 4px black;
+ color: rgb(0, 0, 0);
+ text-shadow: 0 0 4px white;
+ text-align: center;
+
  /* -webkit-text-stroke:1px black; */
 }
 /* #logo-header.display p{
@@ -164,6 +170,7 @@ ul li a {
 /* Banner pour mobile */
 .mobile-banner{
   margin-bottom: 30px;
+  width: 100%;
 }
 .mobile-banner img{
   width: 100%;
@@ -237,24 +244,122 @@ ul li a {
   border-radius: 8px;
 }
 
+/* ========================================*/
+      /* page Login */
+/* ========================================*/
+#login-page{
+  background-color: #f2f2f2;
+}
 
+.login-title{
+  padding-top: 25px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+#login-content h1{
+  margin-bottom: 5px;
+}
+
+#login-box{
+  background-color: white;
+  width: 90%;
+  padding: 15px 15px;
+  margin: 0 auto;
+}
+#form-login{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+#form-login input{
+ margin-bottom: 10px;
+ height: 30px;
+ padding-left: 5px;
+ box-shadow: inset 0px 0px 2px 2px rgba(0, 0, 0, 0.4);
+ border: none;
+}
+#form-login input:focus{
+ background-color: rgb(11, 163, 223);
+ box-shadow: inset 0px 0px 2px 2px rgba(0, 0, 0, 0.4);
+ border: none;
+ color: white;
+}
+
+#form-login button{
+  width: 200px;
+  height: 30px;
+  margin: 10px auto;
+  border-radius: 5px;
+  background-color: rgb(6, 113, 155);
+  color: white;
+  border: none;
+  font-size: 14px;
+ 
+}
+#form-login button:hover{
+  background-color: rgb(11, 163, 223);
+  cursor:pointer;
+}
+
+.separator{
+  margin-top: 30px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+.separator:before {
+  border-top: 2px solid rgb(6, 113, 155);
+  content:"";
+  margin: 0 auto; 
+  position: absolute; 
+  top: 50%; left: 0; right: 0; bottom: 0;
+  width: 95%;
+  z-index: -1;
+}
+.circle-text{
+  background-color: #d7d7d7;
+  padding: 12px 11px;
+  border-radius: 50%;
+  color: #5f5f5f;
+  font-weight: bold;
+}
+
+.login-title .blue-button{
+  display: block;
+  width: 200px;
+  height: 30px;
+  margin: 25px auto;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: rgb(6, 113, 155);
+  color: white;
+  font-size: 14px;
+ 
+}
+.login-title .blue-button:hover{
+  background-color: rgb(11, 163, 223);
+  cursor:pointer;
+}
 /* ========================================*/
       /* footer */
 /* ========================================*/
-
+footer{
+  
+}
 .footer-banner{
   position: relative;
+  
 }
 
 .footer-banner img{
   width: 100%;
   
 }
-.footer-banner .logo{
+/* .footer-banner .logo{
   position: absolute;
   width: 100%;
-  bottom: 0;
+  bottom: 15px;
   text-align: center;
   z-index: 2;
   
-}
+} */

@@ -37,10 +37,12 @@ max-width: 1200px;
 }
 
 /*ADMIN SLIDER */
-
+#admin-sliders{
+  margin: 0 auto;
+}
 .update-slider{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
   margin: 10px;
 
@@ -56,5 +58,9 @@ max-width: 1200px;
 .slider-form button{
   width: 20%;
   margin-top: 10px;
+}
+.add-slide{
+margin-top: 20px;
+padding-left: 10px;
 }
 

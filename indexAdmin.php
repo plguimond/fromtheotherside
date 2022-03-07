@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 // autoload.php généré avec composer
 require_once __DIR__ . '/vendor/autoload.php';
 
@@ -9,20 +9,55 @@ try {
 
     if (isset($_GET['action'])) {
 
-        // action pour envoyer  au controller les variables POST pour récupérer les infos admin
-        if ($_GET['action'] == 'updateSlider') {
-            if (isset($_FILES['file'])) {
+    /* Actions de connexion/création compte utilisateur*/
+        if ($_GET['action'] == 'login'){
+            $mail = $_POST['mail'];
+            $pwd = $_POST['pwd'];
+            $adminController->login($mail, $pwd);
+        }
+
+    /* Actions correpondantes au slider de l'accueil fullscreen - update, add et delete */
+        elseif ($_GET['action'] == 'updateSlider') {
+            if (isset($_FILES['file']) && $_FILES['file']['name'] != "" ) {
+                $id = $_GET['id'];
+                $title = $_POST['title'];
                 $tmpName = $_FILES['file']['tmp_name'];
                 $name = $_FILES['file']['name'];
                 $size = $_FILES['file']['size'];
                 $error = $_FILES['file']['error'];
-                $adminController->updateSlider1($tmpName, $name, $size, $error);
+                $adminController->updateSlider($id,$title, $tmpName, $name, $size, $error);
+                $adminController->dashboard();
             }else{
-                echo "Une erreure s'est produite!";
+                echo "Veuillez sélectionner une image.";
             }
         }
+        elseif ($_GET['action'] == 'addSlide') {
+            if (isset($_FILES['file']) && $_FILES['file']['name'] != "" ) {
+                $title = $_POST['title'];
+                $tmpName = $_FILES['file']['tmp_name'];
+                $name = $_FILES['file']['name'];
+                $size = $_FILES['file']['size'];
+                $error = $_FILES['file']['error'];
+                $adminController->addSlide($title, $tmpName, $name, $size, $error);
+                $adminController->dashboard();
+            }else{
+                echo "Veuillez sélectionner une image.";
+            }
+        }
+        elseif ($_GET['action'] == 'deleteSlide') {
+            $id = $_GET['id'];
+            $adminController->deleteSlide($id);
+            $adminController->dashboard();
+        }
+        elseif ($_GET['action'] == 'dashboard') {
+            $adminController->dashboard();
+        }  
+        elseif ($_GET['action'] == 'errorLoading') {
+            require 'app/views/front/errorLoading.php';
+        }  
     } else {
-        $adminController->dashboard();
+        $frontController = new \Projet\Controllers\FrontController();
+        $frontController->home();
     }
 } catch (Exception $e) {
     require 'app/views/front/errorLoading.php';

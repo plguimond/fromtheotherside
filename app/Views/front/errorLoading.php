@@ -8,5 +8,6 @@
 </head>
 <body>
     Erreur, aucune action ou page chargées.
+    <?php var_dump($userInfo);?>
 </body>
 </html>
