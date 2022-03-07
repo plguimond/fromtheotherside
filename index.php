@@ -10,23 +10,30 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 
 try{
+
     $frontController = new \Projet\Controllers\FrontController(); // objet controler
 
-    if (isset($_GET['action'])) {
+    if(isset($_GET['action']))
+    {
 
-        if ($_GET['action'] == 'bandPage'){
+        if($_GET['action'] == 'bandPage')
+        {
             $frontController->bandFront();
         }
-        elseif ($_GET['action'] == 'newsPage'){
+        elseif($_GET['action'] == 'newsPage')
+        {
             $frontController->newsFront();
         }
-        elseif ($_GET['action'] == 'concertsPage'){
+        elseif($_GET['action'] == 'concertsPage')
+        {
             $frontController->concertsFront();
         }
-        elseif ($_GET['action'] == 'contactPage'){
+        elseif($_GET['action'] == 'contactPage')
+        {
             $frontController->contactFront();
         }
-        elseif ($_GET['action'] == 'loginPage'){
+        elseif($_GET['action'] == 'loginPage')
+        {
             $frontController->loginFront();
         }
         // if($_GET['action'] == 'contact'){
@@ -49,9 +56,12 @@ try{
         //         throw new Exception('Tous les champs ne sont pas remplis');
         //     }
         // } 
-    }else{
+    }else
+    {
         $frontController->home();
     }
-}catch (Exception $e){
+}
+catch (Exception $e)
+{
     require 'app/Views/front/errorLoading.php';
 }

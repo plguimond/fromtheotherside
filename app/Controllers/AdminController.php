@@ -2,7 +2,8 @@
 
 namespace Projet\Controllers;
 
-class AdminController{
+class AdminController
+{
    
     /* function login/create account */
 
@@ -13,7 +14,7 @@ class AdminController{
         $user = $login->getPwd($mail);
         $userInfo = $user->fetch();
         // $passwordVerify = password_verify($pwd, $userInfo['password']);
-        
+
        if($userInfo != null){
         $_SESSION['id'] = $userInfo['id'];
         $_SESSION['lastname'] = $userInfo['lastname'];
