@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -33,7 +32,7 @@
                     </div>
             <?php }
             } ?>
-            <div class="add-slide" > 
+            <div class="add-slide">
                 <form action="indexAdmin.php?action=addSlide" method="POST" enctype="multipart/form-data">
                     <label for="file">Fichier</label>
                     <input type="file" name="file">

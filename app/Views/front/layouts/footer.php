@@ -1,9 +1,9 @@
 <footer>
     <div>
-        
+
     </div>
     <div class="footer-banner">
-        test
+        FOOTER
         <!-- <img src="app/Public/front/images/photoconcertblackandwhite.jpg"
             alt="Groupe de lusique sur scène en noir et blanc"> -->
         <p class="logo">From The Other Side</p>

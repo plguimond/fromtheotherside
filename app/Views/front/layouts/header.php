@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Groupe rock et métal en concert dans toute la Bretagne, dans vos bars, salle de spectacles ou réceptions privées">
+    <meta name="description" content="Groupe rock et métal en concert dans toute la Bretagne, dans vos bars, salle de spectacles ou réceptions privées">
 
     <title>From The Other Side - Groupe de musique rock en Bretagne</title>
 
@@ -21,10 +20,10 @@
 <body>
     <header id="head">
         <div class="head-content">
-           
+
             <nav id="menu-head">
                 <a id="burger-link" href="#"><span id="burger"></span></a>
-                <ul>
+                <ul id="menu-list">
                     <li><a href="index.php">Accueil</a></li>
                     <li><a href="index.php?action=bandPage">Le groupe</a></li>
                     <li><a href="index.php?action=newsPage">Les news</a></li>
