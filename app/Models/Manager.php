@@ -15,6 +15,7 @@ use Exception;
 
 abstract class Manager
 {
+    
     //Singleton  --- permet de définir qu'une fois le pdo et optimiser l'accès à la bdd
     private static $bdd = null;
     //méthode de connexion à la bdd
@@ -39,14 +40,14 @@ abstract class Manager
     public static function all()
     {
         $objects = [];
-        // permet de récupérer la class instancié et de la transformer en string pour l'utiliser comme nom de table dans la requête
+        // permet de récupérer la class instanciée et de la transformer en string pour l'utiliser comme nom de table dans la requête
         $klass =  get_called_class();
         // traitement de la chaîne de caractère pour enlever le namespace et passer le nom de class seul dans la variable child
         $child = explode("\\",$klass);
-        $child = $child[count($child)-1];
+        $child = $child[array_key_last($child)];
 
         $sqlQuery = "SELECT * FROM `{$child}`";
-        // var_dump($sqlQuery);die;
+    
         foreach (self::dbConnect()->query($sqlQuery) as $data) {
             array_push(
                 $objects,
@@ -54,5 +55,21 @@ abstract class Manager
             );
         }
         return $objects;
+    }
+    public static function exist($name, $value)
+    {
+        $klass =  get_called_class();
+        $child = explode("\\",$klass);
+        $child = $child[array_key_last($child)];
+
+        $bdd = self::dbConnect();
+        $sqlQuery = $bdd->prepare("SELECT `{$name}` FROM `{$child}` WHERE `{$name}` = ?");
+        $sqlQuery->execute(array($value));
+        $result = $sqlQuery->fetch();
+        if ($result){
+            return true;
+        }else{
+            return false;
+        }
     }
 }

@@ -30,8 +30,21 @@ class FrontController
     {
         require 'app/Views/front/login.php';
     }
-    public function createAccount()
+    public function newAccount()
     {
         require 'app/Views/front/createAccount.php';
+    }
+    public function createAccount($lastname,$firstname, $mail, $password)
+    {
+        $exist = \Projet\Models\Users::exist('mail',$mail);
+        if ($exist != true){
+        $user = \Projet\Models\Users::createUser($lastname,$firstname, $mail, $password);
+        }
+        else{
+            $error = "cet utilisateurs existe déjà";
+        }
+        
+        require 'app/Views/front/login.php';
+       
     }
 }

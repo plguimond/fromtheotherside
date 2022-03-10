@@ -17,17 +17,38 @@ try {
 
         if ($_GET['action'] == 'bandPage') {
             $frontController->bandFront();
-        } elseif ($_GET['action'] == 'newsPage') {
+        } 
+        elseif ($_GET['action'] == 'newsPage') {
             $frontController->newsFront();
-        } elseif ($_GET['action'] == 'concertsPage') {
+        } 
+        elseif ($_GET['action'] == 'concertsPage') {
             $frontController->concertsFront();
-        } elseif ($_GET['action'] == 'contactPage') {
+        } 
+        elseif ($_GET['action'] == 'contactPage') {
             $frontController->contactFront();
-        } elseif ($_GET['action'] == 'loginPage') {
+        } 
+        elseif ($_GET['action'] == 'loginPage') {
+
             $frontController->loginFront();
-        } elseif ($_GET['action'] == 'createAccount') {
-            $frontController->createAccount();
+        } 
+        elseif ($_GET['action'] == 'newAccount') {
+            $frontController->newAccount();
+        } 
+        elseif ($_GET['action'] == 'createAccount') {
+            $lastname = htmlspecialchars($_POST['lastname']);
+            $firstname = htmlspecialchars($_POST['firstname']);
+            $mail = htmlspecialchars($_POST['mail']);
+            $pass = htmlspecialchars($_POST['pwd']);
+            $password = password_hash($pass, PASSWORD_DEFAULT);
+            if (!empty($lastname) && (!empty($firstname) && (!empty($mail) &&(!empty($password))))){
+                $frontController->createAccount($lastname,$firstname, $mail, $password);
+            }else {
+                throw new Exception('Tous les champs ne sont pas remplis');
+            }
         }
+
+
+        
         // if($_GET['action'] == 'contact'){
         //     $frontController->contactFront();
         // }
