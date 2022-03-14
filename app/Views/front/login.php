@@ -10,11 +10,11 @@ include('app/Views/front/layouts/header.php');
             <?php 
             if (isset($error)){
             if($error != ""){?>
-                <p><?= $error ?></p>
+                <p class = "login-error"><?= $error ?></p>
             <?php }} ?>
         </div>
         <div class="login-box">
-            <form class="form-login" action="indexAdmin.php?action=login" method="POST">
+            <form class="form-login" action="index.php?action=login" method="POST">
                 <input type="email" name="mail" placeholder="E-mail">
                 <!-- <label for="mail">Quelle est votre adresse e-mail</label> -->
                 <input type="password" name="pwd" placeholder="Mot de passe">

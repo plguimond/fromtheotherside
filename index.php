@@ -2,8 +2,8 @@
 
 // important pour la sécurité de vos scripts : les sessions
 // démarre une session
-
 session_start();
+
 
 // autoload.php généré avec composer
 require_once __DIR__ . '/vendor/autoload.php';
@@ -28,22 +28,39 @@ try {
             $frontController->contactFront();
         } 
         elseif ($_GET['action'] == 'loginPage') {
+            /*récupération des variables du formulaire de connexion*/
+         
+            $frontController->loginFront($error = "");
+        }
+        elseif ($_GET['action'] == 'login') {
+            /*récupération des variables du formulaire de connexion*/
+            $mail = ($_POST['mail']);
+            $pass = ($_POST['pwd']);
 
-            $frontController->loginFront();
-        } 
+            if (!empty($mail) &&(!empty($pass))){
+                $frontController->login($mail, $pass);
+                
+            }else{
+                $error = "Vous devez remplir tous les champs.";
+                $frontController->loginFront($error);
+            }
+        }
         elseif ($_GET['action'] == 'newAccount') {
-            $frontController->newAccount();
+            $frontController->newAccount($error = "");
         } 
         elseif ($_GET['action'] == 'createAccount') {
+            /*récupération des variables du formulaire création de compte*/
             $lastname = htmlspecialchars($_POST['lastname']);
             $firstname = htmlspecialchars($_POST['firstname']);
             $mail = htmlspecialchars($_POST['mail']);
             $pass = htmlspecialchars($_POST['pwd']);
             $password = password_hash($pass, PASSWORD_DEFAULT);
+            /* test si les champs sont tous remplis */
             if (!empty($lastname) && (!empty($firstname) && (!empty($mail) &&(!empty($password))))){
                 $frontController->createAccount($lastname,$firstname, $mail, $password);
             }else {
-                throw new Exception('Tous les champs ne sont pas remplis');
+                $error = "Vous devez remplir tous les champs.";
+                $frontController->newAccount($error);
             }
         }
 

@@ -257,6 +257,11 @@ header{
   margin-bottom: 25px;
 
 }
+.login-error{
+  color: red;
+  font-weight: bold;
+  margin-top: 15px;
+}
 
 #login-content{
  padding-bottom: 50px;

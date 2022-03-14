@@ -26,5 +26,5 @@ class Users extends Manager
         $this->mail = $data["mail"] ?? "";
     }
 
-   
+    
 }

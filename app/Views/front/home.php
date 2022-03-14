@@ -1,5 +1,7 @@
+
 <?php
 include('app/Views/front/layouts/header.php');
+
 ?>
 <main>
     <div class="mobile-banner">
@@ -22,7 +24,6 @@ include('app/Views/front/layouts/header.php');
     </section>
     <section id="band-members" class="container">
         <h2>Les membres du groupe</h2>
-
 
         <div id="band-pictures">
             <?php foreach ($members as $member) { ?>

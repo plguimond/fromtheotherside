@@ -55,8 +55,8 @@ try {
             require 'app/views/front/errorLoading.php';
         }
     } else {
-        $frontController = new \Projet\Controllers\FrontController();
-        $frontController->home();
+        $frontController = new \Projet\Controllers\AdminController();
+        $frontController->dashboard();
     }
 } catch (Exception $e) {
     require 'app/views/front/errorLoading.php';

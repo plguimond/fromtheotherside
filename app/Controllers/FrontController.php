@@ -6,7 +6,7 @@ class FrontController
 {
 
     public function home()
-    {   
+    {
         $members = \Projet\Models\Bandmembers::all();
         require 'app/Views/front/home.php';
     }
@@ -26,25 +26,50 @@ class FrontController
     {
         require 'app/Views/front/contact.php';
     }
-    public function loginFront()
+    public function loginFront($error)
     {
         require 'app/Views/front/login.php';
     }
-    public function newAccount()
+    public function login($mail, $pass)
+    {
+
+        $exist = \Projet\Models\Users::exist('mail', $mail);
+        if ($exist == true) {
+            $user = \Projet\Models\Users::find('mail', $mail);
+
+            $_SESSION['mail'] = $user['mail'];
+            $_SESSION['id'] = $user['id'];
+            $_SESSION['firstname'] = $user['firstname'];
+            $_SESSION['lastname'] = $user['lastname'];
+            $_SESSION['password'] = $user['password'];
+
+            $isPasswordCorrect = password_verify($pass, $user['password']);
+
+            if ($isPasswordCorrect) {
+            $this->home();
+            }else {
+                $error = "Vérifiez que vous avez saisi le bon mot de passe.";
+                require 'app/Views/front/login.php';
+            }
+        } else {
+            $error = "Vous n'êtes pas encore enregistré, veuillez créer un compte.";
+            require 'app/Views/front/login.php';
+        }
+    }
+    public function newAccount($error)
     {
         require 'app/Views/front/createAccount.php';
     }
-    public function createAccount($lastname,$firstname, $mail, $password)
+    public function createAccount($lastname, $firstname, $mail, $password)
     {
-        $exist = \Projet\Models\Users::exist('mail',$mail);
-        if ($exist != true){
-        $user = \Projet\Models\Users::createUser($lastname,$firstname, $mail, $password);
+        $exist = \Projet\Models\Users::exist('mail', $mail);
+        if ($exist != true) {
+            $user = \Projet\Models\Users::createUser($lastname, $firstname, $mail, $password);
+        } else {
+            $error = "Cet utilisateur existe déjà";
+            require 'app/Views/front/createAccount.php';
         }
-        else{
-            $error = "cet utilisateurs existe déjà";
-        }
-        
+
         require 'app/Views/front/login.php';
-       
     }
 }
