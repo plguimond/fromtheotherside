@@ -1,3 +1,8 @@
+<?php
+require_once './app/security/Connect.php';
+$connect = isConnect();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -29,7 +34,12 @@
                     <li><a href="index.php?action=newsPage">Les news</a></li>
                     <li><a href="index.php?action=concertsPage">Prochaines dates</a></li>
                     <li><a href="index.php?action=contactPage">Nous contacter</a></li>
-                    <li><a href="index.php?action=loginPage">Compte utilisateur</a></li>
+                    <?php
+                    if ($connect == true) { ?>
+                        <li><a href="index.php?action=userPage">Compte utilisateur</a></li>
+                    <?php } else{ ?>
+                        <li><a href="index.php?action=loginPage">Connectez-vous</a></li>
+                    <?php } ?>
                 </ul>
             </nav>
             <div id="logo-header">

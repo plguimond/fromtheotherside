@@ -10,10 +10,8 @@ try {
     if (isset($_GET['action'])) {
 
         /* Actions de connexion/création compte utilisateur*/
-        if ($_GET['action'] == 'login') {
-            $mail = $_POST['mail'];
-            $pwd = $_POST['pwd'];
-            $adminController->login($mail, $pwd);
+        if ($_GET['action'] == 'dashboard') {
+            $adminController->dashboard();
         }
         /* Actions correpondantes au slider de l'accueil fullscreen - update, add et delete */ 
         
@@ -55,8 +53,7 @@ try {
             require 'app/views/front/errorLoading.php';
         }
     } else {
-        $frontController = new \Projet\Controllers\AdminController();
-        $frontController->dashboard();
+        $adminController->dashboard();
     }
 } catch (Exception $e) {
     require 'app/views/front/errorLoading.php';

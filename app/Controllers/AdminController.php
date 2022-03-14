@@ -4,31 +4,6 @@ namespace Projet\Controllers;
 
 class AdminController
 {
-    /* function login/create account */
-
-    public function login($mail, $pwd)
-    {
-        $login = new \Projet\Models\AdminModel();
-        $user = $login->getPwd($mail);
-        $userInfo = $user->fetch();
-        // $passwordVerify = password_verify($pwd, $userInfo['password']);
-
-        if ($userInfo != null) {
-            $_SESSION['id'] = $userInfo['id'];
-            $_SESSION['lastname'] = $userInfo['lastname'];
-            $_SESSION['firstname'] = $userInfo['firstname'];
-            $_SESSION['mail'] = $userInfo['mail'];
-            $_SESSION['password'] = $userInfo['password'];
-            $_SESSION['role'] = $userInfo['role'];
-            if ($pwd == $_SESSION['password'] &&  $_SESSION['role'] == 1) {
-                header('location: indexAdmin.php?action=dashboard');
-            } else {
-            }
-        } else {
-            require 'app/Views/front/login.php';
-        }
-    }
-
     public function dashboard()
     {
         $getSlider = new \Projet\Models\AdminModel();

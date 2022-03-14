@@ -1,3 +1,10 @@
+<?php
+require_once './app/security/Connect.php';
+$connect = isConnect();
+
+if ($connect = true && $_SESSION['role'] == 1) {
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -14,6 +21,9 @@
 
 <body>
     <main>
+        <section>
+            <p>Bienvenue sur votre espace d'administration <?= $_SESSION['firstname']?></p>
+        </section>
         <section id="admin-sliders" class="container">
             <h1>Ajouter, modifier ou supprimer une image du carroussel</h1>
             <?php if (isset($slides)) { ?>
@@ -47,3 +57,10 @@
 </body>
 
 </html>
+
+<?php
+} else {
+    header('location: index.php?action=login');
+}
+
+?>

@@ -30,6 +30,8 @@ class FrontController
     {
         require 'app/Views/front/login.php';
     }
+
+     /* function login*/
     public function login($mail, $pass)
     {
 
@@ -42,12 +44,15 @@ class FrontController
             $_SESSION['firstname'] = $user['firstname'];
             $_SESSION['lastname'] = $user['lastname'];
             $_SESSION['password'] = $user['password'];
+            $_SESSION['role'] = $user['role'];
 
             $isPasswordCorrect = password_verify($pass, $user['password']);
 
-            if ($isPasswordCorrect) {
-            $this->home();
-            }else {
+            if ($isPasswordCorrect && $user['role'] == 1) {
+                header('location: indexAdmin.php?action=dashboard');
+            } elseif ($isPasswordCorrect && $user['role'] == 0) {
+                $this->home();
+            } else {
                 $error = "Vérifiez que vous avez saisi le bon mot de passe.";
                 require 'app/Views/front/login.php';
             }

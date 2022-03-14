@@ -18,20 +18,23 @@ try {
         if ($_GET['action'] == 'bandPage') {
             $frontController->bandFront();
         } 
+
         elseif ($_GET['action'] == 'newsPage') {
             $frontController->newsFront();
         } 
+
         elseif ($_GET['action'] == 'concertsPage') {
             $frontController->concertsFront();
         } 
+        
         elseif ($_GET['action'] == 'contactPage') {
             $frontController->contactFront();
         } 
+
         elseif ($_GET['action'] == 'loginPage') {
-            /*récupération des variables du formulaire de connexion*/
-         
             $frontController->loginFront($error = "");
         }
+
         elseif ($_GET['action'] == 'login') {
             /*récupération des variables du formulaire de connexion*/
             $mail = ($_POST['mail']);
