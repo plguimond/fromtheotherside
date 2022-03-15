@@ -30,6 +30,10 @@ class FrontController
     {
         require 'app/Views/front/login.php';
     }
+    public function userPage()
+    {
+        require 'app/Views/front/userPage.php';
+    }
 
      /* function login*/
     public function login($mail, $pass)

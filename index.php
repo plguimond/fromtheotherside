@@ -2,7 +2,9 @@
 
 // important pour la sécurité de vos scripts : les sessions
 // démarre une session
+if(!isset($_SESSION)){
 session_start();
+}
 
 
 // autoload.php généré avec composer
@@ -35,11 +37,21 @@ try {
         elseif ($_GET['action'] == 'loginPage') {
             $frontController->loginFront($error = "");
         }
+        elseif ($_GET['action'] == 'userPage') {
+            // $frontController->UserFront();
+            if ($_SESSION['role'] == 1){
+            header('Location: indexAdmin.php');
+            }else{
+                $frontController->userPage();
+            }
+        }
 
         elseif ($_GET['action'] == 'login') {
             /*récupération des variables du formulaire de connexion*/
+           
             $mail = ($_POST['mail']);
             $pass = ($_POST['pwd']);
+    
 
             if (!empty($mail) &&(!empty($pass))){
                 $frontController->login($mail, $pass);

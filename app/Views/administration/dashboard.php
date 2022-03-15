@@ -60,7 +60,7 @@ if ($connect = true && $_SESSION['role'] == 1) {
 
 <?php
 } else {
-    header('location: index.php?action=login');
+    header('location: index.php?action=loginPage');
 }
 
 ?>

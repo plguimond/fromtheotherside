@@ -1,5 +1,7 @@
 <?php
-session_start();
+if(!isset($_SESSION)){
+    session_start();
+    }
 // autoload.php généré avec composer
 require_once __DIR__ . '/vendor/autoload.php';
 
