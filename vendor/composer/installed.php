@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'd6bf1998aa81c5c8712c2378597d908adaf5f74f',
+        'reference' => '630bb60f9cd7a83c705f33e8f1148de7cb2d2b97',
         'name' => 'kercode/fromtheotherside',
         'dev' => true,
     ),
@@ -25,7 +25,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'd6bf1998aa81c5c8712c2378597d908adaf5f74f',
+            'reference' => '630bb60f9cd7a83c705f33e8f1148de7cb2d2b97',
             'dev_requirement' => false,
         ),
         'phpoption/phpoption' => array(

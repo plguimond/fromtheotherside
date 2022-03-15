@@ -65,11 +65,11 @@ class FrontController
     {
         require 'app/Views/front/createAccount.php';
     }
-    public function createAccount($lastname, $firstname, $mail, $password)
+    public function createAccount($userData)
     {
-        $exist = \Projet\Models\Users::exist('mail', $mail);
+        $exist = \Projet\Models\Users::exist('mail', $userData['mail']);
         if ($exist != true) {
-            $user = \Projet\Models\Users::createUser($lastname, $firstname, $mail, $password);
+            $user = \Projet\Models\Users::createUser($userData);
         } else {
             $error = "Cet utilisateur existe déjà";
             require 'app/Views/front/createAccount.php';

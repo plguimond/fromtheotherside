@@ -7,6 +7,7 @@ session_start();
 
 // autoload.php généré avec composer
 require_once __DIR__ . '/vendor/autoload.php';
+require 'app/Sanitizer/UserSanitizer.php';
 
 
 try {
@@ -52,15 +53,14 @@ try {
             $frontController->newAccount($error = "");
         } 
         elseif ($_GET['action'] == 'createAccount') {
-            /*récupération des variables du formulaire création de compte*/
-            $lastname = htmlspecialchars($_POST['lastname']);
-            $firstname = htmlspecialchars($_POST['firstname']);
-            $mail = htmlspecialchars($_POST['mail']);
-            $pass = htmlspecialchars($_POST['pwd']);
-            $password = password_hash($pass, PASSWORD_DEFAULT);
+            /*récupération des variables du formulaire création de compte et envoie dans le sanitizer des données user*/
+            $sanitizedData = new UserSanitizer($_POST);
+            // fonction sanitizer pour sécuriser contre les injections
+            $userData = $sanitizedData->call();
+           
             /* test si les champs sont tous remplis */
-            if (!empty($lastname) && (!empty($firstname) && (!empty($mail) &&(!empty($password))))){
-                $frontController->createAccount($lastname,$firstname, $mail, $password);
+            if (!empty($userData['lastname']) && (!empty($userData['firstname']) && (!empty($userData['mail']) &&(!empty($userData['password']))))){
+                $frontController->createAccount($userData);
             }else {
                 $error = "Vous devez remplir tous les champs.";
                 $frontController->newAccount($error);

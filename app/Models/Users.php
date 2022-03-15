@@ -4,10 +4,11 @@ namespace Projet\Models;
 
 class Users extends Manager
 {
-    public static function createUser($lastname, $firstname, $mail, $password){
+    public static function createUser($userData){
+        $password = password_hash($userData['password'], PASSWORD_DEFAULT);
         $bdd = self::dbConnect();
         $sqlQuery = $bdd->prepare("INSERT INTO `users`(lastname, firstname, mail, `password`) VALUE (:lastname, :firstname, :mail, :password )");
-        $sqlQuery->execute(array(':lastname' => $lastname, ':firstname' => $firstname, ':mail' => $mail, ':password' => $password));
+        $sqlQuery->execute(array(':lastname' => $userData['lastname'], ':firstname' => $userData['firstname'], ':mail' => $userData['mail'], ':password' => $password));
         
     }
     

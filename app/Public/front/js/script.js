@@ -14,6 +14,14 @@ burgerLink.addEventListener('click', function() {
   ul.classList.toggle('display');
 })
 
+
+// window.addEventListener('click', function(e){
+//       if (!burger.contains(e.target) && (!ul.contains(e.target))){
+//       burger.classList.toggle('display');
+//       ul.classList.toggle('display');
+//     } 
+//   })
+
 /* ========================================*/
       /* Function pour  */
 /* ========================================*/
