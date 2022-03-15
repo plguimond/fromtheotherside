@@ -5,13 +5,6 @@ namespace Projet\Models;
 class AdminModel extends Manager
 {
     /* function du Model pour la partie Slider de la page d'accueuil */
-    public function getSlides()
-    {
-        $bdd = $this->dbConnect();
-        $req = $bdd->prepare('SELECT id, slide, title FROM slider');
-        $req->execute();
-        return $req;
-    }
     public function getPwd($mail)
     {
         $bdd = $this->dbConnect();
@@ -19,12 +12,20 @@ class AdminModel extends Manager
         $req->execute(array($mail));
         return $req;
     }
-
-    public function updateSlider($sliders)
+    
+    public function getSlides()
+    {
+        $bdd = $this->dbConnect();
+        $req = $bdd->prepare('SELECT id, slide, title FROM slider');
+        $req->execute();
+        return $req;
+    }
+    
+    public function updateSlider($sliders, $slidePath)
     {
         $bdd = $this->dbConnect();
         $req = $bdd->prepare('UPDATE slider SET slide = ?, title = ? WHERE id = ?');
-        $req->execute(array($sliders['slidePath'], $sliders['title'], $sliders['id']));
+        $req->execute(array($slidePath, $sliders['title'], $sliders['id']));
     }
     public function addSlide($slidePath, $title)
     {

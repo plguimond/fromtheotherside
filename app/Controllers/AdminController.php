@@ -15,9 +15,9 @@ class AdminController
     public function updateSlider($sliders)
     {
         $slidePath = 'app/Public/front/images/' . $sliders['name'];
-        move_uploaded_file($sliders['tmpName'], $sliders['slidePath']);
+        move_uploaded_file($sliders['tmpName'], $slidePath);
         $sliderUpdate = new \Projet\Models\AdminModel();
-        $updateSlider = $sliderUpdate->updateSlider($sliders);
+        $updateSlider = $sliderUpdate->updateSlider($sliders, $slidePath);
     }
     public function addSlide($title, $tmpName, $name, $size, $error)
     {
