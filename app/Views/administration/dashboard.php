@@ -51,8 +51,9 @@ if ($connect = true && $_SESSION['role'] == 1) {
                     <button type="submit">Ajouter</button>
                 </form>
             </div>
-
         </section>
+
+        <a href="indexAdmin.php?action=disconnect">Déconnexion</a>
     </main>
 </body>
 

@@ -11,11 +11,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
-
--- Listage de la structure de la base pour otherside
-CREATE DATABASE IF NOT EXISTS `otherside` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `otherside`;
-
 -- Listage de la structure de la table otherside. articles
 CREATE TABLE IF NOT EXISTS `articles` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -130,9 +125,10 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
--- Listage des données de la table otherside.users : ~1 rows (environ)
+-- Listage des données de la table otherside.users : ~6 rows (environ)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `lastname`, `firstname`, `mail`, `role`, `password`) VALUES
+	(5, 'Guimond', 'Pierre-Luc', 'plguimond@gmail.com', 1, '$2y$10$6ZKSSqLt04vPND4llMchVeWbWOwfGF0YfJ9JNFaADna3uVUw5yF6W'),
 	(12, 'Legless', 'Mumu', 'mumupudejambes@gmail.com', 0, '$2y$10$hxqV0SGyNHH1.oONUjDZjehlHP5i2WqF.5PTd8cff2tYbSEnJjI0q'),
 	(13, 'test', 'test', 'test@hotmail.com', 0, '$2y$10$6Xr/LMZ/rlo6eOr8frCV2.xltb7MG1di42PATZf1pyEZFUeOyO9w6'),
 	(14, 'Ross', 'Bob', 'bob@gmail.com', 0, '$2y$10$Pd7XW4xEFAesiGXZSZvgn.mC1BKZcgJeTlqI7PK2Pd3ncILySwTbS'),

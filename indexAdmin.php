@@ -15,6 +15,12 @@ try {
         if ($_GET['action'] == 'dashboard') {
             $adminController->dashboard();
         }
+        elseif ($_GET['action'] == 'disconnect') {
+            session_destroy();
+            header('location: index.php');
+        }
+
+
         /* Actions correpondantes au slider de l'accueil fullscreen - update, add et delete */ 
         
         elseif ($_GET['action'] == 'updateSlider') {

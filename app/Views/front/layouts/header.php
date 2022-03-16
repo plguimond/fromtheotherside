@@ -37,6 +37,7 @@ $connect = isConnect();
                     <?php
                     if ($connect == true) { ?>
                         <li><a href="index.php?action=userPage">Compte utilisateur</a></li>
+                        <li><a href="indexAdmin.php?action=disconnect">Se déconnecter</a></li>
                     <?php } else{ ?>
                         <li><a href="index.php?action=loginPage">Connectez-vous</a></li>
                     <?php } ?>
