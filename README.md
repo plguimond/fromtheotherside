@@ -4,7 +4,7 @@ Marche à suivre pour installer le site:
 
 Utilisation de php 7.4 ou supérieur
 
-- Adaper le .env.exemple pour vous connecter à votre base de donnée
+- Adaper le .env.exemple pour vous connecter à votre base de donnée et le renommer .env
 - importer le dump.sql dans votre base de donnée
 - composer install
 
