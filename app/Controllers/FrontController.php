@@ -43,15 +43,17 @@ class FrontController
         if ($exist == true) {
             $user = \Projet\Models\Users::find('mail', $mail);
 
-            $_SESSION['mail'] = $user['mail'];
-            $_SESSION['id'] = $user['id'];
-            $_SESSION['firstname'] = $user['firstname'];
-            $_SESSION['lastname'] = $user['lastname'];
-            $_SESSION['password'] = $user['password'];
-            $_SESSION['role'] = $user['role'];
+            
 
             $isPasswordCorrect = password_verify($pass, $user['password']);
-
+            if ($isPasswordCorrect){
+                $_SESSION['mail'] = $user['mail'];
+                $_SESSION['id'] = $user['id'];
+                $_SESSION['firstname'] = $user['firstname'];
+                $_SESSION['lastname'] = $user['lastname'];
+                $_SESSION['password'] = $user['password'];
+                $_SESSION['role'] = $user['role'];
+            }
             if ($isPasswordCorrect && $user['role'] == 1) {
                 header('location: indexAdmin.php?action=dashboard');
             } elseif ($isPasswordCorrect && $user['role'] == 0) {
