@@ -11,6 +11,17 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
+-- Listage de la structure de la table otherside. users
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `lastname` varchar(50) NOT NULL,
+  `firstname` varchar(50) NOT NULL,
+  `mail` varchar(100) NOT NULL,
+  `role` int(1) NOT NULL DEFAULT '0',
+  `password` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+
 -- Listage de la structure de la table otherside. articles
 CREATE TABLE IF NOT EXISTS `articles` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -114,16 +125,7 @@ INSERT INTO `slider` (`id`, `slide`, `title`) VALUES
 	(8, 'app/Public/front/images/yvette-de-wit-8XLapfNMW04-unsplash.jpg', 'Concert génial');
 /*!40000 ALTER TABLE `slider` ENABLE KEYS */;
 
--- Listage de la structure de la table otherside. users
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `lastname` varchar(50) NOT NULL,
-  `firstname` varchar(50) NOT NULL,
-  `mail` varchar(100) NOT NULL,
-  `role` int(1) NOT NULL DEFAULT '0',
-  `password` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+
 
 -- Listage des données de la table otherside.users : ~6 rows (environ)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;

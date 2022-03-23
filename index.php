@@ -47,10 +47,10 @@ try {
         }
 
         elseif ($_GET['action'] == 'login') {
-            /*récupération des variables du formulaire de connexion*/
+             /*récupération des variables du formulaire de connexion*/
            
-            $mail = ($_POST['mail']);
-            $pass = ($_POST['pwd']);
+            $mail = htmlspecialchars($_POST['mail']);
+            $pass = htmlspecialchars($_POST['pwd']);
     
 
             if (!empty($mail) &&(!empty($pass))){
@@ -78,9 +78,7 @@ try {
                 $frontController->newAccount($error);
             }
         }
-
-
-        
+   
         // if($_GET['action'] == 'contact'){
         //     $frontController->contactFront();
         // }
@@ -101,6 +99,7 @@ try {
         //         throw new Exception('Tous les champs ne sont pas remplis');
         //     }
         // } 
+
     } else {
         $frontController->home();
     }

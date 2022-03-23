@@ -2,37 +2,39 @@
 
 namespace Projet\Controllers;
 
-class FrontController
+class FrontController extends Controller
 {
 
     public function home()
     {
         $members = \Projet\Models\Bandmembers::all();
-        require 'app/Views/front/home.php';
+        return $this->viewFront('home', $members);
+      
     }
     public function bandFront()
     {
-        require 'app/Views/front/band.php';
+        return $this->viewFront('band');
+       
     }
     public function newsFront()
     {
-        require 'app/Views/front/news.php';
+        return $this->viewFront('news');
     }
     public function concertsFront()
     {
-        require 'app/Views/front/concerts.php';
+        return $this->viewFront('concerts');
     }
     public function contactFront()
     {
-        require 'app/Views/front/contact.php';
+        return $this->viewFront('contact');
     }
     public function loginFront($error)
     {
-        require 'app/Views/front/login.php';
+        return $this->viewFront('login', $error);
     }
     public function userPage()
     {
-        require 'app/Views/front/userPage.php';
+        return $this->viewFront('userPage');
     }
 
      /* function login*/
@@ -60,16 +62,16 @@ class FrontController
                 $this->home();
             } else {
                 $error = "Vérifiez que vous avez saisi le bon mot de passe.";
-                require 'app/Views/front/login.php';
+                return $this->viewFront('login', $error);
             }
         } else {
             $error = "Vous n'êtes pas encore enregistré, veuillez créer un compte.";
-            require 'app/Views/front/login.php';
+            return $this->viewFront('login', $error);
         }
     }
     public function newAccount($error)
     {
-        require 'app/Views/front/createAccount.php';
+        return $this->viewFront('createAccount');
     }
     public function createAccount($userData)
     {
@@ -78,9 +80,8 @@ class FrontController
             $user = \Projet\Models\Users::createUser($userData);
         } else {
             $error = "Cet utilisateur existe déjà";
-            require 'app/Views/front/createAccount.php';
+            return $this->viewFront('createAccount', $error);
         }
-
-        require 'app/Views/front/login.php';
+        return $this->viewFront('login');
     }
 }

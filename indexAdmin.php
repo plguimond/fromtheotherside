@@ -20,7 +20,6 @@ try {
             header('location: index.php');
         }
 
-
         /* Actions correpondantes au slider de l'accueil fullscreen - update, add et delete */ 
         
         elseif ($_GET['action'] == 'updateSlider') {
@@ -64,5 +63,5 @@ try {
         $adminController->dashboard();
     }
 } catch (Exception $e) {
-    require 'app/views/front/errorLoading.php';
+    return $this->viewAdmin('errorLoading',$e);
 }

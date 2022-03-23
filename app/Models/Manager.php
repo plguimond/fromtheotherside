@@ -44,7 +44,7 @@ abstract class Manager
         $klass =  get_called_class();
         // traitement de la chaîne de caractère pour enlever le namespace et passer le nom de class seul dans la variable child
         $child = explode("\\",$klass);
-        $child = $child[array_key_last($child)];
+        $child = strtolower($child[array_key_last($child)]);
 
         $sqlQuery = "SELECT * FROM `{$child}`";
     
@@ -60,7 +60,7 @@ abstract class Manager
     {
         $klass =  get_called_class();
         $child = explode("\\",$klass);
-        $child = $child[array_key_last($child)];
+        $child = strtolower($child[array_key_last($child)]);
 
         $bdd = self::dbConnect();
         $sqlQuery = $bdd->prepare("SELECT `{$name}` FROM `{$child}` WHERE `{$name}` = ?");
@@ -75,7 +75,8 @@ abstract class Manager
     public static function find($name, $value){
         $klass =  get_called_class();
         $child = explode("\\",$klass);
-        $child = $child[array_key_last($child)];
+        $child = strtolower($child[array_key_last($child)]);
+
 
         $bdd = self::dbConnect();
         $sqlQuery = $bdd->prepare("SELECT * FROM `{$child}` WHERE `{$name}` = ?");

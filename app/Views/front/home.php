@@ -26,7 +26,7 @@ include('app/Views/front/layouts/header.php');
         <h2>Les membres du groupe</h2>
 
         <div id="band-pictures">
-            <?php foreach ($members as $member) { ?>
+            <?php foreach ($data as $member) { ?>
                 <div class="band-cards">
                     <div class="band-picture">
                         <img class="band-pic" src="<?= $member->picture; ?>" alt="photo du chanteur">

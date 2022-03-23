@@ -116,19 +116,23 @@ header{
   background-color: white;
   
 }
-
+#menu-head{
+ 
+}
 /* mise en page du menu */
 #menu-head ul {
-  background:rgba(0, 0, 0, 0.8);
+  background:rgba(0, 0, 0);
   position:absolute;
-  width:100%;
+  width:50%;
   left:0;
   top:0;
-  padding-top:60px;
+  padding-top:40px;
+  padding-bottom: 15px;
   transform:scaleY(0);
   transform-origin:center top;
   transition:all 0.3s ease;
   z-index: 2;
+  height: 100vh;
 }
 /* Ouverture du menu de haut en bas*/
 #menu-head ul.display {

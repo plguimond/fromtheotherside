@@ -26,8 +26,8 @@ if ($connect = true && $_SESSION['role'] == 1) {
         </section>
         <section id="admin-sliders" class="container">
             <h1>Ajouter, modifier ou supprimer une image du carroussel</h1>
-            <?php if (isset($slides)) { ?>
-                <?php foreach ($slides as $slide) { ?>
+            <?php if (isset($data)) { ?>
+                <?php foreach ($data as $slide) { ?>
                     <div class="update-slider">
                         <img class="admin-slider" src="<?= $slide['slide']; ?>" alt="<?= $slide['title']; ?>">
                         <form class="slider-form" action="indexAdmin.php?action=updateSlider&id=<?= $slide['id']; ?>" method="POST" enctype="multipart/form-data">
