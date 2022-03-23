@@ -62,6 +62,7 @@ abstract class Manager
         $child = explode("\\",$klass);
         $child = strtolower($child[array_key_last($child)]);
 
+    
         $bdd = self::dbConnect();
         $sqlQuery = $bdd->prepare("SELECT `{$name}` FROM `{$child}` WHERE `{$name}` = ?");
         $sqlQuery->execute(array($value));
