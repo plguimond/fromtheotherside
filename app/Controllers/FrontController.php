@@ -2,13 +2,20 @@
 
 namespace Projet\Controllers;
 
+
 class FrontController extends Controller
 {
 
     public function home()
     {
         $members = \Projet\Models\Bandmembers::all();
-        return $this->viewFront('home', $members);
+        $articles  = new \Projet\Models\articles();
+        $lastNews = $articles->lastNews();
+        $data = [
+            'members' => $members,
+            'lastNews' => $lastNews
+        ];
+        return $this->viewFront('home', $data);
       
     }
     public function bandFront()
@@ -30,7 +37,10 @@ class FrontController extends Controller
     }
     public function loginFront($error)
     {
-        return $this->viewFront('login', $error);
+        $data = [
+            'error' => $error
+        ];
+        return $this->viewFront('login', $data);
     }
     public function userPage()
     {
@@ -62,16 +72,26 @@ class FrontController extends Controller
                 $this->home();
             } else {
                 $error = "Vérifiez que vous avez saisi le bon mot de passe.";
-                return $this->viewFront('login', $error);
+                $data = [
+                    'error' => $error
+                ];
+                return $this->viewFront('login', $data);
             }
         } else {
             $error = "Vous n'êtes pas encore enregistré, veuillez créer un compte.";
+            $data = [
+                'error' => $error
+            ];
             return $this->viewFront('login', $error);
         }
     }
     public function newAccount($error)
     {
-        return $this->viewFront('createAccount');
+        $data = [
+            'error' => $error
+        ];
+    
+        return $this->viewFront('createAccount', $data);
     }
     public function createAccount($userData)
     {
@@ -80,7 +100,10 @@ class FrontController extends Controller
             $user = \Projet\Models\Users::createUser($userData);
         } else {
             $error = "Cet utilisateur existe déjà";
-            return $this->viewFront('createAccount', $error);
+            $data = [
+                'error' => $error
+            ];
+            return $this->viewFront('createAccount', $data);
         }
         return $this->viewFront('login');
     }

@@ -11,7 +11,7 @@ try {
 
     if (isset($_GET['action'])) {
 
-        /* Actions de connexion/création compte utilisateur*/
+      
         if ($_GET['action'] == 'dashboard') {
             $adminController->dashboard();
         }

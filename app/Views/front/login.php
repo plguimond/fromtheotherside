@@ -2,15 +2,17 @@
 include('app/Views/front/layouts/header.php');
 ?>
 <main id="login-page">
-    <section class="container" id="login-content">
+    <section class="container login-content">
         <div class="login-title">
             <h1>Connexion au compte utilisateur</h1>
             <p>Saisissez votre e-mail et mot de passe pour vous connecter ou créer un nouveau compte</p>
 
             <?php 
-            if (isset($error)){
-            if($error != ""){?>
-                <p class = "login-error"><?= $error ?></p>
+            
+            if (isset($data['error'])){
+                
+            if($data['error'] != ""){ ?>
+                <p class = "login-error"><?= $data['error'] ?></p>
             <?php }} ?>
         </div>
         <div class="login-box">

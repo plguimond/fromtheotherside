@@ -20,6 +20,7 @@ if ($connect = true && $_SESSION['role'] == 1) {
 </head>
 
 <body>
+    
     <main>
         <section>
             <p>Bienvenue sur votre espace d'administration <?= $_SESSION['firstname']?></p>

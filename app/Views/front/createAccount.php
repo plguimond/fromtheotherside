@@ -2,14 +2,14 @@
 include('app/Views/front/layouts/header.php');
 ?>
 <main id="newAccount-page">
-    <section class="container" id="login-content">
+    <section class="container login-content">
         <div class="login-title">
             <h1>Création d'un nouveau compte utilisateur</h1>
             <p>Veuillez remplir toutes les informations pour créer un nouveau compte</p>
             <?php 
-            if (isset($error)){
-            if($error != ""){?>
-                <p class = "login-error"><?= $error ?></p>
+            if (isset($data['error'])){
+            if($data['error'] != ""){?>
+                <p class = "login-error"><?= $data['error'] ?></p>
             <?php }} ?>
         </div>
         <div class="login-box">
