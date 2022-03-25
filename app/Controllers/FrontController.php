@@ -85,6 +85,7 @@ class FrontController extends Controller
             return $this->viewFront('login', $error);
         }
     }
+
     public function newAccount($error)
     {
         $data = [
@@ -93,6 +94,7 @@ class FrontController extends Controller
     
         return $this->viewFront('createAccount', $data);
     }
+
     public function createAccount($userData)
     {
         $exist = \Projet\Models\Users::exist('mail', $userData['mail']);
@@ -106,5 +108,14 @@ class FrontController extends Controller
             return $this->viewFront('createAccount', $data);
         }
         return $this->viewFront('login');
+    }
+
+    public function singleNews($id)
+    {
+        $lastNews = \Projet\Models\Articles::find('id', $id);
+        $data = [
+            'singleNews' => $lastNews
+        ];
+        return $this->viewFront('singleNews', $data);
     }
 }

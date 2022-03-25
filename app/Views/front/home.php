@@ -16,16 +16,29 @@ include('app/Views/front/layouts/header.php');
             felis. Vivamus volutpat, nulla et ultricies faucibus, eros elit posuere ipsum,
             nec tempus velit augue ut quam. Nullam est libero porta ante.</p>
 
-    </Section>
+        </Section>
+        <div class=separator-picture>
+            <img src="app/Public/front/images/micro-logo.png" alt="logo de guitar avevc note de musique">
+        </div>
     <section id="next-show" class="container">
-
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel dolorem consequuntur, quibusdam nihil sunt expedita est ipsam ut ex magni vero modi amet quisquam illum numquam odit quos? Voluptatibus, repellendus?</p>
     </section>
+    <div class=separator-picture>
+        <img src="app/Public/front/images/horn-hand.png" alt="logo de guitar avevc note de musique">
+    </div>
     <section id="last-news" class="container">
         <h2><?= $data['lastNews']['title']; ?></h2>
         <img src="<?= $data['lastNews']['picture1'] ?>" alt="<?= $data['lastNews']['title']; ?>">
-        <p><?= $data['lastNews']['content'] ?></p>
-
+        <div id="last-news-text">
+            <p><?= $data['lastNews']['content'] ?></p>
+        </div>
+        <a href="index.php?action=singleNews&id=<?=$data['lastNews']['id'];?>">Par ici pour la suite! </a>
+        
     </section>
+    <div class=separator-picture>
+        <img src="app/Public/front/images/logo-groupe.png" alt="logo de guitar avevc note de musique">
+    </div>
+    
     <section id="band-members" class="container">
 
         <h2>Les membres du groupe</h2>

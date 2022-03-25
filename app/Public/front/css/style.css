@@ -193,6 +193,15 @@ header{
       /* page home */
 /* ========================================*/
 
+/* image de séparation des sections */
+
+.separator-picture{
+  width: 35%;
+  margin: 50px auto;
+}
+.separator-picture img{
+  width: 100%;
+}
 /* Banner pour mobile */
 .mobile-banner{
   margin-bottom: 30px;
@@ -217,6 +226,21 @@ header{
   display: block;
   width: 90%;
   margin: 0 auto;
+}
+#last-news-text{
+  width: 90%;
+  margin: 10px auto;
+}
+
+#last-news-text p{
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-height: 18px; /* fallback */
+  max-height: 90px; /* fallback */
+  -webkit-line-clamp: 5; /* number of lines to show */
+  -webkit-box-orient: vertical;
 }
 
 /* Section photo membres du groupe */
@@ -258,8 +282,8 @@ header{
 	height: 150px;
 	border-radius: 50%;
 	text-decoration: none;
- 
 }
+
 .band-picture:hover .band-pic{
   border: 75px solid rgb(0, 0, 0);
   transition: 0.2s ease;
@@ -278,6 +302,26 @@ header{
   padding-top: 20px;
   border-radius: 8px;
 }
+
+/* ========================================*/
+      /* footer */
+/* ========================================*/
+footer{
+  background-color: red;
+}
+
+.footer-banner img{
+  width: 100%;
+  
+}
+/* .footer-banner .logo{
+  position: absolute;
+  width: 100%;
+  bottom: 15px;
+  text-align: center;
+  z-index: 2;
+  
+} */
 
 /* ========================================*/
       /* page Login/create account */
@@ -390,22 +434,20 @@ outline: none;
   background-color: rgb(11, 163, 223);
   cursor:pointer;
 }
+
 /* ========================================*/
-      /* footer */
+      /* page singeNews */
 /* ========================================*/
-footer{
-  background-color: red;
+
+#singleNews-text{
+  width: 90%;
+  margin: 10px auto;
 }
 
-.footer-banner img{
-  width: 100%;
-  
+.news-picture{
+  width: 90%;
+  margin: 0 auto;
 }
-/* .footer-banner .logo{
-  position: absolute;
+.news-picture img{
   width: 100%;
-  bottom: 15px;
-  text-align: center;
-  z-index: 2;
-  
-} */
+}

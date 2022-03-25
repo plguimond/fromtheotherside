@@ -78,6 +78,10 @@ try {
                 $frontController->newAccount($error);
             }
         }
+        elseif ($_GET['action'] == 'singleNews'){
+            $id = htmlspecialchars($_GET['id']);
+            $frontController->singleNews($id);
+        }
    
         // if($_GET['action'] == 'contact'){
         //     $frontController->contactFront();
@@ -106,3 +110,4 @@ try {
 } catch (Exception $e) {
     require 'app/Views/front/errorLoading.php';
 }
+

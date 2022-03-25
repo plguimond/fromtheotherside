@@ -56,13 +56,13 @@ abstract class Manager
         }
         return $objects;
     }
+
     public static function exist($name, $value)
     {
         $klass =  get_called_class();
         $child = explode("\\",$klass);
         $child = strtolower($child[array_key_last($child)]);
 
-    
         $bdd = self::dbConnect();
         $sqlQuery = $bdd->prepare("SELECT `{$name}` FROM `{$child}` WHERE `{$name}` = ?");
         $sqlQuery->execute(array($value));
@@ -73,11 +73,11 @@ abstract class Manager
             return false;
         }
     }
+
     public static function find($name, $value){
         $klass =  get_called_class();
         $child = explode("\\",$klass);
         $child = strtolower($child[array_key_last($child)]);
-
 
         $bdd = self::dbConnect();
         $sqlQuery = $bdd->prepare("SELECT * FROM `{$child}` WHERE `{$name}` = ?");
