@@ -15,6 +15,9 @@ try {
         if ($_GET['action'] == 'dashboard') {
             $adminController->dashboard();
         }
+        elseif ($_GET['action'] == 'sliderPage') {
+            $adminController->sliderPage();
+        }
         elseif ($_GET['action'] == 'disconnect') {
             session_destroy();
             header('location: index.php');

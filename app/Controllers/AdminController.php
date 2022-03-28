@@ -6,12 +6,15 @@ class AdminController extends Controller
 {
     public function dashboard()
     {
+        return $this->viewAdmin('dashboard'); 
+    }
+
+    public function sliderPage(){
         $getSlider = new \Projet\Models\slider();
         $getSlides = $getSlider->getSlides();
         $slides = $getSlides->fetchAll();
-        return $this->viewAdmin('dashboard',$slides);
+        return $this->viewAdmin('slider',$slides);
     }
-
     public function updateSlider($sliders)
     {
         $slidePath = 'app/Public/front/images/' . $sliders['name'];
