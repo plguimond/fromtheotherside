@@ -10,6 +10,7 @@ session_start();
 // autoload.php généré avec composer
 require_once __DIR__ . '/vendor/autoload.php';
 require 'app/Sanitizer/UserSanitizer.php';
+require 'app/Sanitizer/ContactSanitizer.php';
 
 
 try {
@@ -31,7 +32,7 @@ try {
         } 
         
         elseif ($_GET['action'] == 'contactPage') {
-            $frontController->contactFront();
+            $frontController->contactFront($error = "");
         } 
 
         elseif ($_GET['action'] == 'loginPage') {
@@ -45,7 +46,6 @@ try {
                 $frontController->userPage();
             }
         }
-
         elseif ($_GET['action'] == 'login') {
              /*récupération des variables du formulaire de connexion*/
            
@@ -82,6 +82,23 @@ try {
             $id = htmlspecialchars($_GET['id']);
             $frontController->singleNews($id);
         }
+        elseif($_GET['action'] == 'contactForm'){
+            
+            /*récupération des variables du formulaire de contact et envoie dans le sanitizer de contact*/
+            $sanitizedData = new ContactSanitizer($_POST);
+            // fonction sanitizer pour sécuriser contre les injections
+            $contactData = $sanitizedData->call();
+            /* test si les champs obligatoires sont tous remplis */
+            if (!empty($contactData['lastname']) && (!empty($contactData['firstname']) && (!empty($contactData['mail']) &&(!empty($contactData['content']))&&(!empty($_POST['rgpd']))))){
+                $frontController->contactForm($contactData);
+            }elseif(empty($_POST['rgpd'])){
+                $error = "Vous devez lire et accepter les conditions générales.";
+                $frontController->contactFront($error);
+            }else {
+                $error = "Vous devez remplir tous les champs obligatoires.";  
+                $frontController->contactFront($error);
+            }
+        } 
    
         // if($_GET['action'] == 'contact'){
         //     $frontController->contactFront();
@@ -89,20 +106,7 @@ try {
         // elseif($_GET['action'] == 'about'){
         //     $frontController->aboutFront();
         // }
-        // elseif($_GET['action'] == 'contactPost'){
-        //     $lastname = htmlspecialchars($_POST['name']);
-        //     $firstname = htmlspecialchars($_POST['firstname']);
-        //     $mail = htmlspecialchars($_POST['mail']);
-        //     $phone = htmlspecialchars($_POST['phone']);
-        //     $objet = htmlspecialchars($_POST['object']);
-        //     $content = htmlspecialchars($_POST['content']);
-
-        //     if (!empty($lastname) && (!empty($firstname) && (!empty($mail) && (!empty($phone) && (!empty($mail) && (!empty($objet) && (!empty($content)))))))){
-        //         $frontController->contactPost($lastname, $firstname, $mail, $phone, $objet, $content);
-        //     }else {
-        //         throw new Exception('Tous les champs ne sont pas remplis');
-        //     }
-        // } 
+       
 
     } else {
         $frontController->home();

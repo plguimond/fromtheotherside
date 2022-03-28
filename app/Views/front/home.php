@@ -16,13 +16,24 @@ include('app/Views/front/layouts/header.php');
             felis. Vivamus volutpat, nulla et ultricies faucibus, eros elit posuere ipsum,
             nec tempus velit augue ut quam. Nullam est libero porta ante.</p>
 
-        </Section>
-        <div class=separator-picture>
-            <img src="app/Public/front/images/micro-logo.png" alt="logo de guitar avevc note de musique">
-        </div>
+    </Section>
+    <div class=separator-picture>
+        <img src="app/Public/front/images/micro-logo.png" alt="logo de guitar avevc note de musique">
+    </div>
     <section id="next-show" class="container">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel dolorem consequuntur, quibusdam nihil sunt expedita est ipsam ut ex magni vero modi amet quisquam illum numquam odit quos? Voluptatibus, repellendus?</p>
+        <h2>L'envie de nous voir en concert vous ronge de l'intérieur? Voici notre prochaine date!</h2>
+        <div id="next-show-text">
+            <h3><?= $data['nextShow']['title']; ?></h3>
+            <p>Adresse: <?= $data['nextShow']['location']; ?></p>
+            <p>Rendez-vous le : <?= $data['nextShow']['date']; ?></p>
+            <p>Prix à partir de: <?= $data['nextShow']['price']; ?>€</p>
+
+            <p>Impossible pour vous d'être parmis nous à cette date? Pas de panique, consultez nos autres dates!</p>
+        </div>
+        <a href="index.php?action=concertsPage">Nos prochain concerts</a>
+
     </section>
+
     <div class=separator-picture>
         <img src="app/Public/front/images/horn-hand.png" alt="logo de guitar avevc note de musique">
     </div>
@@ -33,12 +44,12 @@ include('app/Views/front/layouts/header.php');
             <p><?= $data['lastNews']['content'] ?></p>
         </div>
         <a href="index.php?action=singleNews&id=<?=$data['lastNews']['id'];?>">Par ici pour la suite! </a>
-        
+
     </section>
     <div class=separator-picture>
         <img src="app/Public/front/images/logo-groupe.png" alt="logo de guitar avevc note de musique">
     </div>
-    
+
     <section id="band-members" class="container">
 
         <h2>Les membres du groupe</h2>

@@ -45,7 +45,9 @@ h1{
 h2{
   font-size: 1.1rem;
 }
-
+h3{
+  font-size: 1rem;
+}
 .container{ 
 max-width: 1200px;
 margin-left: auto;
@@ -215,6 +217,19 @@ header{
 
 #intro-home{
   padding: 20px;
+}
+/* Section Next Show */ 
+#next-show h2{
+  width: 100%;
+  text-align: center;
+}
+
+#next-show-text{
+  width: 90%;
+  margin: 10px auto;
+}
+#next-show a{
+  margin-left: 5%;
 }
 /* Section Last News */ 
 #last-news h2{

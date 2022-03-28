@@ -10,10 +10,14 @@ class FrontController extends Controller
     {
         $members = \Projet\Models\Bandmembers::all();
         $articles  = new \Projet\Models\articles();
+        $concerts  = new \Projet\Models\Calendar();
+
+        $nextShow = $concerts->nextShow();
         $lastNews = $articles->lastNews();
         $data = [
             'members' => $members,
-            'lastNews' => $lastNews
+            'lastNews' => $lastNews,
+            'nextShow' => $nextShow
         ];
         return $this->viewFront('home', $data);
       
@@ -31,9 +35,12 @@ class FrontController extends Controller
     {
         return $this->viewFront('concerts');
     }
-    public function contactFront()
+    public function contactFront($error)
     {
-        return $this->viewFront('contact');
+        $data = [
+            'error' => $error
+        ];
+        return $this->viewFront('contact', $data);
     }
     public function loginFront($error)
     {
@@ -98,6 +105,13 @@ class FrontController extends Controller
     public function createAccount($userData)
     {
         $exist = \Projet\Models\Users::exist('mail', $userData['mail']);
+
+        if(!filter_var($userData['mail'], FILTER_VALIDATE_EMAIL)){
+            $data = [
+                'error' => "L'adresse email n'est pas valide!"
+            ];
+            return $this->viewFront('createAccount', $data);
+        }
         if ($exist != true) {
             $user = \Projet\Models\Users::createUser($userData);
         } else {
@@ -117,5 +131,21 @@ class FrontController extends Controller
             'singleNews' => $lastNews
         ];
         return $this->viewFront('singleNews', $data);
+    }
+
+    public function contactForm($contactData){
+        
+        if(!filter_var($contactData['mail'], FILTER_VALIDATE_EMAIL)){
+            $data = [
+                'error' => "L'adresse email n'est pas valide!"
+            ];
+            return $this->viewFront('contact', $data);
+        }else{
+            $contactMessage = \Projet\Models\Contacts::contactmessage($contactData);
+            $data = [
+                'message' => "Votre message à bien été envoyé."
+            ];
+            return $this->viewFront('contact', $data);
+        }
     }
 }
