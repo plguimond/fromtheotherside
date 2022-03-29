@@ -85,9 +85,23 @@ try {
             }
         }
         elseif ($_GET['action'] == 'singleNews'){
-            $id = htmlspecialchars($_GET['id']);
-            $frontController->singleNews($id);
+            $data = [
+                'article_id' => htmlspecialchars($_GET['id']),
+                'error' => ""
+            ];
+            $frontController->singleNews($data);
         }
+        elseif ($_GET['action'] == 'postComment'){
+            $article_id = htmlspecialchars($_GET['id']);
+            $comment = htmlspecialchars($_POST['comment']);
+            $data = [
+                'article_id' => $article_id,
+                'user_id' => $_SESSION['id'],
+                'comment' => $comment
+            ];
+            $frontController->postComment($data);
+        }
+
         elseif($_GET['action'] == 'contactForm'){
             
             /*récupération des variables du formulaire de contact et envoie dans le sanitizer de contact*/

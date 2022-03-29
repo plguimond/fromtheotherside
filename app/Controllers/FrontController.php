@@ -6,6 +6,7 @@ namespace Projet\Controllers;
 class FrontController extends Controller
 {
 
+// Gestion de la page d'accueil
     public function home()
     {
         $members = \Projet\Models\Bandmembers::all();
@@ -22,14 +23,16 @@ class FrontController extends Controller
         return $this->viewFront('home', $data);
       
     }
+// Lien vers la page du groupe
+
     public function bandFront()
     {
         return $this->viewFront('band');
-       
     }
+
+// Gestion de la page des news
     public function newsFront($currentPage)
     {
-        // $news = \Projet\Models\Articles::all();
         $articles = new \Projet\Models\articles();
         // Nb d'articles
         $newsCount = \Projet\Models\Articles::count();
@@ -40,19 +43,22 @@ class FrontController extends Controller
         // premier article de la page
         $firstNews = ($currentPage * $perPage) - $perPage;
         $news = $articles->newslist($firstNews, $perPage);
-       
+
         $data = [
             'articles' => $news,
             'newsCount' => $newsCount['number_of'],
             'currentPage' => $currentPage
         ];
-
         return $this->viewFront('news', $data);
     }
+
+// Gestion de la page des concerts
     public function concertsFront()
     {
         return $this->viewFront('concerts');
     }
+
+// Gestion de la page du formuaire de contact
     public function contactFront($error)
     {
         $data = [
@@ -60,6 +66,25 @@ class FrontController extends Controller
         ];
         return $this->viewFront('contact', $data);
     }
+
+// Function pour enregistrer en bdd le message du formulaire de contact envoyé par un visiteur
+    public function contactForm($contactData){
+        
+        if(!filter_var($contactData['mail'], FILTER_VALIDATE_EMAIL)){
+            $data = [
+                'error' => "L'adresse email n'est pas valide!"
+            ];
+            return $this->viewFront('contact', $data);
+        }else{
+            $contactMessage = \Projet\Models\Contacts::contactmessage($contactData);
+            $data = [
+                'message' => "Votre message à bien été envoyé."
+            ];
+            return $this->viewFront('contact', $data);
+        }
+    }
+
+// Gestion de la page Login
     public function loginFront($error)
     {
         $data = [
@@ -67,12 +92,14 @@ class FrontController extends Controller
         ];
         return $this->viewFront('login', $data);
     }
+
+//Gestion de la page perso de l'utilisateur
     public function userPage()
     {
         return $this->viewFront('userPage');
     }
 
-     /* function login*/
+/* function login pour établir la connexion au compte utilisateur*/
     public function login($mail, $pass)
     {
 
@@ -111,6 +138,7 @@ class FrontController extends Controller
         }
     }
 
+// Gestion de la page de creation de compte
     public function newAccount($error)
     {
         $data = [
@@ -120,6 +148,7 @@ class FrontController extends Controller
         return $this->viewFront('createAccount', $data);
     }
 
+// function de création en bdd du nouveau compte
     public function createAccount($userData)
     {
         $exist = \Projet\Models\Users::exist('mail', $userData['mail']);
@@ -142,28 +171,35 @@ class FrontController extends Controller
         return $this->viewFront('login');
     }
 
-    public function singleNews($id)
+// Gestion de la page d'affichage d'un article complet
+    public function singleNews($data)
     {
-        $lastNews = \Projet\Models\Articles::find('id', $id);
-        $data = [
-            'singleNews' => $lastNews
+        $lastNews = \Projet\Models\Articles::find('id', $data['article_id']);
+        // A MODIFIER POUR AFFICHER COMMENTAIRE DE LA NEWS 
+        $comments = \Projet\Models\Comments::all();
+        $newsData = [
+            'singleNews' => $lastNews,
+            'error' => $data['error'],
+            'comments' => $comments
         ];
-        return $this->viewFront('singleNews', $data);
+        return $this->viewFront('singleNews', $newsData);
     }
 
-    public function contactForm($contactData){
-        
-        if(!filter_var($contactData['mail'], FILTER_VALIDATE_EMAIL)){
-            $data = [
-                'error' => "L'adresse email n'est pas valide!"
-            ];
-            return $this->viewFront('contact', $data);
+ // Function pour enregistrer en bdd le commentaire d'un utilisateur   
+    public function postComment($data){
+        if (!empty($data['comment'])){
+            $postComment = \Projet\Models\Comments::postComment($data);
+            header('location: index.php?action=singleNews&id='. $data['article_id']);  
         }else{
-            $contactMessage = \Projet\Models\Contacts::contactmessage($contactData);
-            $data = [
-                'message' => "Votre message à bien été envoyé."
+            $error = "Vous n'avez pas écrit votre commentaire";
+            $errorData = [
+                'article_id' => $data['article_id'],
+                'error' => $error
             ];
-            return $this->viewFront('contact', $data);
+            $this->singleNews($errorData);
         }
+
     }
+
+
 }
