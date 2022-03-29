@@ -1,6 +1,9 @@
 <?php
 
+
 namespace Projet\Models;
+
+
 
 class Articles extends Manager
 {
@@ -10,6 +13,7 @@ class Articles extends Manager
     public $picture1;
     public $picture2;
     public $picture3;
+    public $created_At;
     
     public function __construct($data = [])
     {
@@ -19,14 +23,28 @@ class Articles extends Manager
         $this->picture1 = $data["picture1"] ?? '';
         $this->picture2 = $data["picture2"] ?? '';
         $this->picture3 = $data["picture3"] ?? '';
+        $this->created_At = $data["created_At"] ?? '';
     }
 
 
     public function lastNews()
     {
         $bdd = self::dbConnect();
-        $req = $bdd->query('SELECT id, title, content, picture1 FROM articles order by created_At DESC limit 1');
+        $req = $bdd->query('SELECT id, title, content, picture1 FROM articles ORDER BY created_At DESC LIMIT 1');
         $result = $req->fetch();
+        return $result;
+    }
+
+    public function newsList($firstNews, $perPage){
+        
+        $bdd = self::dbConnect();
+        $req = $bdd->prepare('SELECT id, title, content, picture1, picture2, picture3, created_At FROM articles ORDER BY created_At DESC LIMIT :firstNews, :perPage');
+        // Permet de préciser que les paramètres de la requête préparée sont des INT
+        $req->bindValue(':firstNews', $firstNews, $bdd::PARAM_INT);
+        $req->bindValue(':perPage', $perPage, $bdd::PARAM_INT);
+        $req->execute();
+        $result = $req->fetchAll();
+        
         return $result;
     }
 }

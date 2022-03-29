@@ -85,4 +85,16 @@ abstract class Manager
         $result = $sqlQuery->fetch();
         return $result;
     }
+
+    public static function count(){
+        $klass =  get_called_class();
+        $child = explode("\\",$klass);
+        $child = strtolower($child[array_key_last($child)]);
+
+        $bdd = self::dbConnect();
+        $sqlQuery = $bdd->prepare("SELECT COUNT(id) AS number_of FROM `{$child}`");
+        $sqlQuery->execute();
+        $result = $sqlQuery->fetch();
+        return $result;
+    }
 }

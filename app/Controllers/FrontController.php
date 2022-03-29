@@ -27,9 +27,27 @@ class FrontController extends Controller
         return $this->viewFront('band');
        
     }
-    public function newsFront()
+    public function newsFront($currentPage)
     {
-        return $this->viewFront('news');
+        // $news = \Projet\Models\Articles::all();
+        $articles = new \Projet\Models\articles();
+        // Nb d'articles
+        $newsCount = \Projet\Models\Articles::count();
+        // nb d'articles par page
+        $perPage = 10;
+        // nb de pages total
+        $pages = ceil($newsCount['number_of'] / $perPage);
+        // premier article de la page
+        $firstNews = ($currentPage * $perPage) - $perPage;
+        $news = $articles->newslist($firstNews, $perPage);
+       
+        $data = [
+            'articles' => $news,
+            'newsCount' => $newsCount['number_of'],
+            'currentPage' => $currentPage
+        ];
+
+        return $this->viewFront('news', $data);
     }
     public function concertsFront()
     {

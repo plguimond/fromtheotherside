@@ -24,7 +24,13 @@ try {
         } 
 
         elseif ($_GET['action'] == 'newsPage') {
-            $frontController->newsFront();
+            if(isset($_GET['page']) && !empty($_GET['page'])){
+                $currentPage = $_GET['page'];
+            }else{
+                $currentPage = 1;
+            }
+
+            $frontController->newsFront($currentPage);
         } 
 
         elseif ($_GET['action'] == 'concertsPage') {
