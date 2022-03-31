@@ -86,6 +86,18 @@ abstract class Manager
         return $result;
     }
 
+    public static function findAll($name, $value){
+        $klass =  get_called_class();
+        $child = explode("\\",$klass);
+        $child = strtolower($child[array_key_last($child)]);
+
+        $bdd = self::dbConnect();
+        $sqlQuery = $bdd->prepare("SELECT * FROM `{$child}` WHERE `{$name}` = ?");
+        $sqlQuery->execute(array($value));
+        $result = $sqlQuery->fetchAll();
+        return $result;
+    }
+
     public static function count(){
         $klass =  get_called_class();
         $child = explode("\\",$klass);

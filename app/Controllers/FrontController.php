@@ -174,11 +174,12 @@ class FrontController extends Controller
 // Gestion de la page d'affichage d'un article complet
     public function singleNews($data)
     {
-        $lastNews = \Projet\Models\Articles::find('id', $data['article_id']);
-        // A MODIFIER POUR AFFICHER COMMENTAIRE DE LA NEWS 
-        $comments = \Projet\Models\Comments::all();
+        $singleNews = \Projet\Models\Articles::find('id', $data['article_id']);
+        
+        $comments = \Projet\Models\Comments::getUserComments($data['article_id']);
+    
         $newsData = [
-            'singleNews' => $lastNews,
+            'singleNews' => $singleNews,
             'error' => $data['error'],
             'comments' => $comments
         ];

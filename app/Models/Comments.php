@@ -16,6 +16,16 @@ class Comments extends Manager
         
     }
 
+    public static function getUserComments($articleId){
+        
+        $bdd = self::dbConnect();
+        $sqlQuery = $bdd->prepare("SELECT content, comments.createdAt, firstname, lastname FROM comments INNER JOIN users ON users.id = comments.idUser WHERE comments.idArticle = :idArticle");
+        $sqlQuery->execute(array(':idArticle' => $articleId));
+        $result = $sqlQuery->fetchAll();
+        
+        return $result;
+    }
+
     public $id;
     public $content;
     public $article_id;

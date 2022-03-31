@@ -34,10 +34,14 @@ include('app/Views/front/layouts/header.php');
     </div>
     </section>
     <section id="singleNews-comment">
-        <!-- A MODIFIER POUR AFFICHER COMMENTAIRE DE LA NEWS -->
-        <?php foreach($data['comments'] as $comment) { ?>
-        <p><?=$comment->content?></p>
+        <h2>Laissez-nous un commentaire!</h2>
 
+        <?php foreach($data['comments'] as $comment) {?>
+            <div class="userComment">
+                <p><?=$comment['firstname'] . " " . $comment['lastname'] ?></p>
+                <p><?=$comment['content']?></p>
+            </div>
+            <p><?=$comment['createdAt']?></p>
         <?php }?>
 
 

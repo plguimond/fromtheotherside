@@ -527,3 +527,25 @@ outline: none;
   background-color: rgb(11, 163, 223);
   cursor:pointer;
 }
+  
+/* section commentaire */
+
+#singleNews-comment{
+  width: 80%;
+  margin: 10px auto;
+  background-color:  #d6d6d6;;
+  padding-left: 10px;
+  border-radius: 8px;
+}
+#singleNews-comment h2{
+  padding-top: 10px;
+}
+.userComment{
+  background-color: #313131;
+  color: white;
+  width: fit-content;
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+
+
