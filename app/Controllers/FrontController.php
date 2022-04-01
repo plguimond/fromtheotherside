@@ -27,7 +27,9 @@ class FrontController extends Controller
 
     public function bandFront()
     {
-        return $this->viewFront('band');
+        $members = \Projet\Models\Bandmembers::all();
+
+        return $this->viewFront('band', $members);
     }
 
 // Gestion de la page des news
@@ -55,7 +57,14 @@ class FrontController extends Controller
 // Gestion de la page des concerts
     public function concertsFront()
     {
-        return $this->viewFront('concerts');
+        $concerts  = new \Projet\Models\Calendar();
+
+        $nextConcerts = $concerts->concerts();
+
+        $dataConcerts = [
+            'concerts' => $nextConcerts,
+        ];
+        return $this->viewFront('concerts', $dataConcerts);
     }
 
 // Gestion de la page du formuaire de contact
@@ -190,7 +199,7 @@ class FrontController extends Controller
     public function postComment($data){
         if (!empty($data['comment'])){
             $postComment = \Projet\Models\Comments::postComment($data);
-            header('location: index.php?action=singleNews&id='. $data['article_id']);  
+            header('Location: index.php?action=singleNews&id='. $data['article_id']);  
         }else{
             $error = "Vous n'avez pas écrit votre commentaire";
             $errorData = [
@@ -200,6 +209,17 @@ class FrontController extends Controller
             $this->singleNews($errorData);
         }
 
+    }
+
+    public function deleteUserComment($data){
+      
+        if ($_SESSION['id'] == $data['idUser']){
+            $delete = \Projet\Models\Users::delete('id', $data['comment_id']);
+            header('Location: index.php?action=singleNews&id='. $data['article_id']);
+        }
+        else{
+            header('Location: index.php');
+        }
     }
 
 

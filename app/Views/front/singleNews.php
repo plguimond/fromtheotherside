@@ -36,13 +36,19 @@ include('app/Views/front/layouts/header.php');
     <section id="singleNews-comment">
         <h2>Laissez-nous un commentaire!</h2>
 
-        <?php foreach($data['comments'] as $comment) {?>
+        <?php  foreach($data['comments'] as $comment){?>
             <div class="userComment">
                 <p><?=$comment['firstname'] . " " . $comment['lastname'] ?></p>
                 <p><?=$comment['content']?></p>
             </div>
-            <p><?=$comment['createdAt']?></p>
-        <?php }?>
+            <div class="foot-comment">
+                <p><?=$comment['createdAt']?></p>
+                <?php if ($_SESSION['id'] === $comment['idUser']){?>
+                    <a href="index.php?action=deleteUserComment&commentId=<?=$comment['id']?>&idUser=<?=$comment['idUser']?>&articleId=<?=$data['singleNews']['id']?>" >Supprimer</a>
+                <?php } ?>
+
+            </div>
+            <?php }?>
 
 
 

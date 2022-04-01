@@ -34,6 +34,7 @@ try {
         } 
 
         elseif ($_GET['action'] == 'concertsPage') {
+            
             $frontController->concertsFront();
         } 
         
@@ -100,6 +101,21 @@ try {
                 'comment' => $comment
             ];
             $frontController->postComment($data);
+        }
+
+        elseif ($_GET['action'] == 'deleteUserComment'){
+            
+            $comment_id = htmlspecialchars($_GET['commentId']);
+            
+            $user_id = htmlspecialchars($_GET['idUser']);
+            
+            $article_id = htmlspecialchars($_GET['articleId']);
+            $data = [
+                'comment_id' => $comment_id,
+                'idUser' => $user_id,
+                'article_id' => $article_id,
+            ];
+            $frontController->deleteUserComment($data);
         }
 
         elseif($_GET['action'] == 'contactForm'){

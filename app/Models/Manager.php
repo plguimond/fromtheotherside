@@ -46,9 +46,12 @@ abstract class Manager
         $child = explode("\\",$klass);
         $child = strtolower($child[array_key_last($child)]);
 
-        $sqlQuery = "SELECT * FROM `{$child}`";
+        $bdd = self::dbConnect();
+        $sqlQuery = $bdd->prepare("SELECT * FROM `{$child}`");
+        $sqlQuery->execute();
+        $result = $sqlQuery->fetchAll();
     
-        foreach (self::dbConnect()->query($sqlQuery) as $data) {
+        foreach ($result as $data) {
             array_push(
                 $objects,
                 new $klass($data)
@@ -108,5 +111,15 @@ abstract class Manager
         $sqlQuery->execute();
         $result = $sqlQuery->fetch();
         return $result;
+    }
+
+    public static function delete($name, $value){
+        $klass =  get_called_class();
+        $child = explode("\\",$klass);
+        $child = strtolower($child[array_key_last($child)]);
+
+        $bdd = self::dbConnect();
+        $req = $bdd->prepare("DELETE FROM comments WHERE `{$name}` = ?");
+        $req->execute(array($value)); 
     }
 }

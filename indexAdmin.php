@@ -4,8 +4,10 @@ if(!isset($_SESSION)){
     }
 // autoload.php généré avec composer
 require_once __DIR__ . '/vendor/autoload.php';
+require_once './app/security/Connect.php';
+$connect = isConnect();
 
-
+if ($connect = true && $_SESSION['role'] == 1) {
 try {
     $adminController = new \Projet\Controllers\AdminController(); // objet controler
 
@@ -67,4 +69,7 @@ try {
     }
 } catch (Exception $e) {
     return $this->viewAdmin('errorLoading',$e);
+}
+} else {
+    header('location: index.php?action=loginPage');
 }
