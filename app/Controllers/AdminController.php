@@ -103,4 +103,9 @@ class AdminController extends Controller
         return $this->viewAdmin('messages',$data);
     }
 
+    public function deleteMail($id){
+        $deleteMail = \Projet\Models\Contacts::delete('id', $id);
+        
+    }
+
 }

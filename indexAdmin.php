@@ -65,11 +65,18 @@ try {
                 $adminController->sliderPage($error);
             }
         } elseif ($_GET['action'] == 'deleteSlide') {
-            $id = $_GET['id'];
+            $id = htmlspecialchars($_GET['id']);
             $adminController->deleteSlide($id);
             $adminController->sliderPage($error = null);
+
+        } elseif ($_GET['action'] == 'deleteMail') {
+            $id = htmlspecialchars($_GET['id']);
+            $adminController->deleteMail($id);
+            $adminController->emailPage();
+
         } elseif ($_GET['action'] == 'dashboard') {
-            $adminController->sliderPage($error = null);
+            $adminController->dashboard();
+
         } elseif ($_GET['action'] == 'errorLoading') {
             require 'app/views/front/errorLoading.php';
         }

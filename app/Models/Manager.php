@@ -120,7 +120,7 @@ abstract class Manager
         $child = strtolower($child[array_key_last($child)]);
 
         $bdd = self::dbConnect();
-        $req = $bdd->prepare("DELETE FROM comments WHERE `{$name}` = ?");
+        $req = $bdd->prepare("DELETE FROM `{$child}` WHERE `{$name}` = ?");
         $req->execute(array($value)); 
     }
 }

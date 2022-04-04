@@ -54,13 +54,13 @@
                         <td >
                             <div class="action-icon"> 
                                 <div>
-                                    <a href="indexAdmin.php?action=viewMail&id=1?>"> <!-- mettre variable id ici -->
+                                    <a href="indexAdmin.php?action=viewMail&id=<?=$email->id;?>"> <!-- mettre variable id ici -->
                                         <i class="fa-solid fa-eye"></i>
                                     </a>
                                 </div>
 
                                 <div class="fullscreen">
-                                    <a href="indexAdmin.php?action=deleteMail&id=1"> <!-- mettre variable id ici -->
+                                    <a href="indexAdmin.php?action=deleteMail&id=<?=$email->id;?>"> <!-- mettre variable id ici -->
                                         <i class="fa-solid fa-trash-can"></i>
                                     </a>
                                 </div>
