@@ -32,13 +32,18 @@ class AdminController extends Controller
     }
     public function updateSlider($sliders)
     {
-        
-        if($this->extVerify($sliders['name']) === true)
+        $slidePath = 'app/Public/front/images/slider/' . $sliders['name'];
+        $exist = \Projet\Models\Slider::exist('slide', $slidePath);
+       
+        if($exist === false && $this->extVerify($sliders['name']) === true)
         {
-            $slidePath = 'app/Public/front/images/' . $sliders['name'];
+            
             move_uploaded_file($sliders['tmpName'], $slidePath);
             $sliderUpdate = new \Projet\Models\slider();
             $updateSlider = $sliderUpdate->updateSlider($sliders, $slidePath);
+        }elseif($exist === true){
+            $error = "Cette image est déjà dans le carroussel";
+            $this->sliderPage($error);
         }
         else
         {
@@ -49,19 +54,26 @@ class AdminController extends Controller
     }
     public function addSlide($sliders)
     {
-        if($this->extVerify($sliders['name']) === true)
+        $slidePath = 'app/Public/front/images/slider/' . $sliders['name'];
+        $exist = \Projet\Models\Slider::exist('slide', $slidePath);
+       
+        if ($exist === false && $this->extVerify($sliders['name']) === true) {
+        
+            
+            move_uploaded_file($sliders['tmpName'], $slidePath);
+            $addSlide = new \Projet\Models\slider();
+            $newSlider = $addSlide->addSlide($slidePath, $sliders['title']);
+        }elseif ($exist === true)
         {
-        $slidePath = 'app/Public/front/images/' . $sliders['name'];
-        move_uploaded_file($sliders['tmpName'], $slidePath);
-        $addSlide = new \Projet\Models\slider();
-        $newSlider = $addSlide->addSlide($slidePath, $sliders['title']);
-    }
-    else
-    {
-        $error = $this->extVerify($sliders['name']);
-        $this->sliderPage($error);
-    }
-    }
+            $error = "Cette image est déjà dans le carroussel";
+            $this->sliderPage($error);
+
+        }else
+        {
+            $error = $this->extVerify($sliders['name']);
+            $this->sliderPage($error);
+        }
+        }
     public function deleteSlide($id)
     {
         

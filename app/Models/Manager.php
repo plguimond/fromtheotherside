@@ -70,6 +70,7 @@ abstract class Manager
         $sqlQuery = $bdd->prepare("SELECT `{$name}` FROM `{$child}` WHERE `{$name}` = ?");
         $sqlQuery->execute(array($value));
         $result = $sqlQuery->fetch();
+        
         if ($result){
             return true;
         }else{
