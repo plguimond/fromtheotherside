@@ -5,19 +5,17 @@ $connect = isConnect();
 if ($connect = true && $_SESSION['role'] == 1) {
 ?>
 <?php include('app/Views/administration/layouts/header.php'); ?>
-    <?php include('app/Views/administration/layouts/sidebar.php'); ?>
-    <main class="admin-content">
-        
-      
-        
-    </main>
-</body>
+<?php include('app/Views/administration/layouts/sidebar.php'); ?>
+<main class="admin-content">
 
-</html>
 
+
+</main>
 <?php
-} else {
+include('app/Views/administration/layouts/footer.php');
+?>
+<?php
+}else {
     header('location: index.php?action=loginPage');
 }
-
 ?>
