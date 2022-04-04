@@ -41,18 +41,20 @@ try {
                 $adminController->updateSlider($sliders);
                 $adminController->sliderPage($error=null);
             } else {
+                
                 $error = "Veuillez sélectionner une image.";
-                $adminController->sliderPage($error=null);
+                $adminController->sliderPage($error);
             }
         } elseif ($_GET['action'] == 'addSlide') {
             if (isset($_FILES['file']) && $_FILES['file']['name'] != "") {
-        
-                $title = htmlspecialchars($_POST['title']);
-                $tmpName = $_FILES['file']['tmp_name'];
-                $name = htmlspecialchars($_FILES['file']['name']);
-                $size = $_FILES['file']['size'];
-                $error = $_FILES['file']['error'];
-                $adminController->addSlide($title, $tmpName, $name, $size, $error);
+                $sliders = [
+
+                  'title' =>  htmlspecialchars($_POST['title']),
+                    'tmpName' => $_FILES['file']['tmp_name'],
+                    'name' => htmlspecialchars($_FILES['file']['name']),
+                    'size' => $_FILES['file']['size'],
+                ];
+                $adminController->addSlide($sliders);
                 $adminController->sliderPage($error = null);
             } else {
                 $error = "Veuillez sélectionner une image.";

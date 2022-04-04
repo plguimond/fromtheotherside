@@ -47,12 +47,20 @@ class AdminController extends Controller
         }
 
     }
-    public function addSlide($title, $tmpName, $name, $size, $error)
+    public function addSlide($sliders)
     {
-        $slidePath = 'app/Public/front/images/' . $name;
-        move_uploaded_file($tmpName, $slidePath);
+        if($this->extVerify($sliders['name']) === true)
+        {
+        $slidePath = 'app/Public/front/images/' . $sliders['name'];
+        move_uploaded_file($sliders['tmpName'], $slidePath);
         $addSlide = new \Projet\Models\slider();
-        $newSlider = $addSlide->addSlide($slidePath, $title);
+        $newSlider = $addSlide->addSlide($slidePath, $sliders['title']);
+    }
+    else
+    {
+        $error = $this->extVerify($sliders['name']);
+        $this->sliderPage($error);
+    }
     }
     public function deleteSlide($id)
     {
