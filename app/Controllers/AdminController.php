@@ -4,22 +4,28 @@ namespace Projet\Controllers;
 
 class AdminController extends Controller
 {
-    public function dashboard()
+    public function extVerify($name)
     {
-        return $this->viewAdmin('dashboard'); 
-    }
-    public function extVerify($name){
-
         $allowed = array('png', 'jpg', 'jpeg');
         $filename = $name;
         $ext = pathinfo($filename, PATHINFO_EXTENSION);
-        
+    
         if (!in_array(strtolower($ext), $allowed)) {
             return $error = "Ce type de fichier n'est pas accepté";
         }else{
             return true;
         }
     }
+
+     
+    public function dashboard()
+    {
+        return $this->viewAdmin('dashboard'); 
+    }
+
+    // +++++++++++++++++++++++++++++++++++++++++++++ //
+    //      Function pour la page admin slider
+    // +++++++++++++++++++++++++++++++++++++++++++++ //
     public function sliderPage($error){
         $getSlider = new \Projet\Models\slider();
         $getSlides = $getSlider->getSlides();
@@ -84,4 +90,17 @@ class AdminController extends Controller
         $slideDelete = new \Projet\Models\slider();
         $deleteSlide = $slideDelete->deleteSlide($id);
     }
+
+    // +++++++++++++++++++++++++++++++++++++++++++++ //
+    //          Function pour la page admin email
+    // +++++++++++++++++++++++++++++++++++++++++++++ //
+
+    public function emailPage(){
+        $emails = \Projet\Models\Contacts::all();
+        $data = [
+            'emails' => $emails
+        ];
+        return $this->viewAdmin('messages',$data);
+    }
+
 }

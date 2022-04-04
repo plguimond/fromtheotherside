@@ -20,6 +20,10 @@ try {
         elseif ($_GET['action'] == 'sliderPage') {
             $adminController->sliderPage($error = null);
         }
+        elseif ($_GET['action'] == 'emailPage') {
+
+            $adminController->emailPage();
+        }
         elseif ($_GET['action'] == 'disconnect') {
             session_destroy();
             header('location: index.php');

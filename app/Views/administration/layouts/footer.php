@@ -1,6 +1,6 @@
-<!-- <footer class="admin-footer">
+<footer class="admin-footer">
 <p>Footer</p>
-</footer> -->
+</footer>
 
 </body>
 

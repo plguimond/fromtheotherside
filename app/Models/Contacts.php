@@ -12,8 +12,6 @@ class Contacts extends Manager
         
     }
     
-    
-    // public $WHITELIST_COLUMN = ['id', 'lastname','firstname','mail','password'];
     public $id;
     public $lastname;
     public $firstname;
@@ -21,15 +19,18 @@ class Contacts extends Manager
     public $phone;
     public $subject;
     public $content;
+    public $createdAt;
     
     public function __construct($data = [])
     {
-        $this->firstname = $data['firstname'];
-        $this->lastname = $data['lastname'];
-        $this->mail = $data['mail'];
-        $this->phone = $data['phone'];
-        $this->subject = $data['subject'];
-        $this->content = $data['content'];
+        $this->id = $data["id"] ?? "";
+        $this->firstname = $data['firstname'] ?? "";
+        $this->lastname = $data['lastname'] ?? "";
+        $this->mail = $data['mail'] ?? "";
+        $this->phone = $data['phone'] ?? "";
+        $this->subject = $data['subject'] ?? "";
+        $this->content = $data['content'] ?? "";
+        $this->createdAt = $data['createdAt'] ?? "";
     }
 
     

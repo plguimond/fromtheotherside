@@ -1,8 +1,8 @@
 <?php include('app/Views/administration/layouts/header.php'); ?>
-<?php include('app/Views/administration/layouts/sidebar.php'); ?>
-<main class="admin-content">
+<main class="admin-content" >
+    <?php include('app/Views/administration/layouts/sidebar.php'); ?>
 
-    <section id="admin-sliders" class="container">
+    <section id="admin-sliders" >
         <h1>Ajouter, modifier ou supprimer une image du carroussel</h1>
 
         <?php  
@@ -10,7 +10,7 @@
          if($data['error'] != ""){ ?>
             <p class = "login-error"><?= $data['error'] ?></p>
    <?php }} ?>
-   
+
         <?php if (isset($data)) { ?>
         <?php foreach ($data['slides'] as $slide) { ?>
         <div class="update-slider">
@@ -45,7 +45,3 @@
 
 
 </main>
-
-<?php
-    include('app/Views/administration/layouts/footer.php');
-?>
