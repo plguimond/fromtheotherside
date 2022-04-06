@@ -94,7 +94,7 @@ class AdminController extends Controller
     // +++++++++++++++++++++++++++++++++++++++++++++ //
     //          Function pour la page admin email
     // +++++++++++++++++++++++++++++++++++++++++++++ //
-
+    
     public function emailPage(){
         $emails = \Projet\Models\Contacts::all();
         $data = [
@@ -114,5 +114,45 @@ class AdminController extends Controller
         ];
         return $this->viewAdmin('singleMail',$data);
     }
+    
+    // +++++++++++++++++++++++++++++++++++++++++++++ //
+    //          Function pour la page admin concert
+    // +++++++++++++++++++++++++++++++++++++++++++++ //
 
+    public function concertsPage(){
+
+        $concerts = \Projet\Models\Calendar::all();
+        $data = [
+            'concerts' => $concerts
+        ];
+
+        return $this->viewAdmin('concerts',$data);
+    }
+
+    // +++++++++++++++++++++++++++++++++++++++++++++ //
+    //          Function pour la page admin news
+    // +++++++++++++++++++++++++++++++++++++++++++++ //
+
+    public function newsPage(){
+
+        $concerts = \Projet\Models\Articles::all();
+        $data = [
+            'news' => $concerts
+        ];
+
+        return $this->viewAdmin('news',$data);
+    }
+    // +++++++++++++++++++++++++++++++++++++++++++++ //
+    //          Function pour la page admin band
+    // +++++++++++++++++++++++++++++++++++++++++++++ //
+
+    public function bandPage(){
+
+        $concerts = \Projet\Models\Bandmembers::all();
+        $data = [
+            'band' => $concerts
+        ];
+
+        return $this->viewAdmin('band',$data);
+    }
 }

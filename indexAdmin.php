@@ -23,6 +23,20 @@ try {
 
             $adminController->emailPage();
         }
+        elseif ($_GET['action'] == 'concertsPage') {
+
+            $adminController->concertsPage();
+        }
+        elseif ($_GET['action'] == 'newsPage') {
+
+            $adminController->newsPage();
+        }
+        
+        elseif ($_GET['action'] == 'bandPage') {
+
+            $adminController->bandPage();
+        }
+
         elseif ($_GET['action'] == 'disconnect') {
             session_destroy();
             header('location: index.php');
