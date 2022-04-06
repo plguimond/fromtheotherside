@@ -13,7 +13,6 @@ try {
 
     if (isset($_GET['action'])) {
 
-      
         if ($_GET['action'] == 'dashboard') {
             $adminController->dashboard();
         }
@@ -69,10 +68,18 @@ try {
             $adminController->deleteSlide($id);
             $adminController->sliderPage($error = null);
 
+// Action pour les functions de la messagerie admin
+
         } elseif ($_GET['action'] == 'deleteMail') {
             $id = htmlspecialchars($_GET['id']);
             $adminController->deleteMail($id);
             $adminController->emailPage();
+
+        } elseif ($_GET['action'] == 'viewMail') {
+            $id = htmlspecialchars($_GET['id']);
+            $adminController->viewMail($id);
+                  
+// action connexion au dashboard
 
         } elseif ($_GET['action'] == 'dashboard') {
             $adminController->dashboard();

@@ -1,5 +1,5 @@
-<footer class="admin-footer">
-<p>Footer</p>
+<footer class="">
+
 </footer>
 
 </body>

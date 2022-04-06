@@ -14,6 +14,13 @@ include('app/Views/front/layouts/header.php');
         <img src="<?= $data['singleNews']['picture1']?>" alt="<?= $data['singleNews']['title']?>">
     </div>
     <?php 
+        }else{
+            $picture = "";
+    ?>
+    <div class="news-picture">
+        <img src="app/Public/front/images/default.jpg" alt="Photo d'une guitare">
+    </div>
+    <?php        
         }
         if($data['singleNews']['picture2']){
         ?>
@@ -43,12 +50,13 @@ include('app/Views/front/layouts/header.php');
             </div>
             <div class="foot-comment">
                 <p><?=$comment['createdAt']?></p>
-                <?php if ($_SESSION['id'] === $comment['idUser']){?>
+                <?php if ($_SESSION){
+                if ($_SESSION['id'] === $comment['idUser']){?>
                     <a href="index.php?action=deleteUserComment&commentId=<?=$comment['id']?>&idUser=<?=$comment['idUser']?>&articleId=<?=$data['singleNews']['id']?>" >Supprimer</a>
                 <?php } ?>
 
             </div>
-            <?php }?>
+            <?php }}?>
 
 
 

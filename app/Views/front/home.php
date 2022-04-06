@@ -38,8 +38,15 @@ include('app/Views/front/layouts/header.php');
         <img src="app/Public/front/images/horn-hand.png" alt="logo de guitar avevc note de musique">
     </div>
     <section id="last-news" class="container">
+        
         <h2><?= $data['lastNews']['title']; ?></h2>
-        <img src="<?= $data['lastNews']['picture1'] ?>" alt="<?= $data['lastNews']['title']; ?>">
+        <?php if ($data['lastNews']['picture1']){ ?>
+            <img src="<?= $data['lastNews']['picture1'] ?>" alt="<?= $data['lastNews']['title']; ?>">
+        <?php 
+        }else{ ?>
+            <img src="app/Public/front/images/default.jpg" alt="Photo générique d'une guitare">
+        <?php } ?>
+        
         <div id="last-news-text">
             <p><?= $data['lastNews']['content'] ?></p>
         </div>

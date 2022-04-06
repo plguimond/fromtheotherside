@@ -55,13 +55,13 @@
                             <div class="action-icon"> 
                                 <div>
                                     <a href="indexAdmin.php?action=viewMail&id=<?=$email->id;?>"> <!-- mettre variable id ici -->
-                                        <i class="fa-solid fa-eye"></i>
+                                        <i class="fa-solid fa-eye show"></i>
                                     </a>
                                 </div>
 
                                 <div class="fullscreen">
                                     <a href="indexAdmin.php?action=deleteMail&id=<?=$email->id;?>"> <!-- mettre variable id ici -->
-                                        <i class="fa-solid fa-trash-can"></i>
+                                        <i class="fa-solid fa-trash-can trashcan"></i>
                                     </a>
                                 </div>
                             </div>
@@ -76,8 +76,9 @@
     <div>
         <p>Vous n'avez aucun mail enregistré</p>
     </div>
-    <?php } ?>
-
+    <?php } ?>  
+    </section>
 
 </main>
+<?php include('app/Views/administration/layouts/footer.php'); ?>
 

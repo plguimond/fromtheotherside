@@ -45,3 +45,4 @@
 
 
 </main>
+<?php include('app/Views/administration/layouts/footer.php'); ?>

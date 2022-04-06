@@ -105,7 +105,14 @@ class AdminController extends Controller
 
     public function deleteMail($id){
         $deleteMail = \Projet\Models\Contacts::delete('id', $id);
-        
+    }
+
+    public function viewMail($id){
+        $email = \Projet\Models\Contacts::find('id', $id);
+        $data = [
+            'email' => $email
+        ];
+        return $this->viewAdmin('singleMail',$data);
     }
 
 }
