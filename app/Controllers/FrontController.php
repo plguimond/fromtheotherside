@@ -214,7 +214,8 @@ class FrontController extends Controller
     public function deleteUserComment($data){
       
         if ($_SESSION['id'] == $data['idUser']){
-            $delete = \Projet\Models\Users::delete('id', $data['comment_id']);
+            
+            $delete = \Projet\Models\Comments::delete('id', $data['comment_id']);
             header('Location: index.php?action=singleNews&id='. $data['article_id']);
         }
         else{

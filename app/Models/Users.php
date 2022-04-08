@@ -13,7 +13,7 @@ class Users extends Manager
     }
     
     
-    // public $WHITELIST_COLUMN = ['id', 'lastname','firstname','mail','password'];
+    
     public $id;
     public $lastname;
     public $firstname;

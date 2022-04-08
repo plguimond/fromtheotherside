@@ -25,7 +25,7 @@ try {
         }
         elseif ($_GET['action'] == 'concertsPage') {
 
-            $adminController->concertsPage();
+            $adminController->concertsPage($error = null);
         }
         elseif ($_GET['action'] == 'newsPage') {
 
@@ -46,7 +46,7 @@ try {
         
         elseif ($_GET['action'] == 'updateSlider') {
 
-            if (isset($_FILES['file']) && $_FILES['file']['name'] != "") {
+            
                 $sliders = [
                     'id' => htmlspecialchars($_GET['id']),
                     'title' => htmlspecialchars($_POST['title']),
@@ -57,11 +57,7 @@ try {
 
                 $adminController->updateSlider($sliders);
                 $adminController->sliderPage($error=null);
-            } else {
-                
-                $error = "Veuillez sélectionner une image.";
-                $adminController->sliderPage($error);
-            }
+           
         } elseif ($_GET['action'] == 'addSlide') {
             if (isset($_FILES['file']) && $_FILES['file']['name'] != "") {
                 $sliders = [
@@ -92,7 +88,23 @@ try {
         } elseif ($_GET['action'] == 'viewMail') {
             $id = htmlspecialchars($_GET['id']);
             $adminController->viewMail($id);
-                  
+
+// Actions pour la page concerts Admin
+        } elseif ($_GET['action'] == 'addConcert') {
+    
+            $adminController->addConcert($_POST);
+
+        } elseif ($_GET['action'] == 'updateConcert') {
+    
+            $adminController->updateConcert($_POST, $_GET['id']);
+
+        } elseif ($_GET['action'] == 'deleteConcert') {
+
+           
+            $adminController->deleteConcert($_GET['id']);
+
+              
+
 // action connexion au dashboard
 
         } elseif ($_GET['action'] == 'dashboard') {
@@ -105,7 +117,7 @@ try {
         $adminController->dashboard();
     }
 } catch (Exception $e) {
-    return $this->viewAdmin('errorLoading',$e);
+    echo($e);
 }
 } else {
     header('location: index.php?action=loginPage');

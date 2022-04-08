@@ -115,6 +115,7 @@ try {
                 'idUser' => $user_id,
                 'article_id' => $article_id,
             ];
+            
             $frontController->deleteUserComment($data);
         }
 

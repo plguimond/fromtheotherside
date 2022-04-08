@@ -4,12 +4,13 @@ namespace Projet\Controllers;
 
 class AdminController extends Controller
 {
+    
     public function extVerify($name)
     {
         $allowed = array('png', 'jpg', 'jpeg');
         $filename = $name;
         $ext = pathinfo($filename, PATHINFO_EXTENSION);
-    
+        
         if (!in_array(strtolower($ext), $allowed)) {
             return $error = "Ce type de fichier n'est pas accepté";
         }else{
@@ -38,12 +39,23 @@ class AdminController extends Controller
     }
     public function updateSlider($sliders)
     {
-        $slidePath = 'app/Public/front/images/slider/' . $sliders['name'];
-        $exist = \Projet\Models\Slider::exist('slide', $slidePath);
+        
+        if ($sliders['name'] == '') {
+
+            $slide = new \Projet\Models\Slider();
+            $slide = $slide->getSlidepath($sliders['id']);
+            $slidePath = $slide['slide'];
+            $exist = false;
+        }else{
+            var_dump($sliders['name']);die;
+            $slidePath = 'app/Public/front/images/slider/' . $sliders['name'];
+            $exist = \Projet\Models\Slider::exist('slide', $slidePath);
+        }
+
+        
        
-        if($exist === false && $this->extVerify($sliders['name']) === true)
+        if($exist === false && $this->extVerify($slidePath) === true)
         {
-            
             move_uploaded_file($sliders['tmpName'], $slidePath);
             $sliderUpdate = new \Projet\Models\slider();
             $updateSlider = $sliderUpdate->updateSlider($sliders, $slidePath);
@@ -53,7 +65,7 @@ class AdminController extends Controller
         }
         else
         {
-            $error = $this->extVerify($sliders['name']);
+            $error = $this->extVerify($slidePath);
             $this->sliderPage($error);
         }
 
@@ -119,15 +131,55 @@ class AdminController extends Controller
     //          Function pour la page admin concert
     // +++++++++++++++++++++++++++++++++++++++++++++ //
 
-    public function concertsPage(){
+    public function concertsPage($error){
 
-        $concerts = \Projet\Models\Calendar::all();
+        $concerts  = new \Projet\Models\Calendar();
+        $nextConcerts = $concerts->concerts();
+
         $data = [
-            'concerts' => $concerts
+            'concerts' => $nextConcerts,
+            'error' => $error
         ];
 
         return $this->viewAdmin('concerts',$data);
     }
+
+    public function addConcert($postData){
+
+        $data = [
+            'title' => htmlspecialchars($postData['title']),
+            'date' => htmlspecialchars($postData['date']),
+            'location' => htmlspecialchars($postData['location']),
+            'price' => htmlspecialchars($postData['price']),
+
+        ];
+
+        if(!empty($data['title']) && !empty($data['date']) && !empty($data['location'])){
+            $addConcert = \Projet\Models\Calendar::addConcert($data);
+            unset($_POST);
+            $this->concertsPage($error = null); 
+
+        }else{
+            $error = "Les champs marqués d'une étoile sont obligatoire.";
+            $this->concertsPage($error);
+        }
+    }
+    public function updateConcert($postData, $id){
+        $data = [
+            'title' => htmlspecialchars($postData['title']),
+            'date' => htmlspecialchars($postData['date']),
+            'location' => htmlspecialchars($postData['location']),
+            'price' => htmlspecialchars($postData['price']),
+            'id' => htmlspecialchars($id),
+            
+        ];
+    }   
+    public function deleteConcert($id){
+        $deleteConcert = \Projet\Models\Calendar::delete('id', $id);
+        $this->concertsPage($error = null); 
+    }
+
+
 
     // +++++++++++++++++++++++++++++++++++++++++++++ //
     //          Function pour la page admin news
@@ -135,9 +187,9 @@ class AdminController extends Controller
 
     public function newsPage(){
 
-        $concerts = \Projet\Models\Articles::all();
+        $news = \Projet\Models\Articles::all();
         $data = [
-            'news' => $concerts
+            'news' => $news
         ];
 
         return $this->viewAdmin('news',$data);
@@ -155,4 +207,8 @@ class AdminController extends Controller
 
         return $this->viewAdmin('band',$data);
     }
+
+
+
+  
 }
