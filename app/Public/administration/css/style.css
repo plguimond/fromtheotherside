@@ -308,7 +308,7 @@ border-radius: 8px;
 }
 
 .email-table tbody tr:nth-of-type(even) {
-  background-color: var(--darkgrey);
+  background-color: rgb(202, 202, 202);
 }
 .email-table tbody tr:nth-of-type(even):hover {
   background-color: var(--lightblue);
@@ -477,4 +477,73 @@ border-radius: 8px;
     width: 90%;
     margin: 0 auto;
   }
+}
+
+/* ++++++++++++++++++++++ */
+    /*ADMIN band members */
+  /* ++++++++++++++++++++++ */
+ 
+.card{
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
+  overflow: hidden;
+  box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.1);
+  border-radius: 1em;
+  background: #d6d6d6;
+  margin-bottom: 20px;
+}
+.card-header{
+  width: 100%;
+}
+.card-header img{
+ width: 100%;
+}
+.card-body{
+  margin: 1rem 0;
+}
+.card-body h2{
+  margin-left: 1rem;
+}
+.card-body p{
+  margin: 0 1rem;
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-height: 18px; /* fallback */
+  max-height: 90px; /* fallback */
+  -webkit-line-clamp: 5; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+.card-footer{
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+.card-footer a{
+  display: block;
+  width: 125px;
+  height: 30px;
+  text-align: center;
+  padding: 6px;
+  align-content: center;
+  border-radius: 5px;
+  background-color: rgb(6, 113, 155);
+  color: white;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.card-footer a:hover{
+  background-color: rgb(11, 163, 223);
+  cursor:pointer;
+}
+
+.member-name{
+  width: 100%;
+}
+.member-name input{
+  width: 40%;
 }

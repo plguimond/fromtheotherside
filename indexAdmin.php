@@ -34,7 +34,7 @@ try {
         
         elseif ($_GET['action'] == 'bandPage') {
 
-            $adminController->bandPage();
+            $adminController->bandPage($error = null);
         }
 
         elseif ($_GET['action'] == 'disconnect') {
@@ -89,21 +89,29 @@ try {
             $id = htmlspecialchars($_GET['id']);
             $adminController->viewMail($id);
 
+
 // Actions pour la page concerts Admin
         } elseif ($_GET['action'] == 'addConcert') {
-    
             $adminController->addConcert($_POST);
 
         } elseif ($_GET['action'] == 'updateConcert') {
-    
             $adminController->updateConcert($_POST, $_GET['id']);
-
+            
         } elseif ($_GET['action'] == 'deleteConcert') {
-
-           
             $adminController->deleteConcert($_GET['id']);
 
-              
+    
+  /* Actions correpondantes au membre du groupe - update, add et delete */ 
+        
+        }elseif ($_GET['action'] == 'updateMember') {
+            $adminController->updateMember($_GET['id'],$_FILES,$_POST);
+        
+        } elseif ($_GET['action'] == 'addMember') {
+            $adminController->addMember($_FILES,$_POST);
+        
+        } elseif ($_GET['action'] == 'deleteMember') {
+            $adminController->deleteMember($_GET['id']);
+            
 
 // action connexion au dashboard
 
@@ -113,12 +121,17 @@ try {
         } elseif ($_GET['action'] == 'errorLoading') {
             require 'app/views/front/errorLoading.php';
         }
+ 
+// Absence d'action redirection vers dashboard        
     } else {
         $adminController->dashboard();
     }
+
 } catch (Exception $e) {
     echo($e);
 }
+
+// Absence de droit d'administration redirection vers la page login
 } else {
     header('location: index.php?action=loginPage');
 }
