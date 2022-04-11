@@ -1,9 +1,9 @@
 <div class="sidebar-admin">
 
     
-    <nav id="">
+    <nav id="sidebar-menu">
                    
-                    <ul id="">
+                    <ul id="sidebar-list">
                         <li><a href="indexAdmin.php">Dashboard</a></li>
                         <li><a href="indexAdmin.php?action=sliderPage">Modifier le slider</a></li>
                         <li><a href="indexAdmin.php?action=newsPage">Ajouter/modifier les news</a></li>

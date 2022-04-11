@@ -14,9 +14,11 @@
 
 <body>
     <header class="admin-head">
-            <p class="fullscreen">Espace Administrateur</p>
+        <div class=" header-name fullscreen">
+            <p>Espace Administrateur</p>
+            </div>
+            
             <div class="head-content">
-                
                 <nav id="menu-head">
                     <input id="burger-link" type="checkbox" />
                     <!-- <a id="burger-link" href="#"> -->

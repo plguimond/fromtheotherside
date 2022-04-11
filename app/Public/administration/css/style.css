@@ -101,11 +101,13 @@ a.admin-button {
 .sidebar-admin{
   display: none;
 }
+
+/* Main admin */
 .admin-content{
- 
   width: 100%;
   background-color: whitesmoke; 
 }
+
 /* Header admin */
 .admin-head{
   width: 100%;
@@ -118,6 +120,7 @@ a.admin-button {
 .admin-head p{
   margin: auto;
 }
+
 
 .head-content{
   margin-right: 10px;
@@ -426,59 +429,6 @@ border-radius: 8px;
   margin-bottom: 10px;
 }
 
-
-/* Resolution ecran pc */
-@media screen and (min-width:778px) {
-  /* Header admin */
-  .admin-head{
-    color: white;
-  }
-
-  .head-content{
-    display: none;
-  }
-  /* Sidebar admin */
-  .sidebar-admin{
-    display: block;
-    
-    min-width: 220px;
-    background-color: var(--darkgrey);
-    color: white;
-    padding: 10px;
-    min-height: 100vh;
-  }
-  .sidebar-admin a{
-    color: white;
-  }
-  .admin-content{
-    display: flex;
-    background-color: whitesmoke;
-    height: 100%;
-  }
-  /* Header admin */
-  .admin-footer{
-    color: white;
-  }
-
-  /* ++++++++++++++++++++++ */
-    /*ADMIN email */
-  /* ++++++++++++++++++++++ */
-  .fullscreen{
-    display: block;
-  }
-  .email-table {
-    width: 90%;
-    margin: 0 auto;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  }
-
-  /* page singleMail */
-  .singleMail{
-    width: 90%;
-    margin: 0 auto;
-  }
-}
-
 /* ++++++++++++++++++++++ */
     /*ADMIN band members */
   /* ++++++++++++++++++++++ */
@@ -508,14 +458,7 @@ border-radius: 8px;
 }
 .card-body p{
   margin: 0 1rem;
-  word-break: break-word;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  line-height: 18px; /* fallback */
-  max-height: 90px; /* fallback */
-  -webkit-line-clamp: 5; /* number of lines to show */
-  -webkit-box-orient: vertical;
+ 
 }
 
 .card-footer{
@@ -546,4 +489,84 @@ border-radius: 8px;
 }
 .member-name input{
   width: 40%;
+}
+
+
+/* ++++++++++++++++++++++++++++++++++++++++ */
+/*        Resolution ecran pc */
+/* ++++++++++++++++++++++++++++++++++++++++ */
+@media screen and (min-width:778px) {
+
+  .fullscreen{
+    display: block;
+  }
+  /* Header admin */
+  .admin-head{
+    color: white;
+  }
+
+  .admin-head .header-name{
+    display: flex;
+    justify-content: space-around;
+    width: 220px;
+  }
+  .header-name p{
+   
+    text-align: center;
+    
+  }
+
+  .head-content{
+    display: none;
+  }
+  /* Sidebar admin */
+  .sidebar-admin{
+    display: block;
+    min-width: 220px;
+    background-color: var(--darkgrey);
+    color: white;
+    padding: 10px;
+    min-height: 100vh;
+  }
+
+  #sidebar-menu{
+    margin-top: 15px;
+  }
+  .sidebar-admin li{
+    margin-bottom: 10px;
+  }
+
+  .sidebar-admin a{
+    color: white;
+    
+  }
+  .sidebar-admin a:hover{
+    color: var(--lightblue);
+    
+  }
+  .admin-content{
+    display: flex;
+    background-color: whitesmoke;
+    height: 100%;
+  }
+  /* Header admin */
+  .admin-footer{
+    color: white;
+  }
+
+  /* ++++++++++++++++++++++ */
+    /*ADMIN email */
+  /* ++++++++++++++++++++++ */
+  
+  .email-table {
+    width: 90%;
+    margin: 0 auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  }
+
+  /* page singleMail */
+  .singleMail{
+    width: 90%;
+    margin: 0 auto;
+  }
 }

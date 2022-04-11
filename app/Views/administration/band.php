@@ -11,7 +11,7 @@
     <?php }} ?>
 
     <section id="add-member">
-    <h2>Section d'ajout d'un nouveau membre</h2>
+    <h2>Ajout d'un nouveau membre</h2>
     
         <form action="indexAdmin.php?action=addMember" method="POST" enctype="multipart/form-data">
             <div class="card">
@@ -45,9 +45,9 @@
             </div>
         </form>
     </section>
-    
+
     <section id="members-update">
-        <h2>Section de modification des membres</h2>
+        <h2>Modification des membres actuels</h2>
         <?php 
         foreach($data['band'] as $member){ 
     ?>
