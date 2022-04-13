@@ -315,20 +315,9 @@ class AdminController extends Controller
 // +++++++++++++++++++++++++++++++++++++++++++++ //
 //          Function pour la page article
 // +++++++++++++++++++++++++++++++++++++++++++++ //
- 
-    public function addNewsPage($error){
-
-        $data = [
-            'error' => $error,
-        ];
-
-        $this->viewAdmin('addNews',$data);
-    }
-
-    public function createNews($files, $post){
-        // var_dump($files, $post);die;
+    public function newsPictures($files){
         $pictures = [];
-        if(!empty($post['title']) && !empty($post['content'])){
+        
             $i = 1;
             foreach($files as $picture){
                 if ($picture['name'] != "") {    
@@ -348,7 +337,21 @@ class AdminController extends Controller
                     ]);
                     $i++;    
             }
-                // var_dump($pictures);
+        return $pictures;
+    }
+    public function addNewsPage($error){
+
+        $data = [
+            'error' => $error,
+        ];
+
+        $this->viewAdmin('addNews',$data);
+    }
+
+    public function createNews($files, $post){
+        $pictures = $this->newsPictures($files);
+        
+        if(!empty($post['title']) && !empty($post['content'])){      
 
             if($pictures[0]['exist'] === false && $pictures[1]['exist'] === false && $pictures[2]['exist'] === false 
             && $pictures[0]['extVerify'] ===  true && $pictures[1]['extVerify'] ===  true && $pictures[2]['extVerify'] ===  true){
@@ -376,17 +379,13 @@ class AdminController extends Controller
             $error = "Le format de l'image n'est pas bon";
             $this->addNewsPage($error);
             }
-                
+               
         }
         else{
             $error = "Tous les champs doivent être remplis";
             $this->addNewsPage($error);
         }
-        var_dump('fin');die;
 
-           
-
-        
     }
 
 }

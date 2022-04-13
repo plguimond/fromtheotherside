@@ -44,7 +44,7 @@ class Bandmembers extends Manager
 
     public function addMember($data, $memberPath)
     {
-        
+
         $bdd = $this->dbConnect();
         $req = $bdd->prepare('INSERT INTO bandmembers (lastname, firstname, type, excerpt, info, picture) VALUES (:lastname, :firstname, :type, :excerpt, :info, :picture)');
         $req->execute(array(':lastname' => $data['lastname'], ':firstname' => $data['firstname'], ':type' => $data['type'],

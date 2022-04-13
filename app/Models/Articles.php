@@ -47,4 +47,10 @@ class Articles extends Manager
         
         return $result;
     }
+
+    public function createNews($post, $picturesPath){
+        $bdd = $this->dbConnect();
+        $req = $bdd->prepare('INSERT INTO articles (title, content, picture1, picture2, picture3) VALUES (:title, :content, :picture1, :picture2, :picture3)');
+        $req->execute(array(':title' => $post['title'], ':content' => $post['content'], ':picture1' => $picturesPath['picture1'], ':picture2' => $picturesPath['picture2'], ':picture3' => $picturesPath['picture3']));
+    }
 }
