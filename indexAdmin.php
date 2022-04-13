@@ -111,6 +111,23 @@ try {
         
         } elseif ($_GET['action'] == 'deleteMember') {
             $adminController->deleteMember($_GET['id']);
+
+  /* Actions correpondantes au articles- update, add et delete */ 
+
+        }elseif ($_GET['action'] == 'singleNews') {
+            // $adminController->updateMember($_GET['id'],$_FILES,$_POST);    
+        
+        }elseif ($_GET['action'] == 'addNewsPage') {
+            $adminController->addNewsPage($error = null);    
+        
+        }elseif ($_GET['action'] == 'updateNews') {
+            // $adminController->updateMember($_GET['id'],$_FILES,$_POST);
+        
+        } elseif ($_GET['action'] == 'createNews') {
+            $adminController->createNews($_FILES, $_POST);
+        
+        } elseif ($_GET['action'] == 'deleteNews') {
+            // $adminController->deleteMember($_GET['id']);
             
 
 // action connexion au dashboard

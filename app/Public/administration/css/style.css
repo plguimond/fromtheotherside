@@ -286,38 +286,38 @@ border-radius: 8px;
   margin-top: 25px;
   width: 100%;
 }
-.email-table {
+.admin-table {
   width: 100%;
   border-collapse: collapse;
 }
-.email-table thead tr {
+.admin-table thead tr {
   background-color: var(--darkblue);
   color: white;
   text-align: left;
   
 }
-.email-table th,
-.email-table td {
+.admin-table th,
+.admin-table td {
     padding: 10px 13px;
     
     
 }
-.email-table tbody tr {
+.admin-table tbody tr {
   border-bottom: thin solid #dddddd;
   
 }
-.email-table tbody tr:hover {
+.admin-table tbody tr:hover {
   background-color: var(--lightblue);
 }
 
-.email-table tbody tr:nth-of-type(even) {
+.admin-table tbody tr:nth-of-type(even) {
   background-color: rgb(202, 202, 202);
 }
-.email-table tbody tr:nth-of-type(even):hover {
+.admin-table tbody tr:nth-of-type(even):hover {
   background-color: var(--lightblue);
 }
 
-.email-table tbody tr:last-of-type {
+.admin-table tbody tr:last-of-type {
   border-bottom: thin solid var(--darkblue);
 }
 
@@ -491,7 +491,52 @@ border-radius: 8px;
   width: 40%;
 }
 
+/* ++++++++++++++++++++++++++++++++++++++++ */
+/*        Section Admin News */
+/* ++++++++++++++++++++++++++++++++++++++++ */
 
+/* page news*/
+.add-news{
+  margin: 10px 15px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.add-news .admin-button{
+  width: fit-content;
+  padding: 5px;
+}
+
+/* page addNews */
+.create-news{
+  margin: 5px;
+}
+.newsForm-description{
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+.news-pictures{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.news-pictures h2{
+  width: 100%;
+}
+.news-picture{
+  width: 30%;
+}
+.news-picture p{
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.news-content textarea{
+  width: 100%;
+  min-height: 200px;
+}
 /* ++++++++++++++++++++++++++++++++++++++++ */
 /*        Resolution ecran pc */
 /* ++++++++++++++++++++++++++++++++++++++++ */

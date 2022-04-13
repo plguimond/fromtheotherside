@@ -8,7 +8,7 @@
                 <!-- TABLE -->
                 <?php if (!empty($data['emails'])){ ?>
                 <div>
-                    <table class="email-table">
+                    <table class="admin-table">
                         <thead>
                             <tr>
                                 <th>Date</th>
@@ -54,13 +54,13 @@
                         <td >
                             <div class="action-icon"> 
                                 <div>
-                                    <a href="indexAdmin.php?action=viewMail&id=<?=$email->id;?>"> <!-- mettre variable id ici -->
+                                    <a href="indexAdmin.php?action=viewMail&id=<?=$email->id;?>"> 
                                         <i class="fa-solid fa-eye show"></i>
                                     </a>
                                 </div>
 
                                 <div class="fullscreen">
-                                    <a href="indexAdmin.php?action=deleteMail&id=<?=$email->id;?>"> <!-- mettre variable id ici -->
+                                    <a href="indexAdmin.php?action=deleteMail&id=<?=$email->id;?>">
                                         <i class="fa-solid fa-trash-can trashcan"></i>
                                     </a>
                                 </div>

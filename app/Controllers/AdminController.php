@@ -1,6 +1,9 @@
 <?php
 
+
 namespace Projet\Controllers;
+
+
 
 class AdminController extends Controller
 {
@@ -10,6 +13,7 @@ class AdminController extends Controller
         $allowed = array('png', 'jpg', 'jpeg');
         $filename = $name;
         $ext = pathinfo($filename, PATHINFO_EXTENSION);
+        
 
         if (!in_array(strtolower($ext), $allowed)) {
             return $error = "Ce type de fichier n'est pas accepté";
@@ -308,7 +312,81 @@ class AdminController extends Controller
         $this->bandPage($error = null); 
     }
 
-
+// +++++++++++++++++++++++++++++++++++++++++++++ //
+//          Function pour la page article
+// +++++++++++++++++++++++++++++++++++++++++++++ //
  
+    public function addNewsPage($error){
+
+        $data = [
+            'error' => $error,
+        ];
+
+        $this->viewAdmin('addNews',$data);
+    }
+
+    public function createNews($files, $post){
+        // var_dump($files, $post);die;
+        $pictures = [];
+        if(!empty($post['title']) && !empty($post['content'])){
+            $i = 1;
+            foreach($files as $picture){
+                if ($picture['name'] != "") {    
+                    $picturePath = 'app/Public/front/images/news/' .  $picture['name'];
+                    $exist = \Projet\Models\Articles::exist('picture'. $i, $picturePath);
+                    $extVerify = $this->extVerify($picturePath);
+                }else{
+                    $picturePath = "";
+                    $exist = false;
+                    $extVerify = true;
+                }
+                    array_push($pictures, [
+                        'exist' => $exist,
+                        'extVerify' => $extVerify,
+                        'path' => $picturePath,
+                        'tmpName' => $picture['tmp_name']
+                    ]);
+                    $i++;    
+            }
+                // var_dump($pictures);
+
+            if($pictures[0]['exist'] === false && $pictures[1]['exist'] === false && $pictures[2]['exist'] === false 
+            && $pictures[0]['extVerify'] ===  true && $pictures[1]['extVerify'] ===  true && $pictures[2]['extVerify'] ===  true){
+                move_uploaded_file($pictures[0]['tmpName'], $pictures[0]['path']);
+                move_uploaded_file($pictures[1]['tmpName'], $pictures[1]['path']);
+                move_uploaded_file($pictures[2]['tmpName'], $pictures[2]['path']);
+
+                $picturesPath = [
+                    'picture1' => $pictures[0]['path'],
+                    'picture2' => $pictures[1]['path'],
+                    'picture3' => $pictures[2]['path'],
+                ];
+                $addNews = new \Projet\Models\Articles();
+                $createNews = $addNews->createNews($post, $picturesPath);
+
+                $this->newsPage($error = null);
+
+            }elseif($pictures[0]['exist'] || $pictures[1]['exist'] || $pictures[2]['exist'] === true){
+                
+                $error = "Une de vos images est déjà publiée, merci d'en sélectionner une autre'";
+                $this->addNewsPage($error);
+            }
+            else{
+           
+            $error = "Le format de l'image n'est pas bon";
+            $this->addNewsPage($error);
+            }
+                
+        }
+        else{
+            $error = "Tous les champs doivent être remplis";
+            $this->addNewsPage($error);
+        }
+        var_dump('fin');die;
+
+           
+
+        
+    }
 
 }
