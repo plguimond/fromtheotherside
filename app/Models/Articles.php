@@ -26,6 +26,14 @@ class Articles extends Manager
         $this->created_At = $data["created_At"] ?? '';
     }
 
+    public function getNewsPicture($picture, $id)
+    {
+        $bdd = $this->dbConnect();
+        $req = $bdd->prepare("SELECT `{$picture}` FROM articles WHERE id = ?");
+        $req->execute(array($id));
+        $result = $req->fetch();
+        return $result;
+    }
 
     public function lastNews()
     {
@@ -52,6 +60,14 @@ class Articles extends Manager
         $bdd = $this->dbConnect();
         $req = $bdd->prepare('INSERT INTO articles (title, content, picture1, picture2, picture3) VALUES (:title, :content, :picture1, :picture2, :picture3)');
         $req->execute(array(':title' => $post['title'], ':content' => $post['content'], ':picture1' => $picturesPath['picture1'], ':picture2' => $picturesPath['picture2'], ':picture3' => $picturesPath['picture3']));
+    }
+
+    public function updateNews($data, $picturesPath){
+        $bdd = $this->dbConnect();
+        $req = $bdd->prepare('UPDATE articles SET title = :title, content = :content, picture1 = :picture1, 
+            picture2 = :picture2, picture3 = :picture3 WHERE id = :id');
+        $req->execute(array(':title' => $data['title'], ':content' => $data['content'], ':picture1' => $picturesPath['picture1'],
+            ':picture2' => $picturesPath['picture2'], ':picture3' => $picturesPath['picture3'] , ':id' => $data['id']));
     }
 
     public function deletePicture($picture, $id){

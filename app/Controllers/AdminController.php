@@ -184,19 +184,7 @@ class AdminController extends Controller
 
 
 
-    // +++++++++++++++++++++++++++++++++++++++++++++ //
-    //          Function pour la page admin news
-    // +++++++++++++++++++++++++++++++++++++++++++++ //
-
-    public function newsPage(){
-
-        $news = \Projet\Models\Articles::all();
-        $data = [
-            'news' => $news
-        ];
-
-        return $this->viewAdmin('news',$data);
-    }
+   
     // +++++++++++++++++++++++++++++++++++++++++++++ //
     //          Function pour la page admin band
     // +++++++++++++++++++++++++++++++++++++++++++++ //
@@ -305,32 +293,78 @@ class AdminController extends Controller
         $this->bandPage($error = null); 
     }
 
-// +++++++++++++++++++++++++++++++++++++++++++++ //
-//          Function pour la page article
-// +++++++++++++++++++++++++++++++++++++++++++++ //
-    public function newsPictures($files){
+    
+ // +++++++++++++++++++++++++++++++++++++++++++++ //
+    //          Function pour la page admin news
+    // +++++++++++++++++++++++++++++++++++++++++++++ //
+
+    public function newsPage(){
+
+        $news = \Projet\Models\Articles::all();
+        $data = [
+            'news' => $news
+        ];
+
+        return $this->viewAdmin('news',$data);
+    }
+
+    public function picturesExist($picturePath){
+        for ($i=1; $i < 4; $i++) { 
+            $exist = \Projet\Models\Articles::exist('picture'. $i, $picturePath);
+            if ($exist == true){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function newsPictures($files, $id){
+
         $pictures = [];
-        
-            $i = 1;
-            foreach($files as $picture){
-                if ($picture['name'] != "") {    
-                    $picturePath = 'app/Public/front/images/news/' .  htmlspecialchars($picture['name']);
-                    $exist = \Projet\Models\Articles::exist('picture'. $i, $picturePath);
+            // Trois image max sont vérifiées
+            for ($i=1; $i < 4 ; $i++) { 
+                if (isset($files['picture'. $i]) && $files['picture'. $i]['name'] != "" ) {    
+                    $picturePath = 'app/Public/front/images/news/' .  htmlspecialchars($files['picture'. $i]['name']);
+                    $exist = $this->picturesExist($picturePath);
                     $extVerify = $this->extVerify($picturePath);
+                    $tmpName = $files['picture'. $i]['tmp_name'];
+                    
+                }elseif (!isset($files['picture'. $i])){
+                        $pic = new \Projet\Models\Articles();
+                        $path = $pic->getNewsPicture('picture'. $i, $id);
+                        $picturePath = $path['picture' . $i];
+                        $exist = false;
+                        $extVerify = true;
+                        $tmpName = "";
                 }else{
                     $picturePath = "";
                     $exist = false;
                     $extVerify = true;
+                    $tmpName = "";
                 }
                     array_push($pictures, [
                         'exist' => $exist,
                         'extVerify' => $extVerify,
                         'path' => $picturePath,
-                        'tmpName' => $picture['tmp_name']
-                    ]);
-                    $i++;    
+                        'tmpName' => $tmpName,
+                    ]);        
             }
+            
         return $pictures;
+    }
+
+    public function moveNewsFile($pictures){
+        move_uploaded_file($pictures[0]['tmpName'], $pictures[0]['path']);
+        move_uploaded_file($pictures[1]['tmpName'], $pictures[1]['path']);
+        move_uploaded_file($pictures[2]['tmpName'], $pictures[2]['path']);
+
+        $picturesPath = [
+            'picture1' => $pictures[0]['path'],
+            'picture2' => $pictures[1]['path'],
+            'picture3' => $pictures[2]['path'],
+        ];
+
+        return $picturesPath;
     }
     public function addNewsPage($error){
 
@@ -342,7 +376,7 @@ class AdminController extends Controller
     }
 
     public function createNews($files, $post){
-        $pictures = $this->newsPictures($files);
+        $pictures = $this->newsPictures($files, $id = null);
         $data = [
             'title' => $post['title'],
             'content' => $post['content'],
@@ -351,15 +385,9 @@ class AdminController extends Controller
         if(!empty($data['title']) && !empty($data['content'])){      
 
             if(!$pictures[0]['exist'] && !$pictures[1]['exist'] && !$pictures[2]['exist'] && $pictures[0]['extVerify'] && $pictures[1]['extVerify'] && $pictures[2]['extVerify']){
-                move_uploaded_file($pictures[0]['tmpName'], $pictures[0]['path']);
-                move_uploaded_file($pictures[1]['tmpName'], $pictures[1]['path']);
-                move_uploaded_file($pictures[2]['tmpName'], $pictures[2]['path']);
-    
-                $picturesPath = [
-                    'picture1' => $pictures[0]['path'],
-                    'picture2' => $pictures[1]['path'],
-                    'picture3' => $pictures[2]['path'],
-                ];
+                
+                $picturesPath = $this->moveNewsFile($pictures);
+
                 $addNews = new \Projet\Models\Articles();
                 $createNews = $addNews->createNews($data, $picturesPath);
                 $this->newsPage($error = null);
@@ -368,7 +396,6 @@ class AdminController extends Controller
                 $error = "Une de vos images est déjà publiée, merci d'en sélectionner une autre'";
                 $this->addNewsPage($error);
             }
-
             else{
                 $error = "Le format de l'image n'est pas bon";
                 $this->addNewsPage($error);
@@ -382,45 +409,67 @@ class AdminController extends Controller
 
     public function deleteNews($newsId){
         $id = htmlspecialchars($newsId);
+
+        $getPictures = \Projet\Models\Articles::find('id', $newsId);
+        for ($i=1; $i < 4 ; $i++) { 
+            unlink($getPictures['picture' . $i]);
+        }
+        
         $deleteNews = \Projet\Models\Articles::delete('id', $id);
         $this->newsPage($error = null); 
     }
 
-    public function viewNews($newsId){
-        $news = \Projet\Models\Articles::find('id', $newsId);
+    public function viewNews($newsId, $error = null){
+        $id = htmlspecialchars($newsId);
+        $news = \Projet\Models\Articles::find('id', $id);
         $data = [
-            'news' => $news
+            'news' => $news,
+            'error' =>$error,
         ];
         return $this->viewAdmin('singleNews',$data);
     }
     public function updateNews($newsId,$files,$post){
+        
+        $pictures = $this->newsPictures($files, $newsId);
+        $data = [
+            'id' => htmlspecialchars($newsId),
+            'title' => htmlspecialchars($post['title']),
+            'content' => htmlspecialchars($post['content']),
+        ];
+        
+        if(!empty($data['title']) && !empty($data['content'])){      
 
-        // $pictures = $this->newsPictures($files);
-        // $data = [
-        //     "id" => htmlspecialchars($newsId),
-        //     'title' => $post['title'],
-        //     'content' => $post['content'],
-        // ];
-        // var_dump($pictures);die;
-        // if ($data['fileName'] == '') {
-        //     $members = new \Projet\Models\Bandmembers();
-        //     $member = $members->getPicturePath($data['id']);
-        //     $memberPath = $member['picture'];
-        //     $exist = false;
+            if(!$pictures[0]['exist'] && !$pictures[1]['exist'] && !$pictures[2]['exist'] && $pictures[0]['extVerify'] && $pictures[1]['extVerify'] && $pictures[2]['extVerify']){
+                
+                $picturesPath = $this->moveNewsFile($pictures);
+                
+                $updateNews = new \Projet\Models\Articles();
+                $newsUpdate = $updateNews->updateNews($data, $picturesPath);
+                $this->viewNews($newsId);
 
-        // }else{
-        //     $picturePath = 'app/Public/front/images/news/' .  $data['fileName'];
-        //     $exist = \Projet\Models\Bandmembers::exist('picture', $memberPath);
-            
-        // }
-        // $this->bandPictures($exist, $data, $memberPath, "update");
+            }elseif($pictures[0]['exist'] || $pictures[1]['exist'] || $pictures[2]['exist']){ 
+                $error = "Une de vos images est déjà publiée, merci d'en sélectionner une autre'";
+                $this->viewNews($newsId, $error);
+            }
+
+            else{
+                $error = "Le format de l'image n'est pas bon";
+                $this->viewNews($newsId, $error);
+            }   
+        }
+        else{
+            $error = "Tous les champs doivent être remplis";
+            $this->viewNews($newsId, $error);
+        }
     }
 
     public function deletePicture($picture, $newsId){
         $pictureNumber = "picture" . htmlspecialchars($picture);
         $id = htmlspecialchars($newsId);
         
-        
+        $getPictures = \Projet\Models\Articles::find('id', $newsId);
+        unlink($getPictures[$pictureNumber]);
+
         $deletePic = new \Projet\Models\Articles();
         $deletePicture = $deletePic->deletePicture($pictureNumber, $id);
 

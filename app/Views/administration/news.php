@@ -42,8 +42,8 @@
                                 </div>
 
                                 <div>
-                                    <a href="indexAdmin.php?action=deleteNews&id=<?=$news->id;?>"> 
-                                        <i class="fa-solid fa-trash-can trashcan"></i>
+                                    <a class="trashcan" href="indexAdmin.php?action=deleteNews&id=<?=$news->id;?>">
+                                    <i class="fa-solid fa-trash-can "></i>
                                     </a>
                                 </div>
                             </div>

@@ -121,7 +121,7 @@ try {
             $adminController->addNewsPage($error = null);    
         
         }elseif ($_GET['action'] == 'updateNews') {
-            // $adminController->updateMember($_GET['id'],$_FILES,$_POST);
+            $adminController->updateNews($_GET['id'],$_FILES,$_POST);
         
         } elseif ($_GET['action'] == 'createNews') {
             $adminController->createNews($_FILES, $_POST);

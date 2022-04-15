@@ -327,7 +327,9 @@ border-radius: 8px;
   display: flex;
   justify-content: space-between;
   font-size: 1.2rem;
+  
 }
+
 .show:hover{
   color: white;
 }
@@ -529,6 +531,7 @@ border-radius: 8px;
   align-items: flex-end;
   justify-content: space-between;
   border: 1px solid var(--mediumgrey);
+  border-radius: 8px;
   padding: 5px;
   margin-bottom: 10px;
 }
