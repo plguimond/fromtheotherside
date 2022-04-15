@@ -200,7 +200,7 @@ class AdminController extends Controller
     // +++++++++++++++++++++++++++++++++++++++++++++ //
     //          Function pour la page admin band
     // +++++++++++++++++++++++++++++++++++++++++++++ //
-
+    
     public function bandPage($error){
 
         $concerts = \Projet\Models\Bandmembers::all();
@@ -210,6 +210,34 @@ class AdminController extends Controller
         ];
 
         return $this->viewAdmin('band',$data);
+    }
+
+    public function bandPictures($exist, $data, $memberPath, $action){
+
+        if($exist === false && $this->extVerify($memberPath) === true){
+            
+            move_uploaded_file($data['tmpName'], $memberPath);
+            if($action == "update"){   
+                $memberUpdate = new \Projet\Models\Bandmembers();
+                $updateMember = $memberUpdate->updateMember($data, $memberPath);
+            }elseif ($action == "add"){
+                $newMember = new \Projet\Models\Bandmembers();
+                $addMember = $newMember->addMember($data, $memberPath);
+            }
+            unset($_POST);
+            $this->bandPage($error = null);
+
+        }elseif($exist === true){
+            unset($_POST);
+            $error = "Cette image est déjà publiée, pour conserver la même, merci de ne rien sélectionner";
+            $this->bandPage($error);
+        }
+        else
+        {
+            unset($_POST);
+            $error = $this->extVerify($memberPath);
+            $this->bandPage($error);
+        }
     }
 
     public function updateMember($memberId,$files,$post){
@@ -238,25 +266,7 @@ class AdminController extends Controller
             $exist = \Projet\Models\Bandmembers::exist('picture', $memberPath);
             
         }
-        if($exist === false && $this->extVerify($memberPath) === true){
-            
-            move_uploaded_file($data['tmpName'], $memberPath);
-            $memberUpdate = new \Projet\Models\Bandmembers();
-            $updateMember = $memberUpdate->updateMember($data, $memberPath);
-            unset($_POST);
-            $this->bandPage($error = null);
-
-        }elseif($exist === true){
-            unset($_POST);
-            $error = "Cette image est déjà publiée, pour conserver la même, merci de ne rien sélectionner";
-            $this->bandPage($error);
-        }
-        else
-        {
-            unset($_POST);
-            $error = $this->extVerify($memberPath);
-            $this->bandPage($error);
-        }
+        $this->bandPictures($exist, $data, $memberPath, "update");
     }
 
     public function addMember($files,$post)
@@ -278,24 +288,7 @@ class AdminController extends Controller
                 $memberPath = 'app/Public/front/images/band/' .  $data['fileName'];
                 $exist = \Projet\Models\Bandmembers::exist('picture', $memberPath);
 
-                if($exist === false && $this->extVerify($memberPath) === true){
-                    move_uploaded_file($data['tmpName'], $memberPath);
-                    $newMember = new \Projet\Models\Bandmembers();
-                    $addMember = $newMember->addMember($data, $memberPath);
-                    unset($_POST);
-                    $this->bandPage($error = null);
-    
-                }elseif($exist === true){
-                    unset($_POST);
-                    $error = "Cette image est déjà publiée, merci d'en sélectionner une autre'";
-                    $this->bandPage($error);
-                }
-                else{
-                unset($_POST);
-                $error = $this->extVerify($memberPath);
-                $this->bandPage($error);
-                }
-
+                $this->bandPictures($exist, $data, $memberPath, "add");
             }else{
                 $error = "Tous les champs doivent être remplis";
                 $this->bandPage($error);
@@ -321,7 +314,7 @@ class AdminController extends Controller
             $i = 1;
             foreach($files as $picture){
                 if ($picture['name'] != "") {    
-                    $picturePath = 'app/Public/front/images/news/' .  $picture['name'];
+                    $picturePath = 'app/Public/front/images/news/' .  htmlspecialchars($picture['name']);
                     $exist = \Projet\Models\Articles::exist('picture'. $i, $picturePath);
                     $extVerify = $this->extVerify($picturePath);
                 }else{
@@ -350,41 +343,88 @@ class AdminController extends Controller
 
     public function createNews($files, $post){
         $pictures = $this->newsPictures($files);
+        $data = [
+            'title' => $post['title'],
+            'content' => $post['content'],
+        ];
         
-        if(!empty($post['title']) && !empty($post['content'])){      
+        if(!empty($data['title']) && !empty($data['content'])){      
 
-            if($pictures[0]['exist'] === false && $pictures[1]['exist'] === false && $pictures[2]['exist'] === false 
-            && $pictures[0]['extVerify'] ===  true && $pictures[1]['extVerify'] ===  true && $pictures[2]['extVerify'] ===  true){
+            if(!$pictures[0]['exist'] && !$pictures[1]['exist'] && !$pictures[2]['exist'] && $pictures[0]['extVerify'] && $pictures[1]['extVerify'] && $pictures[2]['extVerify']){
                 move_uploaded_file($pictures[0]['tmpName'], $pictures[0]['path']);
                 move_uploaded_file($pictures[1]['tmpName'], $pictures[1]['path']);
                 move_uploaded_file($pictures[2]['tmpName'], $pictures[2]['path']);
-
+    
                 $picturesPath = [
                     'picture1' => $pictures[0]['path'],
                     'picture2' => $pictures[1]['path'],
                     'picture3' => $pictures[2]['path'],
                 ];
                 $addNews = new \Projet\Models\Articles();
-                $createNews = $addNews->createNews($post, $picturesPath);
-
+                $createNews = $addNews->createNews($data, $picturesPath);
                 $this->newsPage($error = null);
 
-            }elseif($pictures[0]['exist'] || $pictures[1]['exist'] || $pictures[2]['exist'] === true){
-                
+            }elseif($pictures[0]['exist'] || $pictures[1]['exist'] || $pictures[2]['exist']){ 
                 $error = "Une de vos images est déjà publiée, merci d'en sélectionner une autre'";
                 $this->addNewsPage($error);
             }
+
             else{
-           
-            $error = "Le format de l'image n'est pas bon";
-            $this->addNewsPage($error);
-            }
-               
+                $error = "Le format de l'image n'est pas bon";
+                $this->addNewsPage($error);
+            }   
         }
         else{
             $error = "Tous les champs doivent être remplis";
             $this->addNewsPage($error);
         }
+    }
+
+    public function deleteNews($newsId){
+        $id = htmlspecialchars($newsId);
+        $deleteNews = \Projet\Models\Articles::delete('id', $id);
+        $this->newsPage($error = null); 
+    }
+
+    public function viewNews($newsId){
+        $news = \Projet\Models\Articles::find('id', $newsId);
+        $data = [
+            'news' => $news
+        ];
+        return $this->viewAdmin('singleNews',$data);
+    }
+    public function updateNews($newsId,$files,$post){
+
+        // $pictures = $this->newsPictures($files);
+        // $data = [
+        //     "id" => htmlspecialchars($newsId),
+        //     'title' => $post['title'],
+        //     'content' => $post['content'],
+        // ];
+        // var_dump($pictures);die;
+        // if ($data['fileName'] == '') {
+        //     $members = new \Projet\Models\Bandmembers();
+        //     $member = $members->getPicturePath($data['id']);
+        //     $memberPath = $member['picture'];
+        //     $exist = false;
+
+        // }else{
+        //     $picturePath = 'app/Public/front/images/news/' .  $data['fileName'];
+        //     $exist = \Projet\Models\Bandmembers::exist('picture', $memberPath);
+            
+        // }
+        // $this->bandPictures($exist, $data, $memberPath, "update");
+    }
+
+    public function deletePicture($picture, $newsId){
+        $pictureNumber = "picture" . htmlspecialchars($picture);
+        $id = htmlspecialchars($newsId);
+        
+        
+        $deletePic = new \Projet\Models\Articles();
+        $deletePicture = $deletePic->deletePicture($pictureNumber, $id);
+
+        return $this->viewNews($newsId);
 
     }
 

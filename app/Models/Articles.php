@@ -53,4 +53,10 @@ class Articles extends Manager
         $req = $bdd->prepare('INSERT INTO articles (title, content, picture1, picture2, picture3) VALUES (:title, :content, :picture1, :picture2, :picture3)');
         $req->execute(array(':title' => $post['title'], ':content' => $post['content'], ':picture1' => $picturesPath['picture1'], ':picture2' => $picturesPath['picture2'], ':picture3' => $picturesPath['picture3']));
     }
+
+    public function deletePicture($picture, $id){
+        $bdd = $this->dbConnect();
+        $req = $bdd->prepare("UPDATE articles SET `{$picture}` = null  WHERE id = ?");
+        $req->execute(array($id));
+    }
 }

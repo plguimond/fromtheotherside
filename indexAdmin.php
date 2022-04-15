@@ -114,8 +114,8 @@ try {
 
   /* Actions correpondantes au articles- update, add et delete */ 
 
-        }elseif ($_GET['action'] == 'singleNews') {
-            // $adminController->updateMember($_GET['id'],$_FILES,$_POST);    
+        }elseif ($_GET['action'] == 'viewNews') {
+            $adminController->viewNews($_GET['id']);    
         
         }elseif ($_GET['action'] == 'addNewsPage') {
             $adminController->addNewsPage($error = null);    
@@ -127,7 +127,12 @@ try {
             $adminController->createNews($_FILES, $_POST);
         
         } elseif ($_GET['action'] == 'deleteNews') {
-            // $adminController->deleteMember($_GET['id']);
+            $adminController->deleteNews($_GET['id']);
+
+        } elseif ($_GET['action'] == 'deletePicture') {
+            
+            $adminController->deletePicture($_GET['number'], $_GET['id']);
+            
             
 
 // action connexion au dashboard
