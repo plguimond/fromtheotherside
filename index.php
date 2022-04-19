@@ -12,7 +12,6 @@ require_once __DIR__ . '/vendor/autoload.php';
 require 'app/Sanitizer/UserSanitizer.php';
 require 'app/Sanitizer/ContactSanitizer.php';
 
-
 try {
 
     $frontController = new \Projet\Controllers\FrontController(); // objet controler

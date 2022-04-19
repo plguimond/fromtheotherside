@@ -411,10 +411,12 @@ class AdminController extends Controller
         $id = htmlspecialchars($newsId);
 
         $getPictures = \Projet\Models\Articles::find('id', $newsId);
+
         for ($i=1; $i < 4 ; $i++) { 
+            if ($getPictures['picture' . $i] != ""){
             unlink($getPictures['picture' . $i]);
+            }
         }
-        
         $deleteNews = \Projet\Models\Articles::delete('id', $id);
         $this->newsPage($error = null); 
     }

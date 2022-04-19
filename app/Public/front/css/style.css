@@ -530,7 +530,25 @@ outline: none;
   background-color: rgb(11, 163, 223);
   cursor:pointer;
 }
+.menu-pagination{
+  max-width: 200px;
   
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+.pagination{
+  display: flex;
+  justify-content: space-between;
+}
+
+.pagination li.hide{
+  display: none;
+}
+
+.pagination li.active a{
+  color: rgb(6, 113, 155);
+}
+
 /* section commentaire */
 
 #singleNews-comment{

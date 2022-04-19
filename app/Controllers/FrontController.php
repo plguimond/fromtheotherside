@@ -21,7 +21,6 @@ class FrontController extends Controller
             'nextShow' => $nextShow
         ];
         return $this->viewFront('home', $data);
-      
     }
 // Lien vers la page du groupe
 
@@ -39,7 +38,7 @@ class FrontController extends Controller
         // Nb d'articles
         $newsCount = \Projet\Models\Articles::count();
         // nb d'articles par page
-        $perPage = 10;
+        $perPage = 5;
         // nb de pages total
         $pages = ceil($newsCount['number_of'] / $perPage);
         // premier article de la page
@@ -49,7 +48,8 @@ class FrontController extends Controller
         $data = [
             'articles' => $news,
             'newsCount' => $newsCount['number_of'],
-            'currentPage' => $currentPage
+            'currentPage' => $currentPage,
+            'pages' => $pages
         ];
         return $this->viewFront('news', $data);
     }

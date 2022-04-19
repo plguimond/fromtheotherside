@@ -39,8 +39,10 @@ $connect = isConnect();
                     <li><a href="index.php?action=concertsPage">Prochaines dates</a></li>
                     <li><a href="index.php?action=contactPage">Nous contacter</a></li>
                     <?php
+                    if ($connect == true && $_SESSION['role'] == 1) {  ?>
+                        <li><a href="index.php?action=userPage">Dashboard</a></li>
+                    <?php }
                     if ($connect == true) { ?>
-                        <li><a href="index.php?action=userPage">Compte utilisateur</a></li>
                         <li><a href="indexAdmin.php?action=disconnect">Se déconnecter</a></li>
                     <?php } else{ ?>
                         <li><a href="index.php?action=loginPage">Connectez-vous</a></li>
