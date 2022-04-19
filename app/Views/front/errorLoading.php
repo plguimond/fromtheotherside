@@ -10,7 +10,7 @@
 
 <body>
     Erreur, aucune action ou page chargées.
-    <?= var_dump($e)?>
+    <?= $e?>
 </body>
 
 </html>

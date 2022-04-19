@@ -136,18 +136,20 @@ try {
             }
         } 
    
-        // if($_GET['action'] == 'contact'){
-        //     $frontController->contactFront();
-        // }
-        // elseif($_GET['action'] == 'about'){
-        //     $frontController->aboutFront();
-        // }
+        
        
-
+        else{
+            throw new Exception("La page n'existe pas", 404);
+        }
     } else {
         $frontController->home();
     }
 } catch (Exception $e) {
+    if ($e->getCode() == 404){
+        require 'app/Views/front/404.php';
+    }
+    require 'app/Views/front/errorLoading.php';
+}catch (Error $e) {
     require 'app/Views/front/errorLoading.php';
 }
 

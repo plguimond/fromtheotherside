@@ -20,17 +20,6 @@ include('app/Views/front/layouts/header.php');
     <div class="news-picture">
         <img src="app/Public/front/images/default.jpg" alt="Photo d'une guitare">
     </div>
-    <?php        
-        }
-        if($data['singleNews']['picture2']){
-        ?>
-    <div class="news-picture">
-        <img src="<?= $data['singleNews']['picture2']?>" alt="<?= $data['singleNews']['title']?>">
-    </div>
-    <?php 
-        } 
-        if($data['singleNews']['picture3']){
-        ?>
     <div class="news-picture">
         <img src="<?= $data['singleNews']['picture3']?>" alt="<?= $data['singleNews']['title']?>">
     </div>
@@ -44,6 +33,7 @@ include('app/Views/front/layouts/header.php');
         <h2>Laissez-nous un commentaire!</h2>
 
         <?php  foreach($data['comments'] as $comment){?>
+
             <div class="userComment">
                 <p><?=$comment['firstname'] . " " . $comment['lastname'] ?></p>
                 <p><?=$comment['content']?></p>

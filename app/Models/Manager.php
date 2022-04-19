@@ -119,7 +119,6 @@ abstract class Manager
         $child = explode("\\",$klass);
         $child = strtolower($child[array_key_last($child)]);
         
-        
         $bdd = self::dbConnect();
         $req = $bdd->prepare("DELETE FROM `{$child}` WHERE `{$name}` = ?");
         $req->execute(array($value)); 

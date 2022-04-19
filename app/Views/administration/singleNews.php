@@ -45,42 +45,8 @@
             </div>
             <?php        
             }
-            if($data['news']['picture2']){
             ?>
-            <div class="news-picture ">
-                <img src="<?= $data['news']['picture2']?>" alt="deuxième image de l'article">
-                <div class="delete-picture">
-                    <a href="indexAdmin.php?action=deletePicture&number=2&id=<?= $data['news']['id'] ?>" class="admin-button">Supprimer</a>
-                </div>
 
-            </div>
-            <?php 
-            }else{ 
-            ?>
-            <div class="news-picture add-picture">
-                <label for="picture2">Ajouter l'image 2</label>
-                <input class="input-file" type="file" name="picture2" id="picture2">
-            </div>
-            <?php        
-            }
-            if($data['news']['picture3']){
-            ?>
-            <div class="news-picture">
-                <img src="<?= $data['news']['picture3']?>" alt="troisième image de l'article">
-                
-                <div class="delete-picture">
-                    <a href="indexAdmin.php?action=deletePicture&number=3&id=<?= $data['news']['id'] ?>" class="admin-button">Supprimer</a>
-                </div>
-            </div>
-            <?php 
-            }else{ 
-            ?>
-            <div class="news-picture add-picture">
-                <label for="picture2">Ajouter l'image 3</label>
-                <input class="input-file" type="file" name="picture3" id="picture3">
-            </div>
-            
-            <?php } ?>
             <div class="update-news">
                 <button type="submit" class="admin-button">Modifier l'article</button>
             </div>

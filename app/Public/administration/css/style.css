@@ -3,9 +3,6 @@
   --lightblue: rgb(11, 163, 223);
   --mediumgrey: #5f5f5f;
   --darkgrey: rgb(44, 44, 44);
-
-
-
 }
 
 
@@ -536,7 +533,6 @@ border-radius: 8px;
   margin-bottom: 10px;
 }
 
-
 #singleNews-content .news-picture img{
   width: 100%;
   margin-bottom: 10px;
@@ -546,7 +542,6 @@ border-radius: 8px;
   margin-bottom: 20px;
   display: flex;
   justify-content: flex-end;
-  
 }
 
 /* page addNews */

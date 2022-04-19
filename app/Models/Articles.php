@@ -11,8 +11,6 @@ class Articles extends Manager
     public $title;
     public $content;
     public $picture1;
-    public $picture2;
-    public $picture3;
     public $created_At;
     
     public function __construct($data = [])
@@ -21,8 +19,6 @@ class Articles extends Manager
         $this->title = $data["title"] ?? '';
         $this->content = $data["content"] ?? '';
         $this->picture1 = $data["picture1"] ?? '';
-        $this->picture2 = $data["picture2"] ?? '';
-        $this->picture3 = $data["picture3"] ?? '';
         $this->created_At = $data["created_At"] ?? '';
     }
 
@@ -46,7 +42,7 @@ class Articles extends Manager
     public function newsList($firstNews, $perPage){
         
         $bdd = self::dbConnect();
-        $req = $bdd->prepare('SELECT id, title, content, picture1, picture2, picture3, created_At FROM articles ORDER BY created_At DESC LIMIT :firstNews, :perPage');
+        $req = $bdd->prepare('SELECT id, title, content, picture1, created_At FROM articles ORDER BY created_At DESC LIMIT :firstNews, :perPage');
         // Permet de préciser que les paramètres de la requête préparée sont des INT
         $req->bindValue(':firstNews', $firstNews, $bdd::PARAM_INT);
         $req->bindValue(':perPage', $perPage, $bdd::PARAM_INT);
@@ -57,17 +53,16 @@ class Articles extends Manager
     }
 
     public function createNews($post, $picturesPath){
+       
         $bdd = $this->dbConnect();
-        $req = $bdd->prepare('INSERT INTO articles (title, content, picture1, picture2, picture3) VALUES (:title, :content, :picture1, :picture2, :picture3)');
-        $req->execute(array(':title' => $post['title'], ':content' => $post['content'], ':picture1' => $picturesPath['picture1'], ':picture2' => $picturesPath['picture2'], ':picture3' => $picturesPath['picture3']));
+        $req = $bdd->prepare('INSERT INTO articles (title, content, picture1) VALUES (:title, :content, :picture1)');
+        $req->execute(array(':title' => $post['title'], ':content' => $post['content'], ':picture1' => $picturesPath));
     }
 
     public function updateNews($data, $picturesPath){
         $bdd = $this->dbConnect();
-        $req = $bdd->prepare('UPDATE articles SET title = :title, content = :content, picture1 = :picture1, 
-            picture2 = :picture2, picture3 = :picture3 WHERE id = :id');
-        $req->execute(array(':title' => $data['title'], ':content' => $data['content'], ':picture1' => $picturesPath['picture1'],
-            ':picture2' => $picturesPath['picture2'], ':picture3' => $picturesPath['picture3'] , ':id' => $data['id']));
+        $req = $bdd->prepare('UPDATE articles SET title = :title, content = :content, picture1 = :picture1 WHERE id = :id');
+        $req->execute(array(':title' => $data['title'], ':content' => $data['content'], ':picture1' => $picturesPath, ':id' => $data['id']));
     }
 
     public function deletePicture($picture, $id){

@@ -124,6 +124,7 @@ try {
             $adminController->updateNews($_GET['id'],$_FILES,$_POST);
         
         } elseif ($_GET['action'] == 'createNews') {
+
             $adminController->createNews($_FILES, $_POST);
         
         } elseif ($_GET['action'] == 'deleteNews') {
@@ -149,8 +150,13 @@ try {
         $adminController->dashboard();
     }
 
-} catch (Exception $e) {
-    echo($e);
+}  catch (Exception $e) {
+    if ($e->getCode() == 404){
+        require 'app/Views/front/404.php';
+    }
+    require 'app/Views/front/errorLoading.php';
+}catch (Error $e) {
+    require 'app/Views/front/errorLoading.php';
 }
 
 // Absence de droit d'administration redirection vers la page login
