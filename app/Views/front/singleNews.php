@@ -41,7 +41,7 @@ include('app/Views/front/layouts/header.php');
             <div class="foot-comment">
                 <p><?=$comment['createdAt']?></p>
                 <?php if ($_SESSION){
-                if ($_SESSION['id'] === $comment['idUser']){?>
+                if ($_SESSION['id'] === $comment['idUser'] || $_SESSION['role'] == 1){?>
                     <a href="index.php?action=deleteUserComment&commentId=<?=$comment['id']?>&idUser=<?=$comment['idUser']?>&articleId=<?=$data['singleNews']['id']?>" >Supprimer</a>
                 <?php } ?>
 

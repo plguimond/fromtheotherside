@@ -12,14 +12,15 @@ include('app/Views/front/layouts/header.php');
     </div>
     <Section id="intro-home" class="container">
         <H1 class="title-h1">Du rock, du métal et plus encore!</H1>
+        
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu tellus pulvinar, porta nulla sit amet, luctus
             felis. Vivamus volutpat, nulla et ultricies faucibus, eros elit posuere ipsum,
             nec tempus velit augue ut quam. Nullam est libero porta ante.</p>
-
+            
+            <div class=separator-picture>
+                <img src="app/Public/front/images/micro-logo.png" alt="logo de guitar avevc note de musique">
+            </div>
     </Section>
-    <div class=separator-picture>
-        <img src="app/Public/front/images/micro-logo.png" alt="logo de guitar avevc note de musique">
-    </div>
     <section id="next-show" class="container">
         <h2>L'envie de nous voir en concert vous ronge de l'intérieur? Voici notre prochaine date!</h2>
         <div id="next-show-text">
@@ -32,11 +33,11 @@ include('app/Views/front/layouts/header.php');
         </div>
         <a href="index.php?action=concertsPage">Nos prochain concerts</a>
 
+        <div class=separator-picture>
+            <img src="app/Public/front/images/horn-hand.png" alt="logo de guitar avevc note de musique">
+        </div>
     </section>
 
-    <div class=separator-picture>
-        <img src="app/Public/front/images/horn-hand.png" alt="logo de guitar avevc note de musique">
-    </div>
     <section id="last-news" class="container">
         
         <h2><?= $data['lastNews']['title']; ?></h2>
@@ -52,10 +53,10 @@ include('app/Views/front/layouts/header.php');
         </div>
         <a href="index.php?action=singleNews&id=<?=$data['lastNews']['id'];?>">Par ici pour la suite! </a>
 
+        <div class=separator-picture>
+            <img src="app/Public/front/images/logo-groupe.png" alt="logo de guitar avevc note de musique">
+        </div>
     </section>
-    <div class=separator-picture>
-        <img src="app/Public/front/images/logo-groupe.png" alt="logo de guitar avevc note de musique">
-    </div>
 
     <section id="band-members" class="container">
 

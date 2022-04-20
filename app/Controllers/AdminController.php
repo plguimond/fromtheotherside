@@ -1,13 +1,9 @@
 <?php
-
-
 namespace Projet\Controllers;
-
-
 
 class AdminController extends Controller
 {
-    
+
     public function extVerify($name)
     {
         $allowed = array('png', 'jpg', 'jpeg');
@@ -41,6 +37,7 @@ class AdminController extends Controller
         ];
         return $this->viewAdmin('slider',$data);
     }
+
     public function updateSlider($sliders)
     {
         
@@ -310,13 +307,12 @@ class AdminController extends Controller
 
     public function picturesExist($picturePath){
         
-            $exist = \Projet\Models\Articles::exist('picture1', $picturePath);
-
-            if ($exist == true){
-                return true;
-            }else{
-                return false;
-            }
+        $exist = \Projet\Models\Articles::exist('picture1', $picturePath);
+        if ($exist == true){
+            return true;
+        }else{
+            return false;
+        }
         
     }
 
@@ -352,19 +348,6 @@ class AdminController extends Controller
         return $pictures;
     }
 
-    // public function moveNewsFile($pictures){
-    //     move_uploaded_file($pictures[0]['tmpName'], $pictures[0]['path']);
-    //     move_uploaded_file($pictures[1]['tmpName'], $pictures[1]['path']);
-    //     move_uploaded_file($pictures[2]['tmpName'], $pictures[2]['path']);
-
-    //     $picturesPath = [
-    //         'picture1' => $pictures[0]['path'],
-    //         'picture2' => $pictures[1]['path'],
-    //         'picture3' => $pictures[2]['path'],
-    //     ];
-
-    //     return $picturesPath;
-    // }
     public function addNewsPage($error){
 
         $data = [
@@ -432,6 +415,7 @@ class AdminController extends Controller
         ];
         return $this->viewAdmin('singleNews',$data);
     }
+    
     public function updateNews($newsId,$files,$post){
         
         $pictures = $this->newsPictures($files, $newsId);

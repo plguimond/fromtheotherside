@@ -141,8 +141,8 @@ try {
         } elseif ($_GET['action'] == 'dashboard') {
             $adminController->dashboard();
 
-        } elseif ($_GET['action'] == 'errorLoading') {
-            require 'app/views/front/errorLoading.php';
+        } else{
+            throw new Exception("La page n'existe pas", 404);
         }
  
 // Absence d'action redirection vers dashboard        

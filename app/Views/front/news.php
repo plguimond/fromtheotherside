@@ -2,9 +2,9 @@
 include('app/Views/front/layouts/header.php');
 // var_dump($data['currentPage']);die; 
 ?>
-<main id="news-page">
+<main id="news-page" class="container">
    <h1>Les News</h1>
-   <section>
+   <section id="news-cards">
       <?php 
       
    foreach($data["articles"] as $article){
@@ -16,7 +16,7 @@ include('app/Views/front/layouts/header.php');
       }
    ?>
       
-         <div class="card">
+         <article class="card">
             <div class="card-header">
                <img src="<?= $picture ?>" alt="<?= $article['title'];?>">
             </div>
@@ -28,7 +28,7 @@ include('app/Views/front/layouts/header.php');
                <a href="index.php?action=singleNews&id=<?=$article['id'];?>">Par ici pour la suite! </a>
                <p><?= $article['created_At'];?></p>
             </div>
-         </div>
+         </article>
       
       <?php }?>
    </section>

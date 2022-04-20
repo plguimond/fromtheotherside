@@ -28,10 +28,10 @@ $connect = isConnect();
         <div class="head-content">
 
             <nav id="menu-head">
-                <input id="burger-link" type="checkbox" />
-                <!-- <a id="burger-link" href="#"> -->
+                <input id="burger-link" type="checkbox" aria-label="menu de navigation" />
+               
                     <span id="burger"></span>
-                <!-- </a> -->
+               
                 <ul id="menu-list">
                     <li><a href="index.php">Accueil</a></li>
                     <li><a href="index.php?action=bandPage">Le groupe</a></li>

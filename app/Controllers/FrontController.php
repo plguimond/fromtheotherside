@@ -38,7 +38,7 @@ class FrontController extends Controller
         // Nb d'articles
         $newsCount = \Projet\Models\Articles::count();
         // nb d'articles par page
-        $perPage = 5;
+        $perPage = 6;
         // nb de pages total
         $pages = ceil($newsCount['number_of'] / $perPage);
         // premier article de la page

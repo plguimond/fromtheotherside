@@ -134,11 +134,7 @@ try {
                 $error = "Vous devez remplir tous les champs obligatoires.";  
                 $frontController->contactFront($error);
             }
-        } 
-   
-        
-       
-        else{
+        }else{
             throw new Exception("La page n'existe pas", 404);
         }
     } else {

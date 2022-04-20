@@ -17,9 +17,9 @@ include('app/Views/front/layouts/header.php');
         </div>
         <div class="login-box">
             <form class="form-login" action="index.php?action=login" method="POST">
-                <input type="email" name="mail" placeholder="E-mail">
-                <!-- <label for="mail">Quelle est votre adresse e-mail</label> -->
-                <input type="password" name="pwd" placeholder="Mot de passe">
+                <input type="email" name="mail" placeholder="E-mail" aria-label="Entrez votre adresse email">
+               
+                <input type="password" name="pwd" placeholder="Mot de passe" aria-label="Entrez votre mot de passe">
                 <!-- <label for="pwd">Quelle est votre adresse e-mail</label> -->
                 <button type="submit">Je me connecte</button>
             </form>

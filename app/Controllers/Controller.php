@@ -17,4 +17,6 @@ class Controller
         include('app/Views/administration/'.$viewName.'.php');
 
     }
+
+   
 }
