@@ -27,10 +27,10 @@
                 </div> -->
             </div>
             <div class="news-title">
-                <input type="text" name="title"   placeholder="Le titre de mon article" value="<?php if(isset($_POST["title"])) echo $_POST["title"] ?>">
+                <input type="text" name="title"   placeholder="Le titre de mon article" value="<?php if(isset($_POST["title"])) echo htmlspecialchars($_POST["title"]) ?>">
             </div>
             <div class="news-content">
-                <textarea name="content"  placeholder="Rédigez votre article ici"><?php if(isset($_POST["content"])) echo $_POST["content"] ?></textarea>
+                <textarea name="content"  placeholder="Rédigez votre article ici"><?php if(isset($_POST["content"])) echo htmlspecialchars($_POST["content"]) ?></textarea>
             </div>
       
 

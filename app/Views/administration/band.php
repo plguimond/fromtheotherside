@@ -23,21 +23,21 @@
                 <div class="card-body">
                     <p class="member-name">
                         <input type="text" name="firstname" placeholder="Prénom"
-                            value="<?php if(isset($_POST["firstname"])) echo $_POST["firstname"] ?>">
+                            value="<?php if(isset($_POST["firstname"])) echo htmlspecialchars($_POST["firstname"]) ?>">
                         <input type="text" name="lastname" placeholder="Nom de famille"
-                            value="<?php if(isset($_POST["lastname"])) echo $_POST["lastname"] ?>">
+                            value="<?php if(isset($_POST["lastname"])) echo htmlspecialchars($_POST["lastname"]) ?>">
                     </p>
                     <p class="member-type"> <input type="text" name="type" placeholder="Guitariste? Pianiste? etc."
-                            value="<?php if(isset($_POST["type"])) echo $_POST["type"] ?>"></p>
+                            value="<?php if(isset($_POST["type"])) echo htmlspecialchars($_POST["type"]) ?>"></p>
 
                     <p class="member-excerpt"><input type="text" name="excerpt"
                             placeholder="Court message de présentation"
-                            value="<?php if(isset($_POST["excerpt"])) echo $_POST["excerpt"] ?>"></p>
+                            value="<?php if(isset($_POST["excerpt"])) echo htmlspecialchars($_POST["excerpt"]) ?>"></p>
                 </div>
                 <div class="card-footer">
                     <p class="member-info">
                         <textarea name="info" id="" cols="30" rows="10"
-                            placeholder="Information de votre choix sur le membre du groupe"><?php if(isset($_POST["info"])) echo $_POST["info"] ?></textarea>
+                            placeholder="Information de votre choix sur le membre du groupe"><?php if(isset($_POST["info"])) echo htmlspecialchars($_POST["info"]) ?></textarea>
                     </p>
 
                 </div>

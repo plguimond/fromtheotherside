@@ -17,13 +17,13 @@
                 </p>
                 <p>
                     <textarea name="title" cols="37"
-                        rows="8"><?php if(isset($_POST["title"])) echo $_POST["title"] ?></textarea>
+                        rows="8"><?php if(isset($_POST["title"])) echo htmlspecialchars($_POST["title"]) ?></textarea>
                 </p>
                 <p>
                     <label for="date">Date *</label>
                 </p>
                 <p>
-                    <input type="date" name="date" value="<?php if(isset($_POST["date"])) echo $_POST["date"] ?>">
+                    <input type="date" name="date" value="<?php if(isset($_POST["date"])) echo htmlspecialchars($_POST["date"]) ?>">
                 </p>
 
                 <p>
@@ -31,13 +31,13 @@
                 </p>
                 <p>
                     <input name="location" type="text"
-                        value="<?php if(isset($_POST["location"])) echo $_POST["location"] ?>">
+                        value="<?php if(isset($_POST["location"])) echo htmlspecialchars($_POST["location"]) ?>">
                 </p>
                 <p>
                     <label for="price">Prix à partir de:</label>
                 </p>
                 <p>
-                    <input name="price" type="text" value="<?php if(isset($_POST["price"])) echo $_POST["price"] ?>"> €
+                    <input name="price" type="text" value="<?php if(isset($_POST["price"])) echo htmlspecialchars($_POST["price"]) ?>"> €
                 </p>
                 <button class="admin-button" type="submit">Ajouter ce concert</button>
             </form>
