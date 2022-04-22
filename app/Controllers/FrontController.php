@@ -18,7 +18,7 @@ class FrontController extends Controller
         $data = [
             'members' => $members,
             'lastNews' => $lastNews,
-            'nextShow' => $nextShow
+            'nextShow' => $nextShow,
         ];
         return $this->viewFront('home', $data);
     }

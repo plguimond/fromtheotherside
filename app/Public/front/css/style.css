@@ -248,7 +248,7 @@ header{
 
 #intro-home .intro-text{
   background-color: var(--vertgris);
-  width: 100%;
+  width: 90%;
   margin: auto;
   min-height: 250px;
   padding: 20px;
@@ -272,10 +272,10 @@ header{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  color: var(--darkgrey);
+  
   width: 90%;
   margin: 10px auto;
-  padding: 8px;
+  padding: 20px;
   border-radius: 8px;
   background-color: var(--lightorange);
 }
@@ -380,11 +380,77 @@ header{
 /* ========================================*/
       /* footer */
 /* ========================================*/
-.footer-content{
+footer{
   background-color: rgb(27, 27, 27);
-  min-height: 200px;
+  min-height: 150px;
+}
+.footer-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
+/* ---bloc nav réseaux sociaux--- */
+#menu_social {
+  width: 100%;
+}
+
+#menu_social ul {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+
+#menu_social ul li {
+  width: 33%;
+  display: flex;
+  justify-content: center;
+}
+
+#menu_social i {
+  color: white;
+  font-size: 2rem;
+  padding: 10px 0;
+  transition: color 0.4s ease;
+}
+
+#menu_social i:hover {
+  color: var(--vertgris);
+}
+
+/* bloc aside */
+#foot-info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#foot-info {
+  width: 100%;
+  padding-bottom: 15px;
+}
+#foot-info ul{
+  display: flex;
+  width: 100%;
+}
+#foot-info ul li{
+  width: 33%;  
+  text-align: center;
+  
+}
+#foot-info a{
+  color: white;
+}
+
+#foot-info a:hover {
+  color: var(--vertgris);
+  transition: color 0.4s ease;
+}
+
+#logo_bas {
+  margin: auto;
+  display: none;
+}
 
 /* ========================================*/
       /* page Login/create account */
@@ -523,7 +589,7 @@ outline: none;
   display: flex;
   flex-direction: column;
   width: 90%;
-  max-width: 300px;
+  max-width: 325px;
   margin: 0 auto;
   overflow: hidden;
   box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.1);
@@ -709,6 +775,52 @@ outline: none;
     justify-content: space-between;
   }
 
+/*section footer*/
+
+  /* blov nav */
+  .footer-content{
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+  #menu_social {
+    width: 20%;
+  }
+
+  #menu_social ul {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+  #menu_social ul li{
+    
+  }  
+
+  /* bloc logo */
+
+  .footer-banner{
+    display: flex;
+    align-items: center;
+  }
+  /* bloc aside */
+  #foot-info {
+    width: 20%; 
+    justify-content: center;
+  }
+
+
+  #foot-info ul{
+    width: fit-content;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+
+  }
+  #foot-info ul li{
+    width: fit-content;
+  }
+ 
 /* page The Band et News*/ 
 /* ++++++++++++++++++++++++++++++++++++++++ */
   #band-cards, #news-cards{
