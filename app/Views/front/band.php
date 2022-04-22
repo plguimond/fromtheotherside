@@ -5,6 +5,7 @@ include('app/Views/front/layouts/header.php');
    <h1>The band</h1>
    
    <section id="band-cards">
+   
    <?php  
    foreach($data as $member){
    ?>
@@ -22,6 +23,7 @@ include('app/Views/front/layouts/header.php');
 
       <?php }?>
    </section>
+
 </main>
 
 <?php

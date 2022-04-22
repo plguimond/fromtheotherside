@@ -62,7 +62,7 @@ try {
             if (isset($_FILES['file']) && $_FILES['file']['name'] != "") {
                 $sliders = [
 
-                  'title' =>  htmlspecialchars($_POST['title']),
+                    'title' =>  htmlspecialchars($_POST['title']),
                     'tmpName' => $_FILES['file']['tmp_name'],
                     'name' => htmlspecialchars($_FILES['file']['name']),
                     'size' => $_FILES['file']['size'],

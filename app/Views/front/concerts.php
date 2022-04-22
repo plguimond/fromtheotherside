@@ -5,20 +5,21 @@ include('app/Views/front/layouts/header.php');
    <h1>Concerts</h1>
 
    <section>
-<?php 
+      <?php 
 foreach($data['concerts'] as $concert){?>
-   <div>
-      <p class="concertDate"><?= $concert['date'] ?></p>
-      <p class="concertTitle"><?= $concert['title'] ?></p>
-   </div>
-   <div>
-      <p><?= $concert['location'] ?></p>
-      <p>A partir de: <?= $concert['price'] ?> €</p>
-   </div>
-<?php }?>
+      
+      <div class="next-show-text bloc-content">
+         <div class="show-info">
+            <h3><?= $concert['title']; ?></h3>
+            <p>Adresse: <?= $concert['location']; ?></p>
+            <p>Rendez-vous le : <?= $concert['date']; ?></p>
+            <p>Prix à partir de: <?= $concert['price']; ?>€</p>
+         </div>
+      </div>
+      <?php }?>
 
 
-</section>
+   </section>
 </main>
 
 <?php

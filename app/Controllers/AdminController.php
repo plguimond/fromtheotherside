@@ -165,14 +165,17 @@ class AdminController extends Controller
         }
     }
     public function updateConcert($postData, $id){
+
         $data = [
             'title' => htmlspecialchars($postData['title']),
             'date' => htmlspecialchars($postData['date']),
             'location' => htmlspecialchars($postData['location']),
             'price' => htmlspecialchars($postData['price']),
-            'id' => htmlspecialchars($id),
-            
+            'id' => htmlspecialchars($id), 
         ];
+
+
+        
     }   
     public function deleteConcert($id){
         $deleteConcert = \Projet\Models\Calendar::delete('id', $id);
