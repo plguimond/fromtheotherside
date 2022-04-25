@@ -12,6 +12,7 @@ class FrontController extends Controller
         $members = \Projet\Models\Bandmembers::all();
         $articles  = new \Projet\Models\articles();
         $concerts  = new \Projet\Models\Calendar();
+        $slider = \Projet\Models\Slider::all();
 
         $nextShow = $concerts->nextShow();
         $lastNews = $articles->lastNews();
@@ -19,6 +20,7 @@ class FrontController extends Controller
             'members' => $members,
             'lastNews' => $lastNews,
             'nextShow' => $nextShow,
+            'slider' => $slider,
         ];
         return $this->viewFront('home', $data);
     }
@@ -89,6 +91,7 @@ class FrontController extends Controller
             $data = [
                 'message' => "Votre message à bien été envoyé."
             ];
+            unset($_POST);
             return $this->viewFront('contact', $data);
         }
     }

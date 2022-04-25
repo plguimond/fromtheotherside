@@ -31,6 +31,7 @@
 
 </footer>
 <script src="app/Public/front/js/script.js"></script>
+<script src="app/Public/front/js/slider.js"></script>
 </body>
 
 </html>

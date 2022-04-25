@@ -4,7 +4,8 @@
   --mediumgrey: #5f5f5f;
   --darkgrey: rgb(44, 44, 44);
   --lightorange: rgb(230, 165, 94);
-  --vertgris: rgb(170, 202, 204)
+  --vertgris: rgb(170, 202, 204);
+  --lightgold: rgb(233, 213, 149);
 }
 
 
@@ -65,7 +66,13 @@ margin-left: auto;
 margin-right: auto;
 
 }
+.underline{
+  text-decoration: underline;
+}
 
+.hidden{
+  display: none
+}
 
 
 /* ===========================*/
@@ -236,7 +243,10 @@ header{
 .mobile-banner img{
   width: 100%;
 }
-
+/* slider */
+#slider-container{
+  display: none;
+}
 /* section intro-home */
 
 
@@ -499,7 +509,7 @@ footer{
  border: solid 1px;
 }
 .form-login input:focus{
-outline: none;
+  outline: none;
  border: solid 2px;
  border-color: rgb(11, 163, 223);
  
@@ -544,7 +554,7 @@ outline: none;
   font-weight: bold;
 }
 
-.login-title .blue-button{
+.blue-button{
   display: block;
   width: 200px;
   height: 30px;
@@ -556,7 +566,7 @@ outline: none;
   font-size: 14px;
  
 }
-.login-title .blue-button:hover{
+.blue-button:hover{
   background-color: rgb(11, 163, 223);
   cursor:pointer;
 }
@@ -692,6 +702,55 @@ outline: none;
   width: 90%;
 }
 
+/* ========================================*/
+      /* page formulaire de contact */
+/* ========================================*/
+  #contact-page .validate{
+    color: var(--lightblue);
+    width: 90%;
+    margin: 10px auto;
+  }
+  #contact-page .login-error{
+    width: 90%;
+    margin: 10px auto;
+  }
+  .contact-form{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+    background-color: var(--vertgris);
+    padding: 10px;
+
+  }
+  .contact-form input,
+  .contact-form textarea{
+    padding: 10px;
+  }
+
+  .contact-form input,
+  .contact-form textarea{
+    margin-bottom: 10px;
+    border: solid 1px;
+  }
+  .contact-form input:focus,
+  .contact-form textarea:focus{
+    outline: none;
+    border: solid 2px;
+    border-color: var(--lightgold);
+  }
+  .contact-form button{
+    background-color: var(--lightgold);
+    border: none;
+    padding: 8px;
+    width: 100px;
+    border-radius: 8px;
+    margin: 10px 0;
+  }
+  .contact-form button:hover{
+    cursor:pointer;
+    background-color: rgb(230, 204, 122);
+  }
 
 /* ++++++++++++++++++++++++++++++++++++++++ */
 /*        Resolution ecran pc */
@@ -700,10 +759,28 @@ outline: none;
 
 /* page d'accueil */
 /* ++++++++++++++++++++++++++++++++++++++++ */
+
+  /* section slider */
+  #slider-container{
+    display: block;
+    max-height: 450px;
+    width: 100%;
+    overflow: hidden;
+  }
+  #slider li{
+    height: 450px;
+  }
+  #slider img{
+    width: 100%;
+  }
+ 
+
+
+
   #home-page section{
     margin-bottom: 50px;
   }
-  .mobile-banner img{
+  .mobile-banner{
     display: none;
   }
 
@@ -790,7 +867,6 @@ outline: none;
     height: 100%;
   }
   
-
   /* bloc logo */
 
   .footer-banner{
@@ -802,7 +878,6 @@ outline: none;
     width: 20%; 
     
   }
-
 
   #foot-info ul{
     width: 100%;
@@ -835,7 +910,33 @@ outline: none;
     margin: 0;
   }
 
+/* page The Band et News*/ 
+/* ++++++++++++++++++++++++++++++++++++++++ */  
+  #concerts-page section{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #concerts-page .next-show-text{
+
+    width: 30%;
+    margin: 10px auto;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: var(--lightorange);
+  }
+
  
+        /* page formulaire de contact */
+  /* +++++++++++++++++++++++++++++++++++++++*/
+  #contact-page .validate,
+  #contact-page .login-error,
+  #contact-page .contact-form{  
+    width: 450px;
+}
+
+  .login-box{
+    width: 450px;
+  }
 
 }
 

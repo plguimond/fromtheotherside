@@ -1,7 +1,7 @@
 <?php
 include('app/Views/front/layouts/header.php');
 ?>
-<main id="concerts-page">
+<main id="concerts-page" class="container">
    <h1>Concerts</h1>
 
    <section>

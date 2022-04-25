@@ -7,25 +7,34 @@ include('app/Views/front/layouts/header.php');
         <img src="app/Public/front/images/photoconcertsallesombre.jpg"
             alt="Groupe de musique sur scène en avec éclairage sombre">
     </div>
-    <div class=slider-banner>
 
+    <div id="slider-container" >
+        <div id="slider" class="">
+            <div id="slides">
+                <?php foreach($data['slider'] as $slide){ ?>
+                    <div class="slide"><img src="<?= $slide->slide ?>" alt="<?= $slide->title ?>"></div>
+                <?php }?>
+            </div>
+        </div>
     </div>
+
     <Section id="intro-home" class="container">
         <H1 class="title-h1">Du rock, du métal et plus encore!</H1>
         <div class="bloc-section">
             <div class="bloc-content">
-            <div class="intro-text">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu tellus pulvinar,
-                    porta nulla sit amet,luctu felis. Vivamus volutpat, nulla et ultricies faucibus, eros elit posuere ipsum,
-                    nec tempus velit augue ut quam. Nullam est libero porta ante.
-                </p>
-                <p>sit amet, consectetur adipiscing elit. Sed eu tellus pulvinar,
-                    porta nulla sit amet,luctus Nullam est libero porta ante.
-                </p>
+                <div class="intro-text">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu tellus pulvinar,
+                        porta nulla sit amet,luctu felis. Vivamus volutpat, nulla et ultricies faucibus, eros elit
+                        posuere ipsum,
+                        nec tempus velit augue ut quam. Nullam est libero porta ante.
+                    </p>
+                    <p>sit amet, consectetur adipiscing elit. Sed eu tellus pulvinar,
+                        porta nulla sit amet,luctus Nullam est libero porta ante.
+                    </p>
+
+                </div>
 
             </div>
-    
-                </div>
             <div class="separator-picture">
                 <img src="app/Public/front/images/micro-logo.png" alt="logo de guitar avevc note de musique">
             </div>

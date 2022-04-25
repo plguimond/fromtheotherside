@@ -15,19 +15,14 @@ burgerLink.addEventListener('click', function() {
 })
 
 
-// /* ========================================*/
-//       /* Function pour retourner les cards sur la page groupe  */
-// /* ========================================*/
 
-// /* Sélection des éléments HTML */
-// let cardButton = document.getElementsByClassName('cardButton');
-// let front = document.getElementsByClassName('memberFront-card');
-// let back = document.getElementsByClassName('memberBack-card');
+/* ===============================================================*/
+      /* Function pour valider rgpa sur le formuaire de contact*/
+/* ===============================================================*/
 
-// /* permet de faire un toggle de la class hidden sur la card */
-// for(let i = 0; i < cardButton.length; i++){
-//       cardButton[i].addEventListener('click', function(e) {
-//             front[i].classList.toggle('hidden');
-//             back[i].classList.toggle('hidden');
-//       })
-// }
+let checkbox = document.getElementById('rgpd');
+let sendForm = document.getElementById('sendForm');
+
+checkbox.addEventListener('click', function(){
+  sendForm.classList.toggle('hidden');
+})

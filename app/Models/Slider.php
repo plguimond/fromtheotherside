@@ -13,8 +13,8 @@ class Slider extends Manager
     public function __construct($data = [])
     {
         $this->id = $data["id"] ?? "";
-        $this->lastname = $data["slide"] ?? "";
-        $this->firstname = $data["title"] ?? "";
+        $this->slide = $data["slide"] ?? "";
+        $this->title = $data["title"] ?? "";
       
     }
 

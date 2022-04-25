@@ -37,7 +37,7 @@
                     <label for="price">Prix à partir de:</label>
                 </p>
                 <p>
-                    <input name="price" type="text" value="<?php if(isset($_POST["price"])) echo htmlspecialchars($_POST["price"]) ?>"> €
+                    <input name="price" type="number" value="<?php if(isset($_POST["price"])) echo htmlspecialchars($_POST["price"]) ?>"> €
                 </p>
                 <button class="admin-button" type="submit">Ajouter ce concert</button>
             </form>

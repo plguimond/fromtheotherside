@@ -56,6 +56,8 @@ class AdminController extends Controller
        
         if($exist === false && $this->extVerify($slidePath) === true)
         {
+            $getSlider = \Projet\Models\slider::find('id', $sliders['id']);
+            unlink($getSlider['slide']);
             move_uploaded_file($sliders['tmpName'], $slidePath);
             $sliderUpdate = new \Projet\Models\slider();
             $updateSlider = $sliderUpdate->updateSlider($sliders, $slidePath);
@@ -134,7 +136,7 @@ class AdminController extends Controller
     public function concertsPage($error){
 
         $concerts  = new \Projet\Models\Calendar();
-        $nextConcerts = $concerts->concerts();
+        $nextConcerts = $concerts->allConcerts();
 
         $data = [
             'concerts' => $nextConcerts,
@@ -145,15 +147,19 @@ class AdminController extends Controller
     }
 
     public function addConcert($postData){
-
+        
+        if ($postData['price'] == ""){
+            $price = 0;
+        }else{
+            $price =  htmlspecialchars($postData['price']);
+        }
         $data = [
             'title' => htmlspecialchars($postData['title']),
             'date' => htmlspecialchars($postData['date']),
             'location' => htmlspecialchars($postData['location']),
-            'price' => htmlspecialchars($postData['price']),
+            'price' => $price,
 
         ];
-
         if(!empty($data['title']) && !empty($data['date']) && !empty($data['location'])){
             $addConcert = \Projet\Models\Calendar::addConcert($data);
             unset($_POST);
@@ -164,15 +170,34 @@ class AdminController extends Controller
             $this->concertsPage($error);
         }
     }
+
     public function updateConcert($postData, $id){
 
+        if ($postData['price'] == ""){
+            $price = 0;
+        }else{
+            $price =  htmlspecialchars($postData['price']);
+        }
         $data = [
             'title' => htmlspecialchars($postData['title']),
             'date' => htmlspecialchars($postData['date']),
             'location' => htmlspecialchars($postData['location']),
-            'price' => htmlspecialchars($postData['price']),
+            'price' => $price,
             'id' => htmlspecialchars($id), 
         ];
+
+        if(!empty($data['title']) && !empty($data['date']) && !empty($data['location'])){
+            $concertUpdate = new \Projet\Models\Calendar();
+            $updateConcert = $concertUpdate->updateConcert($data);
+            unset($_POST);
+            $this->concertsPage($error = null);
+
+        }else{
+            $error = "Les champs marqués d'une étoile sont obligatoire.";
+            $this->concertsPage($error);
+        }
+
+        
 
 
         
@@ -329,9 +354,10 @@ class AdminController extends Controller
                 $tmpName = $file['picture1']['tmp_name'];
                 
             }elseif (!isset($files['picture1'])){
+                
                     $pic = new \Projet\Models\Articles();
                     $path = $pic->getNewsPicture('picture1', $id);
-                    $picturePath = $path;
+                    $picturePath = $path['picture1'];
                     $exist = false;
                     $extVerify = true;
                     $tmpName = "";

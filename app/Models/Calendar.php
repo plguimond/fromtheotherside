@@ -7,7 +7,6 @@ namespace Projet\Models;
 class Calendar extends Manager
 {
     public static function addConcert($data){
-        
         $bdd = self::dbConnect();
         $sqlQuery = $bdd->prepare("INSERT INTO calendar(title, `date`, `location`, price) VALUE (:title, :date, :location, :price)");
         $sqlQuery->execute(array(':title' => $data['title'], ':date' => $data['date'], ':location' => $data['location'], ':price' => $data['price']));
@@ -43,6 +42,12 @@ class Calendar extends Manager
     {
         $bdd = self::dbConnect();
         $req = $bdd->query('SELECT id, title, `date`, `location`, price FROM calendar WHERE `date` >= CURRENT_TIMESTAMP order by `date`');
+        $result = $req->fetchAll();
+        return $result;
+    }
+    public function allConcerts(){
+        $bdd = self::dbConnect();
+        $req = $bdd->query('SELECT id, title, `date`, `location`, price FROM calendar order by `date`');
         $result = $req->fetchAll();
         return $result;
     }
