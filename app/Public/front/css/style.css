@@ -764,15 +764,22 @@ footer{
   #slider-container{
     display: block;
     max-height: 450px;
-    width: 100%;
     overflow: hidden;
-  }
-  #slider li{
-    height: 450px;
-  }
-  #slider img{
     width: 100%;
+    position: relative;
   }
+
+  #slides .slide{
+    height: 450px;
+    position: relative;
+  }
+  #slides .slide img{
+    width: 100%;
+    object-fit: contain;
+    position: relative;
+   
+  }
+
  
 
 

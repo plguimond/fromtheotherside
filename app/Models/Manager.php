@@ -77,6 +77,7 @@ abstract class Manager
             return false;
         }
     }
+/* utilisation de * pour récupérer les données de n'importe qu'elle classe */
 
     public static function find($name, $value){
         $klass =  get_called_class();
@@ -123,4 +124,6 @@ abstract class Manager
         $req = $bdd->prepare("DELETE FROM `{$child}` WHERE `{$name}` = ?");
         $req->execute(array($value)); 
     }
+
+    
 }

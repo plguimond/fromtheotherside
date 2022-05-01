@@ -28,7 +28,7 @@
                 ?>
                     <tr>
                         <td>
-                        <p><?= $news->created_At; ?></p>
+                        <p><?= $this->formatDate($news->created_At); ?></p>
                         </td>
                         <td>
                             <p><?= $news->title; ?> </p>  

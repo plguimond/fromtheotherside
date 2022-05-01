@@ -8,15 +8,14 @@ include('app/Views/front/layouts/header.php');
             alt="Groupe de musique sur scène en avec éclairage sombre">
     </div>
 
-    <div id="slider-container" >
-        <div id="slider" class="">
+        <div id="slider-container" class="">
             <div id="slides">
                 <?php foreach($data['slider'] as $slide){ ?>
                     <div class="slide"><img src="<?= $slide->slide ?>" alt="<?= $slide->title ?>"></div>
                 <?php }?>
             </div>
         </div>
-    </div>
+  
 
     <Section id="intro-home" class="container">
         <H1 class="title-h1">Du rock, du métal et plus encore!</H1>
@@ -48,7 +47,7 @@ include('app/Views/front/layouts/header.php');
                 <div class="show-info">
                     <h3><?= $data['nextShow']['title']; ?></h3>
                     <p>Adresse: <?= $data['nextShow']['location']; ?></p>
-                    <p>Rendez-vous le : <?= $data['nextShow']['date']; ?></p>
+                    <p>Rendez-vous le : <?= $this->formatDate($data['nextShow']['date']); ?></p>
                     <p>Prix à partir de: <?= $data['nextShow']['price']; ?>€</p>
                 </div>
                 <div class="next-show-link">

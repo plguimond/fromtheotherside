@@ -27,7 +27,7 @@
                     <tr>
                         
                         <td>
-                        <?= $email->createdAt; ?>
+                        <?= $this->formatDate($email->createdAt); ?>
                         </td>
                         <td>
                             <div>

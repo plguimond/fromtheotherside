@@ -16,7 +16,7 @@
                     <p><a href="mailto:<?= $data['email']['mail'] ?>"><?= $data['email']['mail'] ?></a></p>
                     <p><?= $data['email']['phone'] ?></p>
                 </div>
-                <p><?= $data['email']['createdAt'] ?></p>
+                <p><?= $this->formatDate($data['email']['createdAt']) ?></p>
             </div>
             <div class="single-mail-body">
                 <p><?= $data['email']['content'] ?></p>

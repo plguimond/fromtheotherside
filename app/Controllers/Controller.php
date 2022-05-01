@@ -18,5 +18,10 @@ class Controller
 
     }
 
-   
+    public static function formatDate($date, $format = "d F Y"){
+        $englishMonths = array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
+        $frenchMonths = array('janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre');
+
+        return str_replace($englishMonths, $frenchMonths, date($format, strtotime($date)));
+    }
 }

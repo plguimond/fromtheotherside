@@ -15,6 +15,8 @@ class FrontController extends Controller
         $slider = \Projet\Models\Slider::all();
 
         $nextShow = $concerts->nextShow();
+        // $nextShow['date'] = $this->formatDate($nextShow['date']);
+        
         $lastNews = $articles->lastNews();
         $data = [
             'members' => $members,
@@ -46,7 +48,7 @@ class FrontController extends Controller
         // premier article de la page
         $firstNews = ($currentPage * $perPage) - $perPage;
         $news = $articles->newslist($firstNews, $perPage);
-
+     
         $data = [
             'articles' => $news,
             'newsCount' => $newsCount['number_of'],

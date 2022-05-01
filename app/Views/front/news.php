@@ -26,7 +26,7 @@ include('app/Views/front/layouts/header.php');
             </div>
             <div class="card-footer">
                <a href="index.php?action=singleNews&id=<?=$article['id'];?>">Par ici pour la suite! </a>
-               <p><?= $article['created_At'];?></p>
+               <p><?= $this->formatDate($article['created_At']);?></p>
             </div>
          </article>
       
