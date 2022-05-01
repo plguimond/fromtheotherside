@@ -44,40 +44,41 @@
         </div>
 
         <h2>Modifier un concert existant</h2>
-
+        <div class="update-bloc">
         <?php foreach ($data['concerts'] as $concert){ ?>
 
-        <div class="form-concert update-concerts">
-            <form action="indexAdmin.php?action=updateConcert&id=<?= $concert['id'] ?>" method="POST">
-                <p>
-                    <label for="title">Titre ou info sur le concert</label>
-                </p>
-                <p>
-                    <textarea name="title" cols="37" rows="8"><?= $concert['title'] ?></textarea>
-                </p>
-                <p>
-                    <label for="date">Date *</label>
-                </p>
-                <p>
-                    <input type="date" name="date" value="<?= $concert['date'] ?>">
-                </p>
-                <p>
-                    <label for="location">Lieux du concert *</label>
-                </p>
-                <p>
-                    <input type="text" name="location" value="<?= $concert['location']  ?>">
-                </p>
-                <p>
-                    <label for="price">Prix à partir de:</label>
-                </p>
-                <p>
-                    <input type="text" name="price" value="<?= $concert['price']  ?>"> €
-                </p>
-                <button class="admin-button" type="submit">Modifier</button>
-            </form>
-            <a class="admin-button" href="indexAdmin.php?action=deleteConcert&id=<?= $concert['id']; ?>">Supprimer</a>
-        </div>
+            <div class="form-concert update-concerts">
+                <form action="indexAdmin.php?action=updateConcert&id=<?= $concert['id'] ?>" method="POST">
+                    <p>
+                        <label for="title">Titre ou info sur le concert</label>
+                    </p>
+                    <p>
+                        <textarea name="title" cols="37" rows="8"><?= $concert['title'] ?></textarea>
+                    </p>
+                    <p>
+                        <label for="date">Date *</label>
+                    </p>
+                    <p>
+                        <input type="date" name="date" value="<?= $concert['date'] ?>">
+                    </p>
+                    <p>
+                        <label for="location">Lieux du concert *</label>
+                    </p>
+                    <p>
+                        <input type="text" name="location" value="<?= $concert['location']  ?>">
+                    </p>
+                    <p>
+                        <label for="price">Prix à partir de:</label>
+                    </p>
+                    <p>
+                        <input type="text" name="price" value="<?= $concert['price']  ?>"> €
+                    </p>
+                    <button class="admin-button" type="submit">Modifier</button>
+                </form>
+                <a class="admin-button" href="indexAdmin.php?action=deleteConcert&id=<?= $concert['id']; ?>">Supprimer</a>
+            </div>
         <?php }?>
+        </div>
     </section>
 
 </main>

@@ -2,13 +2,13 @@
 
 <main class="admin-content">
     <?php include('app/Views/administration/layouts/sidebar.php'); ?>
-    <h1>Modifier l'article ou supprimer des photos</h1>
     <?php  
          if (isset($data['error'])){ 
              if($data['error'] != ""){ ?>
                 <p class = "login-error"><?= $data['error'] ?></p>
-         <?php }} ?>
+                <?php }} ?>
     <section id="singleNews-content">
+        <h1>Modifier l'article ou supprimer des photos</h1>
         <form action="indexAdmin.php?action=updateNews&id=<?= $data['news']['id'] ?>" method="POST" enctype="multipart/form-data">
             <div id="singleNews-title">
                 <p>

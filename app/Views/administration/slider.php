@@ -14,7 +14,7 @@
         <?php if (isset($data)) { ?>
         <?php foreach ($data['slides'] as $slide) { ?>
         <div class="update-slider">
-            <img class="admin-slider-image" src="<?= $slide['slide']; ?>" alt="<?= $slide['title']; ?>">
+            
             <form class="slider-form" action="indexAdmin.php?action=updateSlider&id=<?= $slide['id']; ?>" method="POST"
                 enctype="multipart/form-data">
                 <label class="label-file" for="file">Modifier une Image</label>
@@ -27,6 +27,7 @@
                         href="indexAdmin.php?action=deleteSlide&id=<?= $slide['id']; ?>">Supprimer</a>
                 </div>
             </form>
+            <img class="admin-slider-image" src="<?= $slide['slide']; ?>" alt="<?= $slide['title']; ?>">
 
         </div>
         <?php }

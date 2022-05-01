@@ -11,7 +11,7 @@
             <a class="admin-button" href="indexAdmin.php?action=addNewsPage">Créer un nouvel article</a>
         </div>
         <?php if (!empty($data['news'])){ ?>
-                <div>
+                <div class="table-news">
                     <table class="admin-table">
                         <thead>
                             <tr>
