@@ -113,6 +113,8 @@ include('app/Views/front/layouts/header.php');
     </section>
 </main>
 
+<!-- /*Script uniquement pour la page d'accueil*/ -->
+<script src="app/Public/front/js/slider.js"></script>
 <?php
 include('app/Views/front/layouts/footer.php');
 ?>

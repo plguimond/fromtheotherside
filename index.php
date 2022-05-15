@@ -33,7 +33,11 @@ try {
 
         elseif ($_GET['action'] == 'concertsPage') {
             $frontController->concertsFront();
-        } 
+        }
+
+        elseif ($_GET['action'] == 'rgpd') {
+            $frontController->rgpd();
+        }  
         
         elseif ($_GET['action'] == 'contactPage') {
             $frontController->contactFront($error = "");

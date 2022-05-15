@@ -181,6 +181,10 @@ header{
 #menu-head ul li a {
   color: white;
 }
+#menu-head ul li a.active{
+  color: var(--lightblue);
+}
+
 /* class pour mettre tout en blur */
 .blured{
   -webkit-transition: all 0.6s ease;
@@ -792,6 +796,18 @@ footer{
     background-color: rgb(230, 204, 122);
   }
 
+/* ========================================*/
+      /* page rgpd */
+/* ========================================*/
+
+  #rgpd-page{
+    padding: 10px;
+  }
+  
+  #rgpd-page p{
+    margin-bottom: 20px;
+  }
+
 /* ++++++++++++++++++++++++++++++++++++++++ */
 /*        Resolution ecran pc */
 /* ++++++++++++++++++++++++++++++++++++++++ */
@@ -957,6 +973,11 @@ footer{
     margin: 0;
   }
 
+  #band-cards .member-card p{
+    overflow: visible;
+    display: contents;
+  }
+
 /* page concerts*/ 
 /* ++++++++++++++++++++++++++++++++++++++++ */  
   #concerts-page section{
@@ -1017,6 +1038,38 @@ footer{
     width: 450px;
   }
 
+
+  /******** BURGER *************/
+
+/* mise en page du menu */
+#menu-head ul {
+
+  width:100%;
+  height: 100px;
+  transform:scaleY(0);
+  transform-origin: top;
+  display: flex;
+  justify-content: space-around;
+}
+/* Ouverture du menu*/
+#burger-link:checked~#menu-list {
+  transform:scaleX(1);
+}
+#menu-head ul li {
+  padding:8px 0;
+  text-align:left
+}
+#menu-head ul li a {
+  color: white;
+}
+#menu-head ul li :hover{
+  color: var(--lightblue);
+  
+}
+#menu-head ul li a.active{
+  color: var(--lightblue);
+  text-decoration: underline;
+}
 }
 
 

@@ -34,7 +34,13 @@ class FrontController extends Controller
 
         return $this->viewFront('band', $members);
     }
+// Lien vers la page rgpd
+    public function rgpd()
+    {
+        $members = \Projet\Models\Bandmembers::all();
 
+        return $this->viewFront('rgpd');
+    }
 // Gestion de la page des news
     public function newsFront($currentPage)
     {
@@ -218,7 +224,7 @@ class FrontController extends Controller
 
     public function deleteUserComment($data){
       
-        if ($_SESSION['id'] == $data['idUser']){
+        if ($_SESSION['id'] == $data['idUser'] || $_SESSION['role'] == 1 ){
             
             $delete = \Projet\Models\Comments::delete('id', $data['comment_id']);
             header('Location: index.php?action=singleNews&id='. $data['article_id']);

@@ -1,6 +1,6 @@
 <?php
 include('app/Views/front/layouts/header.php');
-// var_dump($data['currentPage']);die; 
+
 ?>
 <main id="news-page" class="container">
    <h1>Les News</h1>

@@ -491,6 +491,13 @@ border-radius: 8px;
   width: 40%;
 }
 
+#admin-band form input{
+  margin: 10px 0;
+}
+#admin-band form .admin-button{
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
 /* ++++++++++++++++++++++++++++++++++++++++ */
 /*        Section Admin News */
 /* ++++++++++++++++++++++++++++++++++++++++ */
@@ -677,6 +684,12 @@ border-radius: 8px;
     margin: 0 auto;
   }
 
+  .admin-message{
+    width: 70%;
+    min-width: 778px;
+    margin: 0 auto;
+  }
+
     /*ADMIN slider */
   /* ++++++++++++++++++++++ */
 
@@ -712,7 +725,7 @@ border-radius: 8px;
     margin: 0 auto;
   }
 
-  /*        Section Admin News */
+  /*        Section Admin Concert */
   /* ++++++++++++++++++++++++++++++++++++++++ */
   
   .update-bloc{
@@ -736,18 +749,27 @@ border-radius: 8px;
   }
   .form-concert input{
    max-width: 100%;
+   margin: 0 5px;
+  }
+  /* ++++++++++++++++++++++ */
+    /*ADMIN band members */
+  /* ++++++++++++++++++++++ */
+  #add-member, #members-update{
+    padding: 10px;
+  }
+  #members-update{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-left: 10px;
+  }
+  #members-update h2{
+    width: 100%; 
   }
 
-    /*ADMIN email */
-/* ++++++++++++++++++++++ */
-
-.admin-message{
-  width: 70%;
-  min-width: 778px;
-  margin: 0 auto;
-}
-
-
-
+  #add-member .card, #members-update .card{
+    width: 350px;
+    margin-left: 10px;
+  }
 
 }

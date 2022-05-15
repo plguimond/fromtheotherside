@@ -27,7 +27,7 @@ include('app/Views/front/layouts/header.php');
       <!--  bouton envoyer et annuler  -->
       <p>
          <input type="checkbox" name="rgpd" id="rgpd">
-         <label for="rgpd" class="petit_texte">J'accepte les <a class="underline" href="#">conditions générales.</a></label>
+         <label for="rgpd" class="petit_texte">J'accepte les <a class="underline" href="index.php?action=rgpd">conditions générales.</a></label>
       </p>
       <p>
          <button type="submit" id = "sendForm" class="hidden ">Envoyer</button>

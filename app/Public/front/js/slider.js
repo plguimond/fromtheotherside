@@ -1,4 +1,4 @@
-
+// contrôle l'affichage du slider
 let slideDelay = 1.5;
 let slideDuration = 2;
 

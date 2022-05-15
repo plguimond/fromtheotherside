@@ -17,13 +17,17 @@ $connect = isConnect();
     <link rel="stylesheet" href="app/Public/front/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
 
+    <link rel="icon" type="image/png" href="app/Public/front/images/logo-groupe.png" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
+    
     <header id="head">
         <div class="head-content">
 
@@ -33,11 +37,11 @@ $connect = isConnect();
                     <span id="burger"></span>
                
                 <ul id="menu-list">
-                    <li><a href="index.php">Accueil</a></li>
-                    <li><a href="index.php?action=bandPage">Le groupe</a></li>
-                    <li><a href="index.php?action=newsPage">Les news</a></li>
-                    <li><a href="index.php?action=concertsPage">Prochaines dates</a></li>
-                    <li><a href="index.php?action=contactPage">Nous contacter</a></li>
+                    <li><a class="page-link" href="index.php">Accueil</a></li>
+                    <li><a class="page-link" href="index.php?action=bandPage">Le groupe</a></li>
+                    <li><a class="page-link" href="index.php?action=newsPage">Les news</a></li>
+                    <li><a class="page-link" href="index.php?action=concertsPage">Prochaines dates</a></li>
+                    <li><a class="page-link" href="index.php?action=contactPage">Nous contacter</a></li>
                     <?php
                     if ($connect == true && $_SESSION['role'] == 1) {  ?>
                         <li><a href="index.php?action=userPage">Dashboard</a></li>

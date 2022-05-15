@@ -4,9 +4,9 @@
         <nav id="menu_social">
                 
                     <ul>
-                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="https://youtube.com"><i class="fab fa-youtube"></i></a></li>
+                        <li><a href="https://instagram.com"><i class="fab fa-instagram"></i></a></li>
                     </ul>
                 
         </nav>
@@ -19,7 +19,7 @@
                 <ul>
                     <li><a href="index.php?action=contactPage">Nous écrire</a></li>
                     <li><a href="tel:+330601020304">Nous appeler</a></li>
-                    <li><a href="#">Mentions légales</a></li>
+                    <li><a href="index.php?action=rgpd">Mentions légales</a></li>
                 </ul>
            
          </aside>
@@ -31,7 +31,7 @@
 
 </footer>
 <script src="app/Public/front/js/script.js"></script>
-<script src="app/Public/front/js/slider.js"></script>
+
 </body>
 
 </html>
