@@ -10,7 +10,13 @@ class Calendar extends Manager
         $bdd = self::dbConnect();
         $sqlQuery = $bdd->prepare("INSERT INTO calendar(title, `date`, `location`, price) VALUE (:title, :date, :location, :price)");
         $sqlQuery->execute(array(':title' => $data['title'], ':date' => $data['date'], ':location' => $data['location'], ':price' => $data['price']));
-        
+    }
+
+    public static function countNextShow(){
+        $bdd = self::dbConnect();
+        $req = $bdd->query('SELECT COUNT(id) AS number_of FROM calendar WHERE `date` >= CURRENT_TIMESTAMP');
+        $result = $req->fetch();
+        return $result;
     }
 
     public $id;
@@ -29,7 +35,7 @@ class Calendar extends Manager
   
     }
 
-
+   
     public function nextShow()
     {
         $bdd = self::dbConnect();

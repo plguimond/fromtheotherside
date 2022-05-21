@@ -1,6 +1,5 @@
 <?php
 include('app/Views/front/layouts/header.php');
-
 ?>
 <main id="home-page">
     <div class="mobile-banner">

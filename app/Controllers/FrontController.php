@@ -114,9 +114,12 @@ class FrontController extends Controller
     }
 
 //Gestion de la page perso de l'utilisateur
-    public function userPage()
+    public function userPage($error)
     {
-        return $this->viewFront('userPage');
+        $data = [
+            'error' => $error
+        ];
+        return $this->viewFront('userPage', $data);
     }
 
 /* function login pour établir la connexion au compte utilisateur*/
@@ -127,15 +130,13 @@ class FrontController extends Controller
         if ($exist == true) {
             $user = \Projet\Models\Users::find('mail', $mail);
 
-            
-
             $isPasswordCorrect = password_verify($pass, $user['password']);
             if ($isPasswordCorrect){
                 $_SESSION['mail'] = $user['mail'];
                 $_SESSION['id'] = $user['id'];
                 $_SESSION['firstname'] = $user['firstname'];
                 $_SESSION['lastname'] = $user['lastname'];
-                $_SESSION['password'] = $user['password'];
+                // $_SESSION['password'] = $user['password'];
                 $_SESSION['role'] = $user['role'];
             }
             if ($isPasswordCorrect && $user['role'] == 1) {
@@ -158,6 +159,37 @@ class FrontController extends Controller
         }
     }
 
+/* function changePwd pour modifier le mot de passe utilisateur*/
+public function changePwd($mail, $pass, $newPass)
+{
+    
+    $exist = \Projet\Models\Users::exist('mail', $mail);
+    if ($exist == true) {
+        $user = \Projet\Models\Users::find('mail', $mail);
+
+        $isPasswordCorrect = password_verify($pass, $user['password']);
+        if ($isPasswordCorrect){
+            $newPwd  = new \Projet\Models\Users();
+            $newPassword = $newPwd->changePwd($mail, $newPass);
+            $data = [
+                'validation' => "Votre mot de passe à été modifié avec succès"
+            ];
+            return $this->viewFront('userPage', $data);
+        } else {
+            $error = "Vérifiez que vous avez saisi le bon mot de passe.";
+            $data = [
+                'error' => $error
+            ];
+            return $this->viewFront('userPage', $data);
+        }
+    } else {
+        $error = "Vérifier que vous avez saisi la bonne adresse e-mail.";
+        $data = [
+            'error' => $error
+        ];
+        return $this->viewFront('userPage', $data);
+    }
+}
 // Gestion de la page de creation de compte
     public function newAccount($error)
     {

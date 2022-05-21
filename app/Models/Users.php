@@ -12,8 +12,6 @@ class Users extends Manager
         
     }
     
-    
-    
     public $id;
     public $lastname;
     public $firstname;
@@ -27,5 +25,11 @@ class Users extends Manager
         $this->mail = $data["mail"] ?? "";
     }
 
+    public function changePwd($mail, $newPwd){
+        $password = password_hash($newPwd, PASSWORD_DEFAULT);
+        $bdd = self::dbConnect();
+        $sqlQuery = $bdd->prepare("UPDATE `users` SET `password` = :password WHERE mail = :mail");
+        $sqlQuery->execute(array(':password' => $password, ':mail' => $mail));
+    }
     
 }

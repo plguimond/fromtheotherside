@@ -1,5 +1,6 @@
 <?php
 require_once './app/security/Connect.php';
+
 $connect = isConnect();
 ?>
 
@@ -42,12 +43,14 @@ $connect = isConnect();
                     <li><a class="page-link" href="index.php?action=newsPage">Les news</a></li>
                     <li><a class="page-link" href="index.php?action=concertsPage">Prochaines dates</a></li>
                     <li><a class="page-link" href="index.php?action=contactPage">Nous contacter</a></li>
-                    <?php
-                    if ($connect == true && $_SESSION['role'] == 1) {  ?>
+                  
+                    <?php if ($connect == true && $_SESSION['role'] == 1) { ?>
                         <li><a href="index.php?action=userPage">Dashboard</a></li>
-                    <?php }
+                    <?php } elseif($connect == true) { ?>
+                        <li><a href="index.php?action=userPage">Compte utilisateur</a></li>
+                   <?php }
                     if ($connect == true) { ?>
-                        <li><a href="indexAdmin.php?action=disconnect">Se déconnecter</a></li>
+                        <li><a href="index.php?action=disconnect">Se déconnecter</a></li>
                     <?php } else{ ?>
                         <li><a href="index.php?action=loginPage">Connectez-vous</a></li>
                     <?php } ?>

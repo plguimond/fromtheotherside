@@ -39,7 +39,8 @@ menuLink.classList.add('active');
 
 let checkbox = document.getElementById('rgpd');
 let sendForm = document.getElementById('sendForm');
-let cancel = document.getElementById('cancelForm');
+let cancel   = document.getElementById('cancelForm');
+
 
 checkbox.addEventListener('click', function(){
   sendForm.classList.toggle('hidden');

@@ -7,7 +7,7 @@
                     <h1 class="message-title">Emails</h1>
                 <!-- TABLE -->
                 <?php if (!empty($data['emails'])){ ?>
-                <div>
+                <div class="email-table">
                     <table class="admin-table">
                         <thead>
                             <tr>

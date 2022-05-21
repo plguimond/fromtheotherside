@@ -21,7 +21,18 @@ class AdminController extends Controller
      
     public function dashboard()
     {
-        return $this->viewAdmin('dashboard'); 
+        $members =  \Projet\Models\Bandmembers::count();
+        $messages = \Projet\Models\Contacts::count();
+        $articles = \Projet\Models\Articles::count();
+        $nextConcerts = \Projet\Models\Calendar::count();
+ 
+        $data = [
+            'members' => $members['number_of'],
+            'messages' => $messages['number_of'],
+            'articles' => $articles['number_of'],
+            'concerts' => $nextConcerts['number_of'],
+        ];
+        return $this->viewAdmin('dashboard', $data); 
     }
 
     // +++++++++++++++++++++++++++++++++++++++++++++ //

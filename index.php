@@ -49,10 +49,27 @@ try {
             if ($_SESSION['role'] == 1){
             header('Location: indexAdmin.php');
             }
-            // else{
-            // $frontController->userPage();
+            else{
+                $frontController->userPage($error = "");
+            }
         }
         
+        elseif ($_GET['action'] == 'changePwd') {
+            
+            /*récupération des variables du formulaire de connexion*/
+           $mail = htmlspecialchars($_POST['mail']);
+           $pass = htmlspecialchars($_POST['pwd']);
+           $newPass = htmlspecialchars($_POST['newPwd']);
+   
+           if (!empty($mail) &&(!empty($pass)) && (!empty($newPass))){
+               
+               $frontController->changePwd($mail, $pass, $newPass);   
+           }else{
+               $error = "Vous devez remplir tous les champs.";
+               $frontController->userPage($error);
+           }
+       }
+
         elseif ($_GET['action'] == 'login') {
              /*récupération des variables du formulaire de connexion*/
             $mail = htmlspecialchars($_POST['mail']);
@@ -81,6 +98,11 @@ try {
                 $error = "Vous devez remplir tous les champs.";
                 $frontController->newAccount($error);
             }
+        }
+
+        elseif ($_GET['action'] == 'disconnect') {
+            session_destroy();
+            header('location: index.php');
         }
 
         elseif ($_GET['action'] == 'singleNews'){

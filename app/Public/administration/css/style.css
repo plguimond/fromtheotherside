@@ -228,6 +228,24 @@ a.admin-button {
   width: 100%;
   background-color: var(--mediumgrey);
 }
+
+/* ++++++++++++++++++++++ */
+    /*DASHBOARD */
+/* ++++++++++++++++++++++ */
+#dashboard{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px;
+}
+#dashboard h1{
+  width: 100%;
+}
+#dashboard .counter{
+  width: 100%;
+  height: 250px;
+}
+
 /* ++++++++++++++++++++++ */
     /*ADMIN SLIDER */
 /* ++++++++++++++++++++++ */
@@ -671,9 +689,14 @@ border-radius: 8px;
 
     /*ADMIN email */
   /* ++++++++++++++++++++++ */
-  
+  .admin-table{
+    width: 100%;
+    min-width: 558px;
+    margin: 0 auto;
+  }
   .email-table {
     width: 90%;
+    min-width: 558px;
     margin: 0 auto;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   }
@@ -685,9 +708,7 @@ border-radius: 8px;
   }
 
   .admin-message{
-    width: 70%;
-    min-width: 778px;
-    margin: 0 auto;
+    width: 100%;
   }
 
     /*ADMIN slider */
@@ -708,13 +729,13 @@ border-radius: 8px;
     width: 100%;
   }
   .add-news{
-    width: 70%;
-    min-width: 778px;
+    width: 90%;
+    min-width: 558px;
     margin: 0 auto;
   }
   .table-news{
-    width: 70%;
-    min-width: 778px;
+    width: 90%;
+    min-width: 558px;
     margin: 0 auto;
   }
 

@@ -9,17 +9,23 @@ include('app/Views/front/layouts/header.php');
             <?php 
             if (isset($data['error'])){
             if($data['error'] != ""){?>
-                <p class = "login-error"><?= $data['error'] ?></p>
+            <p class="login-error"><?= $data['error'] ?></p>
             <?php }} ?>
         </div>
         <div class="login-box">
             <form class="form-login" action="index.php?action=createAccount" method="POST">
-                <input type="text" name="firstname" placeholder="Prénom" aria-label="Entrez votre prénom">    
-                <input type="text" name="lastname" placeholder="Nom de famille" aria-label="Entrez votre nom de famille">     
+                <input type="text" name="firstname" placeholder="Prénom" aria-label="Entrez votre prénom">
+                <input type="text" name="lastname" placeholder="Nom de famille"
+                    aria-label="Entrez votre nom de famille">
                 <input type="email" name="mail" placeholder="E-mail" aria-label="Entrez votre adresse email">
                 <input type="password" name="pwd" placeholder="Mot de passe" aria-label="Entrez votre mot de passe">
-             
-                <button type="submit">Création du compte</button>
+
+                <p>
+                    <input type="checkbox" name="rgpd" id="rgpd">
+                    <label for="rgpd" class="petit_texte">J'accepte les <a class="underline"
+                            href="index.php?action=rgpd">conditions générales.</a></label>
+                </p>
+                <button type="submit" id="sendForm" class="hidden">Création du compte</button>
             </form>
         </div>
     </section>
