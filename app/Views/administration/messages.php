@@ -8,6 +8,7 @@
         <!-- TABLE -->
         <?php if (!empty($data['emails'])){ ?>
         <div class="email-table">
+            <!-- tableau d'affichage des messages  -->
             <table class="admin-table">
                 <thead>
                     <tr>
@@ -22,6 +23,7 @@
                 <tbody>
                     <?php 
                 
+                //boucle affichage  message par ligne
                     foreach($data['emails'] as $email) { 
                 ?>
                     <tr>
@@ -49,9 +51,9 @@
                         }
                         ?>
 
-
                         </td>
                         <td>
+                            <!-- boutons d'actions voir, supprimer  -->
                             <div class="action-icon">
                                 <div>
                                     <a href="indexAdmin.php?action=viewMail&id=<?=$email->id;?>">

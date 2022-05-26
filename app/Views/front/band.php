@@ -7,6 +7,7 @@ include('app/Views/front/layouts/header.php');
    <section id="band-cards">
    
    <?php  
+   // boucle sur tous les mbmres et affichage dans une card
    foreach($data as $member){
    ?>
       <article class="card member-card">

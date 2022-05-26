@@ -60,6 +60,9 @@ abstract class Manager
         return $objects;
     }
 
+    //permet de vérifié si une valeur existe dans une table
+    //name est me nom de la colonne et value la valeur que l'on cherche
+    //retourne un booleen 
     public static function exist($name, $value)
     {
         $klass =  get_called_class();
@@ -79,6 +82,7 @@ abstract class Manager
     }
 /* utilisation de * pour récupérer les données de n'importe qu'elle classe */
 
+//cherche dans la la table une valeur de son choix 
     public static function find($name, $value){
         $klass =  get_called_class();
         $child = explode("\\",$klass);
@@ -91,6 +95,7 @@ abstract class Manager
         return $result;
     }
 
+    //récupère tous les résultats dans une table selon une valeur
     public static function findAll($name, $value){
         $klass =  get_called_class();
         $child = explode("\\",$klass);
@@ -103,6 +108,7 @@ abstract class Manager
         return $result;
     }
 
+    //Retourne le nombre de ligne dans une table de la bdd
     public static function count(){
         $klass =  get_called_class();
         $child = explode("\\",$klass);
@@ -115,6 +121,7 @@ abstract class Manager
         return $result;
     }
 
+    //permet de supprimer un élément de la bdd selon une valeur
     public static function delete($name, $value){
         $klass =  get_called_class();
         $child = explode("\\",$klass);

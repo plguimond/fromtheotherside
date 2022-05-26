@@ -5,11 +5,11 @@
 
     <section class="admin-news">
         <h1 class="news-title">Ajouter ou modifier un article</h1>
-        <!-- TABLE -->
 
         <div class="add-news">
             <a class="admin-button" href="indexAdmin.php?action=addNewsPage">Créer un nouvel article</a>
         </div>
+        <!-- tableau affichage des articles -->
         <?php if (!empty($data['news'])){ ?>
                 <div class="table-news">
                     <table class="admin-table">
@@ -23,6 +23,7 @@
                 <tbody>
                 <?php 
                 
+                // boucle sur la ligne pour avoir un article par ligne
                     foreach($data['news'] as $news) { 
                 ?>
                     <tr>

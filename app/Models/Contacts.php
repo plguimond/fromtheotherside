@@ -1,9 +1,10 @@
 <?php
 
 namespace Projet\Models;
-
+//class Contacts sur le modèle de la table contact en bdd
 class Contacts extends Manager
 {
+    //récupère tous les messages enregistrés en bdd
     public static function contactMessage($contactData){
         $bdd = self::dbConnect();
         $sqlQuery = $bdd->prepare("INSERT INTO `contacts`(lastname, firstname, mail, phone, subject, content) VALUE (:lastname, :firstname, :mail, :phone, :subject, :content )");

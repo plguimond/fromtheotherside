@@ -2,9 +2,11 @@
 
 namespace Projet\Models;
 
+//class Comments sur le modèle de la table comments en bdd
 class Comments extends Manager
 {
 
+    //ajoute un commentaire posté en bdd
     public static function postComment($commentData){
         $bdd = self::dbConnect();
         $sqlQuery = $bdd->prepare("INSERT INTO `comments`(content, idUser,  idArticle) VALUE (:comment, :idUser, :idArticle)");
@@ -12,6 +14,7 @@ class Comments extends Manager
         
     }
 
+    //récupère les commentaires selon l'article
     public static function getUserComments($articleId){
         
         $bdd = self::dbConnect();

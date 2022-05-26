@@ -25,11 +25,12 @@
             </div>
             
             <div class="head-content">
+            <!-- menu de navigation burger mobile -->
                 <nav id="menu-head">
                     <input id="burger-link" type="checkbox" />
-                    <!-- <a id="burger-link" href="#"> -->
+                
                     <span id="burger"></span>
-                    <!-- </a> -->
+                    
                     <ul id="menu-list">
                         <li><a href="indexAdmin.php">Dashboard</a></li>
                         <li><a href="indexAdmin.php?action=sliderPage">Modifier le slider</a></li>
@@ -42,8 +43,7 @@
 
                     </ul>
                 </nav>
-                <!-- Div transparente pour créer le flou derrière le menu -->
-                <div id="blur-me"></div>
+                
             </div>
             <p>Bienvenue sur votre espace d'administration <?= $_SESSION['firstname']?></p>
         

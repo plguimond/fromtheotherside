@@ -14,7 +14,7 @@ include('app/Views/front/layouts/header.php');
          if($data['message'] != ""){ ?>
             <p class = "validate"><?= $data['message'] ?></p>
    <?php }} ?>
-   
+   <!-- Formulaire de contact  -->
    <form class="contact-form" action="index.php?action=contactForm" method="post" id="contactForm">
    
       <input aria-label="Entrez votre nom de famille" type="text" name="lastname" id="lastname" placeholder="Votre nom *" value="<?php if(isset($_POST["lastname"])) echo htmlspecialchars($_POST["lastname"]) ?>">
@@ -26,10 +26,12 @@ include('app/Views/front/layouts/header.php');
       <textarea aria-label="Entrez votre message" placeholder="Votre message *" name="content" id="content" cols="37" rows="8"><?php if(isset($_POST["content"])) echo  htmlspecialchars($_POST["content"]) ?></textarea>
       <!--  bouton envoyer et annuler  -->
       <p>
+         <!-- Case rgpd doit être cocher pour que le bouton envoyer apparaisse -->
          <input type="checkbox" name="rgpd" id="rgpd">
          <label for="rgpd" class="petit_texte">J'accepte les <a class="underline" href="index.php?action=rgpd">conditions générales.</a></label>
       </p>
       <p>
+         <!-- Hidden et apparait selon checkbox rgpd -->
          <button type="submit" id = "sendForm" class="hidden ">Envoyer</button>
          <button type="reset" id="cancelForm" class="">Annuler</button>
       </p>

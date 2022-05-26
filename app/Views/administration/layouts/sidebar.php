@@ -1,6 +1,6 @@
 <div class="sidebar-admin">
 
-    
+    <!-- Barre de navigation en sidebar sur backoffice     -->
     <nav id="sidebar-menu">
                    
                     <ul id="sidebar-list">

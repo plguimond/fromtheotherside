@@ -10,6 +10,7 @@ if ($connect = true && $_SESSION['role'] == 1) {
     <section id="dashboard">
         <h1>Résumé de votre site web</h1>
 
+        <!-- Blocs de stats sur les différentes sections du site avec lien vers les pages -->
         <article>
             <h2>Nombre de messages enregistrés</h2>
             <a href="indexAdmin.php?action=emailPage" class="counter">

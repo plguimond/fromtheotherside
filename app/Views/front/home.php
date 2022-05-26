@@ -1,6 +1,7 @@
 <?php
 include('app/Views/front/layouts/header.php');
 ?>
+<!-- Page d'accueil du site -->
 <main id="home-page">
     <div class="mobile-banner">
         <img src="app/Public/front/images/photoconcertsallesombre.jpg"
@@ -8,6 +9,7 @@ include('app/Views/front/layouts/header.php');
     </div>
 
         <div id="slider-container" class="">
+            <!-- Slider apparait sur écran large et fonctionne en JS -->
             <div id="slides">
                 <?php foreach($data['slider'] as $slide){ ?>
                     <div class="slide"><img src="<?= $slide->slide ?>" alt="<?= $slide->title ?>"></div>
@@ -15,7 +17,7 @@ include('app/Views/front/layouts/header.php');
             </div>
         </div>
   
-
+    <!-- Bloc d'introduction du site internet non administrable en backoffice -->
     <Section id="intro-home" class="container">
         <H1 class="title-h1">Du rock, du métal et plus encore!</H1>
         <div class="bloc-section">
@@ -31,14 +33,15 @@ include('app/Views/front/layouts/header.php');
                     </p>
 
                 </div>
-
             </div>
+            <!-- image entre chaque section  -->
             <div class="separator-picture">
                 <img src="app/Public/front/images/micro-logo.png" alt="logo de guitar avevc note de musique">
             </div>
         </div>
-
     </Section>
+
+    <!-- Affiche le prochain concert et liens vers tous les concert -->
     <section id="next-show" class="container">
         <h2>L'envie de nous voir en concert vous ronge de l'intérieur? Voici notre prochaine date!</h2>
         <div class="bloc-section">
@@ -55,13 +58,14 @@ include('app/Views/front/layouts/header.php');
                     <a href="index.php?action=concertsPage">Nos prochain concerts</a>
                 </div>
             </div>
-
+            <!-- image de séparation -->
             <div class="separator-picture">
                 <img src="app/Public/front/images/horn-hand.png" alt="logo de guitar avevc note de musique">
             </div>
         </div>
     </section>
 
+    <!-- Affiche l'article le plus récent avec lien vers l'article complet -->
     <section id="last-news" class="container">
         <h2>Quoi de neuf dans le monde du rock?</h2>
         <div class="bloc-section">
@@ -83,17 +87,16 @@ include('app/Views/front/layouts/header.php');
                 </div>
             </article>
 
-
+            <!-- Image de séparation -->
             <div class="separator-picture">
                 <img src="app/Public/front/images/logo-groupe.png" alt="logo de guitar avevc note de musique">
             </div>
         </div>
     </section>
 
+    <!-- Appercu des membres du groupe dans un cercle avec animation css en hover -->
     <section id="band-members" class="container">
-
         <h2>Les membres du groupe</h2>
-
         <div id="band-pictures">
             <?php foreach ($data['members'] as $member) { ?>
             <div class="band-cards">

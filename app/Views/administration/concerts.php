@@ -11,6 +11,7 @@
         <?php }} ?>
         <h2>Ajouter un nouveau concert</h2>
         <div class="add-concert form-concert">
+            <!-- Formulaire d'ajout d'un concert -->
             <form action="indexAdmin.php?action=addConcert" method="POST">
                
                 <p>Titre ou info sur le concert *<p>
@@ -43,6 +44,7 @@
         <?php foreach ($data['concerts'] as $concert){ ?>
 
             <div class="form-concert update-concerts">
+                <!-- formulaire de modification d'un concert -->
                 <form action="indexAdmin.php?action=updateConcert&id=<?= $concert['id'] ?>" method="POST">
                    
                     <p>Titre ou info sur le concert</p>

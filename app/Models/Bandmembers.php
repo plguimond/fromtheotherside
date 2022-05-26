@@ -1,6 +1,7 @@
 <?php
 
 namespace Projet\Models;
+//class Bandmembers sur le modèle de la table bandmembers en bdd
 
 class Bandmembers extends Manager
 {
@@ -25,6 +26,7 @@ class Bandmembers extends Manager
     }
 
 
+    //permet de récupérer une photo d'un membre 
     public function getPicturePath($id)
     {
         $bdd = $this->dbConnect();
@@ -34,6 +36,7 @@ class Bandmembers extends Manager
         return $result;
     }
 
+    //Mise à jour en bdd d'un membre
     public function updateMember($data, $memberPath){
         $bdd = $this->dbConnect();
         $req = $bdd->prepare('UPDATE bandmembers SET lastname = :lastname, firstname = :firstname, type = :type, 
@@ -42,6 +45,7 @@ class Bandmembers extends Manager
             ':excerpt' => $data['excerpt'], ':info' => $data['info'], ':picture' => $memberPath, ':id' => $data['id']));
     }
 
+    //ajout d'un nouveau membre en bdd
     public function addMember($data, $memberPath)
     {
 

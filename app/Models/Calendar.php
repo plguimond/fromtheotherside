@@ -2,16 +2,18 @@
 
 namespace Projet\Models;
 
-
+//class Calendar sur le modèle de la table calendar en bdd
 
 class Calendar extends Manager
 {
+    //fonction pour ajouter un nouveau concert
     public static function addConcert($data){
         $bdd = self::dbConnect();
         $sqlQuery = $bdd->prepare("INSERT INTO calendar(title, `date`, `location`, price) VALUE (:title, :date, :location, :price)");
         $sqlQuery->execute(array(':title' => $data['title'], ':date' => $data['date'], ':location' => $data['location'], ':price' => $data['price']));
     }
 
+    //permet de connaitre le nombre de concert à venir à partir de maintenant
     public static function countNextShow(){
         $bdd = self::dbConnect();
         $req = $bdd->query('SELECT COUNT(id) AS number_of FROM calendar WHERE `date` >= CURRENT_TIMESTAMP');
@@ -35,7 +37,7 @@ class Calendar extends Manager
   
     }
 
-   
+   // récupère le prochain concert le plus proche de maintenant
     public function nextShow()
     {
         $bdd = self::dbConnect();
@@ -44,6 +46,7 @@ class Calendar extends Manager
         return $result;
     } 
 
+    //récupère tous les concerts à venir à partir de maintenant
     public function concerts()
     {
         $bdd = self::dbConnect();
@@ -51,6 +54,8 @@ class Calendar extends Manager
         $result = $req->fetchAll();
         return $result;
     }
+
+    //récupère tous les concerts
     public function allConcerts(){
         $bdd = self::dbConnect();
         $req = $bdd->query('SELECT id, title, `date`, `location`, price FROM calendar order by `date`');
@@ -58,6 +63,7 @@ class Calendar extends Manager
         return $result;
     }
 
+    //mise à jour des concerts
     public function updateConcert($data)
     {
         $bdd = $this->dbConnect();

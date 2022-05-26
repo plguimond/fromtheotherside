@@ -6,7 +6,7 @@ include('app/Views/front/layouts/header.php');
    <h1>Les News</h1>
    <section id="news-cards">
       <?php 
-      
+      //Boule sur tous les articles
    foreach($data["articles"] as $article){
     
       if ($article['picture1']){
@@ -15,7 +15,7 @@ include('app/Views/front/layouts/header.php');
          $picture = "app/Public/front/images/default.jpg";
       }
    ?>
-      
+         <!-- Affichage des articles sous forme de cards avec photo -->
          <article class="card">
             <div class="card-header">
                <img src="<?= $picture ?>" alt="<?= $article['title'];?>">
@@ -32,6 +32,7 @@ include('app/Views/front/layouts/header.php');
       
       <?php }?>
    </section>
+   <!-- Menu de pagination -->
    <nav class="menu-pagination">
     <ul class="pagination">
         <!-- Lien vers la page précédente  -->

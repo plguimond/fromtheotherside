@@ -13,6 +13,7 @@ include('app/Views/front/layouts/header.php');
             <?php }} ?>
         </div>
         <div class="login-box">
+            <!-- Formulaire de création d'un nouveau compte -->
             <form class="form-login" action="index.php?action=createAccount" method="POST">
                 <input type="text" name="firstname" placeholder="Prénom" aria-label="Entrez votre prénom">
                 <input type="text" name="lastname" placeholder="Nom de famille"

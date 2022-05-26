@@ -4,7 +4,7 @@
 namespace Projet\Models;
 
 
-
+//class articles sur le modèle de la table article en bdd
 class Articles extends Manager
 {
     public $id;
@@ -22,6 +22,7 @@ class Articles extends Manager
         $this->created_At = $data["created_At"] ?? '';
     }
 
+    //récupère la photo de l'article selon un id
     public function getNewsPicture($picture, $id)
     {
         $bdd = $this->dbConnect();
@@ -31,6 +32,7 @@ class Articles extends Manager
         return $result;
     }
 
+    // récupère uniquement l'article le plus récent
     public function lastNews()
     {
         $bdd = self::dbConnect();
@@ -39,6 +41,7 @@ class Articles extends Manager
         return $result;
     }
 
+    // récupère les news selon la pagination 
     public function newsList($firstNews, $perPage){
         
         $bdd = self::dbConnect();
@@ -52,6 +55,7 @@ class Articles extends Manager
         return $result;
     }
 
+    //création d'un nouvel article en bdd
     public function createNews($post, $picturesPath){
        
         $bdd = $this->dbConnect();
@@ -59,12 +63,13 @@ class Articles extends Manager
         $req->execute(array(':title' => $post['title'], ':content' => $post['content'], ':picture1' => $picturesPath));
     }
 
+    //Mise à jour d'un nouvel article en bdd
     public function updateNews($data, $picturesPath){
         $bdd = $this->dbConnect();
         $req = $bdd->prepare('UPDATE articles SET title = :title, content = :content, picture1 = :picture1 WHERE id = :id');
         $req->execute(array(':title' => $data['title'], ':content' => $data['content'], ':picture1' => $picturesPath, ':id' => $data['id']));
     }
-
+    //suppression d'un article en bdd selon l'id reçu
     public function deletePicture($picture, $id){
         $bdd = $this->dbConnect();
         $req = $bdd->prepare("UPDATE articles SET `{$picture}` = null  WHERE id = ?");

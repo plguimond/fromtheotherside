@@ -56,6 +56,7 @@ class FrontController extends Controller
         $pages = ceil($newsCount['number_of'] / $perPage);
         // premier article de la page
         $firstNews = ($currentPage * $perPage) - $perPage;
+        //récupère une liste de news selon la pagination
         $news = $articles->newslist($firstNews, $perPage);
      
         $data = [
@@ -128,7 +129,6 @@ class FrontController extends Controller
 /* function login pour établir la connexion au compte utilisateur*/
     public function login($mail, $pass)
     {
-
         //récupère et vérifie si le mail est dans la bdd
         $exist = \Projet\Models\Users::exist('mail', $mail);
         

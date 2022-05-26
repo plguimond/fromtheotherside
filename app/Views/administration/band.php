@@ -5,7 +5,8 @@
     <div id="admin-band">
         <h1>Ajouter, modifier ou supprimer un membre du groupe</h1>
 
-        <?php  
+        <?php
+        // ffichage des messages d'erreurs si il y en a  
       if (isset($data['error'])){ 
          if($data['error'] != ""){ ?>
         <p class="login-error"><?= $data['error'] ?></p>
@@ -14,6 +15,7 @@
         <section id="add-member">
             <h2>Ajout d'un nouveau membre</h2>
 
+            <!-- formulaire d'ajout d'un membre -->
             <form action="indexAdmin.php?action=addMember" method="POST" enctype="multipart/form-data">
                 <div class="card">
                     <div class="card-header">
@@ -50,9 +52,10 @@
 
         <section id="members-update">
             <h2>Modification des membres actuels</h2>
-            <?php 
+        <?php 
         foreach($data['band'] as $member){ 
-    ?>
+        ?>
+            <!-- formulaire de modification d'un membre -->
             <form action="indexAdmin.php?action=updateMember&id=<?= $member->id; ?>" method="POST"
                 enctype="multipart/form-data">
                 <div class="card">

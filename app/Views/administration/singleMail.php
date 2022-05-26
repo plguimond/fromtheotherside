@@ -5,11 +5,13 @@
 
     <section class="admin-singleMail">
         <div class="singleMail">
+            <!-- titre variable selon s'il y a un objet au message ou non -->
             <?php if ($data['email']['subject'] == ""){?>
-            <h1 class="message-title">Pas d'objet</h1>
+                <h1 class="message-title">Pas d'objet</h1>
             <?php }else{ ?>
-            <h1 class="message-title"><?= $data['email']['subject'] ?> </h1>
+                <h1 class="message-title"><?= $data['email']['subject'] ?> </h1>
             <?php }?>
+            <!-- informations du contact -->
             <div class="single-mail-header">
                 <div class="contact-info">
                     <p><?= $data['email']['firstname'] . " " . $data['email']['lastname'] ?></p>
@@ -18,9 +20,12 @@
                 </div>
                 <p><?= $this->formatDate($data['email']['createdAt']) ?></p>
             </div>
+            <!-- contenu du message -->
             <div class="single-mail-body">
                 <p><?= $data['email']['content'] ?></p>
             </div>
+
+            <!-- action répondre ou supprimer message -->
             <div class="single-mail-footer">
                 <div>
                     <a href="mailto:<?= $data['email']['mail'] ?>">

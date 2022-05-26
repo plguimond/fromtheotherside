@@ -27,6 +27,8 @@
                 </p>
             </div>
             <?php 
+
+            //si image permet de la supprimer
             if($data['news']['picture1']){
             ?>
             <div class="news-picture">
@@ -37,6 +39,8 @@
 
             </div>
             <?php 
+
+            // Si pas d'image, permet d'en ajouter une
             }else{ 
             ?>
             <div class="news-picture add-pciture">

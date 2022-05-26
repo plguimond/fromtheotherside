@@ -1,4 +1,5 @@
 <?php
+//sanitizer pour filtrer les valeurs du formulaire de cration de compte
 
 class UserSanitizer{
     private $data = [ ];

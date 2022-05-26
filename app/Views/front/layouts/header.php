@@ -1,6 +1,6 @@
 <?php
 require_once './app/security/Connect.php';
-
+//booleen si connecté ou non
 $connect = isConnect();
 ?>
 
@@ -31,7 +31,7 @@ $connect = isConnect();
     
     <header id="head">
         <div class="head-content">
-
+            <!-- Menu burger pour le site -->
             <nav id="menu-head">
                 <input id="burger-link" type="checkbox" aria-label="menu de navigation" />
                
@@ -44,11 +44,13 @@ $connect = isConnect();
                     <li><a class="page-link" href="index.php?action=concertsPage">Prochaines dates</a></li>
                     <li><a class="page-link" href="index.php?action=contactPage">Nous contacter</a></li>
                   
+                    <!-- Si admin, affichage lien dashboard, si user classique lien compte utilisateur -->
                     <?php if ($connect == true && $_SESSION['role'] == 1) { ?>
                         <li><a href="index.php?action=userPage">Dashboard</a></li>
                     <?php } elseif($connect == true) { ?>
                         <li><a href="index.php?action=userPage">Compte utilisateur</a></li>
                    <?php }
+                //    Si connecté, lien déconnexion sinon lien vers connexion
                     if ($connect == true) { ?>
                         <li><a href="index.php?action=disconnect">Se déconnecter</a></li>
                     <?php } else{ ?>

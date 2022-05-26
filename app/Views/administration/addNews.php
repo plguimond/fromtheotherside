@@ -10,6 +10,7 @@
              if($data['error'] != ""){ ?>
                 <p class = "login-error"><?= $data['error'] ?></p>
          <?php }} ?>
+         <!-- formulaire d'ajout d'article -->
         <form action="indexAdmin.php?action=createNews" method="POST" enctype="multipart/form-data">
             <div class="news-pictures">
                 
@@ -17,14 +18,6 @@
                     <p>Image</p>
                     <input class="input-file" type="file" name="picture1">
                 </div>
-                <!-- <div class="news-picture">
-                    <p>Image 2</p>
-                    <input class="input-file" type="file" name="picture2">
-                </div>
-                <div class="news-picture">
-                    <p>Image 3</p>
-                    <input class="input-file" type="file" name="picture3">
-                </div> -->
             </div>
             <div class="news-title">
                 <input type="text" name="title"   placeholder="Le titre de mon article" value="<?php if(isset($_POST["title"])) echo htmlspecialchars($_POST["title"]) ?>">

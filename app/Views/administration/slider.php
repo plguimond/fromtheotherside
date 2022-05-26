@@ -14,7 +14,7 @@
         <?php if (isset($data)) { ?>
         <?php foreach ($data['slides'] as $slide) { ?>
         <div class="update-slider">
-            
+            <!-- formulaire de modification du sider dans un boucle -->
             <form class="slider-form" action="indexAdmin.php?action=updateSlider&id=<?= $slide['id']; ?>" method="POST"
                 enctype="multipart/form-data">
                 <p class="label-file">Modifier une Image</p>
@@ -33,6 +33,7 @@
         <?php }
             } ?>
         <div class="add-slide">
+            <!-- formulaire d'ajout d'une nouvelle slide -->
             <form class="slider-form" action="indexAdmin.php?action=addSlide" method="POST"
                 enctype="multipart/form-data">
                 <p class="label-file">Ajouter une Image</p>

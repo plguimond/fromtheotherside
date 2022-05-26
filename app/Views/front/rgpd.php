@@ -4,6 +4,7 @@ include('app/Views/front/layouts/header.php');
 ?>
 <main id="rgpd-page" class="container">
 
+<!-- Page de conditions générales et de politique de confidentialité -->
 
     <h1>POLITIQUE DE PROTECTION DES DONNEES PERSONNELLES</h1>
     <p>Voulez exercer vos droits sur vos données personnelles ? 

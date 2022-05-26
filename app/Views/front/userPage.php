@@ -20,6 +20,7 @@ include('app/Views/front/layouts/header.php');
             
         </div>
         <div class="login-box">
+            <!-- Formulaire de changement de mot de passe -->
             <form class="form-login" action="index.php?action=changePwd" method="POST">
                 <input type="email" name="mail" placeholder="E-mail" aria-label="Entrez votre adresse email">
                

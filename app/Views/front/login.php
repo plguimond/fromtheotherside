@@ -16,6 +16,7 @@ include('app/Views/front/layouts/header.php');
             <?php }} ?>
         </div>
         <div class="login-box">
+            <!-- formulaire de connexion -->
             <form class="form-login" action="index.php?action=login" method="POST">
                 <input type="email" name="mail" placeholder="E-mail" aria-label="Entrez votre adresse email">
                

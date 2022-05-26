@@ -6,6 +6,7 @@ include('app/Views/front/layouts/header.php');
 
    <section>
       <?php 
+      // boucle sur tous les concerts
 foreach($data['concerts'] as $concert){?>
       
       <div class="next-show-text bloc-content">

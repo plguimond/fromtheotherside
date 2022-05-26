@@ -1,0 +1,1 @@
+ErrorDocument 404 /app/Views/front/404.php

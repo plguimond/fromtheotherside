@@ -1,5 +1,5 @@
 <?php
-
+//sanitizer pour filtrer les valeurs du formulaire de contact
 class ContactSanitizer{
     private $data = [ ];
 
