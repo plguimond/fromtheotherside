@@ -11,6 +11,30 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
+-- Listage de la structure de la table otherside. users
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `lastname` varchar(50) NOT NULL,
+  `firstname` varchar(50) NOT NULL,
+  `mail` varchar(100) NOT NULL,
+  `role` int(1) NOT NULL DEFAULT '0',
+  `password` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+
+-- Listage des données de la table otherside.users : ~7 rows (environ)
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` (`id`, `lastname`, `firstname`, `mail`, `role`, `password`) VALUES
+	(13, 'test', 'test', 'test@hotmail.com', 0, '$2y$10$DnR/i8lC6fcHSCl..k6t3.MrDyZw/6c89o8t3V3ity1f2iI04u4dy'),
+	(14, 'Ross', 'Bob', 'bob@gmail.com', 0, '$2y$10$Pd7XW4xEFAesiGXZSZvgn.mC1BKZcgJeTlqI7PK2Pd3ncILySwTbS'),
+	(15, 'guim', 'pluc', 'guim@hotmail.com', 0, '$2y$10$cVcyWHxM1idz6B7pgm52Qubk6b76hVuz1J7qFwp0IelL3xzNkbSnu'),
+	(16, 'admin', 'admin', 'admin@admin.com', 1, '$2y$10$VioORO9SmkryPjHH4Ef6MON7BYr4PchiXciFyqyxwudP4UtzeuYs2'),
+	(17, 'dylan', 'Bob', 'erze@hotmail.com', 0, '$2y$10$qgRSh69RNxMZB50oqIUm6O/SCr0jWwwvfjMANZu8IU0Vqzfpw.F3i'),
+	(18, 'Ross', 'Bob', 'bobross@ross.com', 0, '$2y$10$SZcwjXAZK5yimqWzr3hN7O1WywxvK06O2z2mPhRBo5lZkBhUfr98a'),
+	(19, 'DeNiro', 'robert', 'deniro@usa.com', 0, '$2y$10$45fsGg/vR1enkY40AkeYuu82QoRhJUyoNoZX926MuBZpWVurSSeFq');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+
 -- Listage de la structure de la table otherside. articles
 DROP TABLE IF EXISTS `articles`;
 CREATE TABLE IF NOT EXISTS `articles` (
@@ -146,29 +170,6 @@ INSERT INTO `slider` (`id`, `slide`, `title`) VALUES
 	(23, 'app/Public/front/images/slider/slider3.jpg', 'Concert au hellfest');
 /*!40000 ALTER TABLE `slider` ENABLE KEYS */;
 
--- Listage de la structure de la table otherside. users
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `lastname` varchar(50) NOT NULL,
-  `firstname` varchar(50) NOT NULL,
-  `mail` varchar(100) NOT NULL,
-  `role` int(1) NOT NULL DEFAULT '0',
-  `password` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
-
--- Listage des données de la table otherside.users : ~7 rows (environ)
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` (`id`, `lastname`, `firstname`, `mail`, `role`, `password`) VALUES
-	(13, 'test', 'test', 'test@hotmail.com', 0, '$2y$10$DnR/i8lC6fcHSCl..k6t3.MrDyZw/6c89o8t3V3ity1f2iI04u4dy'),
-	(14, 'Ross', 'Bob', 'bob@gmail.com', 0, '$2y$10$Pd7XW4xEFAesiGXZSZvgn.mC1BKZcgJeTlqI7PK2Pd3ncILySwTbS'),
-	(15, 'guim', 'pluc', 'guim@hotmail.com', 0, '$2y$10$cVcyWHxM1idz6B7pgm52Qubk6b76hVuz1J7qFwp0IelL3xzNkbSnu'),
-	(16, 'admin', 'admin', 'admin@admin.com', 1, '$2y$10$VioORO9SmkryPjHH4Ef6MON7BYr4PchiXciFyqyxwudP4UtzeuYs2'),
-	(17, 'dylan', 'Bob', 'erze@hotmail.com', 0, '$2y$10$qgRSh69RNxMZB50oqIUm6O/SCr0jWwwvfjMANZu8IU0Vqzfpw.F3i'),
-	(18, 'Ross', 'Bob', 'bobross@ross.com', 0, '$2y$10$SZcwjXAZK5yimqWzr3hN7O1WywxvK06O2z2mPhRBo5lZkBhUfr98a'),
-	(19, 'DeNiro', 'robert', 'deniro@usa.com', 0, '$2y$10$45fsGg/vR1enkY40AkeYuu82QoRhJUyoNoZX926MuBZpWVurSSeFq');
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
