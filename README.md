@@ -11,7 +11,8 @@ Marche à suivre pour installer le site:
 - récupérer tous les fichiers du repository
 - créer une base de donnée et importer le dump.sql dans votre base de donnée
 - Adaper le .env.exemple pour vous connecter à votre base de donnée et le renommer .env
-- composer install
+- Installer composer et lancer la commande composer install dans le répertoire du site
+- Pour la page 404 il est possible que l'url dans le .htaccess soit à modifier selon votre      configuration
 
 - connexion à l'espace admin via l'onglet "connectez-vous" 
     - email: admin@admin.com et password: admin 
@@ -19,20 +20,18 @@ Marche à suivre pour installer le site:
 
 Structure des fichiers: 
 
-    CSS, JS et Image sont dans le dossier public
-    Les pages du site sont dans le dossiers views
+CSS, JS et Image sont dans le dossier public
+Les pages du site sont dans le dossiers views
 
-    Les routeur du site est index.php et celui du backoffice indexAdmin.php
+Les routeur du site est index.php et celui du backoffice indexAdmin.php
 
-    Dossier controller avec Controller parent et FrontController pour le site et AdminController pour le backoffice
+Dossier controller avec Controller parent et FrontController pour le site et AdminController pour le backoffice
 
-    Dossier Models avec tous les models basé sur chaque table de ma bdd et un Manager.php qui fait office d'ORM
+Dossier Models avec tous les models basé sur chaque table de ma bdd et un Manager.php qui fait office d'ORM
 
-    Un dossier sanitizer qui permet de sécurisé certains formulaires
+Un dossier sanitizer qui permet de sécurisé certains formulaires
 
-    Un dossier security avec un fichier connect qui permet de vérifier l'état de la session
-
-
+Un dossier security avec un fichier connect qui permet de vérifier l'état de la session
 
 Le site web From The Other Side est un projet de fin de formation (Développeur intégrateur en réalisation d'applications web) pour but d'obtenir un diplôme de niveau 5.
 
@@ -52,7 +51,6 @@ Le backoffice du site permet à l'administrateur d'ajouter, modifier et supprime
 L'Administrateur du site peut supprimer les commentaires sous les différents articles.
 
 Diagramme UML disponible en version jpeg ou drawio sur la racine du projet.
-
 
 Merci de votre attention et n'hésitez pas à me faire parevenir vos retours.
 
