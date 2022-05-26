@@ -11,29 +11,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
--- Listage de la structure de la table otherside. users
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `lastname` varchar(50) NOT NULL,
-  `firstname` varchar(50) NOT NULL,
-  `mail` varchar(100) NOT NULL,
-  `role` int(1) NOT NULL DEFAULT '0',
-  `password` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
-
--- Listage des données de la table otherside.users : ~1 rows (environ)
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` (`id`, `lastname`, `firstname`, `mail`, `role`, `password`) VALUES
-	(13, 'test', 'test', 'test@hotmail.com', 0, '$2y$10$6Xr/LMZ/rlo6eOr8frCV2.xltb7MG1di42PATZf1pyEZFUeOyO9w6'),
-	(14, 'Ross', 'Bob', 'bob@gmail.com', 0, '$2y$10$Pd7XW4xEFAesiGXZSZvgn.mC1BKZcgJeTlqI7PK2Pd3ncILySwTbS'),
-	(15, 'guim', 'pluc', 'guim@hotmail.com', 0, '$2y$10$cVcyWHxM1idz6B7pgm52Qubk6b76hVuz1J7qFwp0IelL3xzNkbSnu'),
-	(16, 'admin', 'admin', 'admin@admin.com', 1, '$2y$10$VioORO9SmkryPjHH4Ef6MON7BYr4PchiXciFyqyxwudP4UtzeuYs2'),
-	(17, 'dylan', 'Bob', 'erze@hotmail.com', 0, '$2y$10$qgRSh69RNxMZB50oqIUm6O/SCr0jWwwvfjMANZu8IU0Vqzfpw.F3i'),
-	(18, 'Ross', 'Bob', 'bobross@ross.com', 0, '$2y$10$SZcwjXAZK5yimqWzr3hN7O1WywxvK06O2z2mPhRBo5lZkBhUfr98a');
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-
 -- Listage de la structure de la table otherside. articles
 DROP TABLE IF EXISTS `articles`;
 CREATE TABLE IF NOT EXISTS `articles` (
@@ -43,14 +20,14 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `picture1` varchar(255) DEFAULT NULL,
   `created_At` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
--- Listage des données de la table otherside.articles : ~6 rows (environ)
+-- Listage des données de la table otherside.articles : ~7 rows (environ)
 /*!40000 ALTER TABLE `articles` DISABLE KEYS */;
 INSERT INTO `articles` (`id`, `title`, `content`, `picture1`, `created_At`) VALUES
-	(1, 'La descente aux enfer!', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer consequat eros quam, ut faucibus mauris placerat ac. Aenean velit urna, euismod eu maximus at, cursus ut libero. Aenean quis eleifend ante. Praesent ornare ac dolor eleifend aliquet. Ut eget dui suscipit, fermentum sem at, malesuada urna. Suspendisse malesuada risus vitae nulla sollicitudin tincidunt. Sed sed risus fringilla, sagittis turpis at, elementum nisl.\r\n\r\n Donec sit amet risus sollicitudin nisl pellentesque hendrerit euismod ut lectus. Donec iaculis dignissim purus. Aenean tristique nisi sit amet magna malesuada, ultrices luctus enim hendrerit. Nam et venenatis nisl, vel imperdiet purus. Etiam ultrices porta diam quis pharetra. Sed hendrerit a tortor quis fringilla. Quisque turpis lorem, vulputate in ligula at, blandit ornare ante.', 'app/Public/front/images/news/pien-muller-Fh-Q-xfdh_o-unsplash.jpg', '2022-03-24 15:01:23'),
+	(1, 'La descente aux enfer!!', 'ipsum dolor sit amet, consectetur adipiscing elit. Integer consequat eros quam, ut faucibus mauris placerat ac. Aenean velit urna, euismod eu maximus at, cursus ut libero. Aenean quis eleifend ante. Praesent ornare ac dolor eleifend aliquet. Ut eget dui suscipit, fermentum sem at, malesuada urna. Suspendisse malesuada risus vitae nulla sollicitudin tincidunt. Sed sed risus fringilla, sagittis turpis at, elementum nisl.\r\n\r\n Donec sit amet risus sollicitudin nisl pellentesque hendrerit euismod ut lectus. Donec iaculis dignissim purus. Aenean tristique nisi sit amet magna malesuada, ultrices luctus enim hendrerit. Nam et venenatis nisl, vel imperdiet purus. Etiam ultrices porta diam quis pharetra. Sed hendrerit a tortor quis fringilla. Quisque turpis lorem, vulputate in ligula at, blandit ornare ante.', 'app/Public/front/images/news/pien-muller-Fh-Q-xfdh_o-unsplash.jpg', '2022-03-24 15:01:23'),
 	(2, 'Nouveau Batteur!!', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam mollis vulputate tempus.', 'app/Public/front/images/news/photodrummer.jpg', '2022-03-23 15:05:41'),
-	(3, 'Article test 3', 'Bonjour, voici un article sympa pour tester mon site internet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vehicula ligula ut scelerisque pharetra. Suspendisse ullamcorper tristique porta. Cras in urna sed ligula placerat malesuada et id leo. Fusce neque justo, elementum et vehicula eu, imperdiet in lectus. Aliquam erat volutpat. Vestibulum feugiat mauris ac orci maximus eleifend. Cras nec commodo ante, quis mollis elit. Fusce congue tempus suscipit.', '', '2022-04-20 16:19:22'),
+	(3, 'Article test 4', 'Bonjour, voici un article sympa pour tester mon site internet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vehicula ligula ut scelerisque pharetra. Suspendisse ullamcorper tristique porta. Cras in urna sed ligula placerat malesuada et id leo. Fusce neque justo, elementum et vehicula eu, imperdiet in lectus. Aliquam erat volutpat. Vestibulum feugiat mauris ac orci maximus eleifend. Cras nec commodo ante, quis mollis elit. Fusce congue tempus suscipit.', '', '2022-04-20 16:19:22'),
 	(4, 'Article test 5', 'Encore un test! Magique! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vehicula ligula ut scelerisque pharetra. Suspendisse ullamcorper tristique porta. Cras in urna sed ligula placerat malesuada et id leo. Fusce neque justo, elementum et vehicula eu, imperdiet in lectus. Aliquam erat volutpat. Vestibulum feugiat mauris ac orci maximus eleifend. Cras nec commodo ante, quis mollis elit. Fusce congue tempus suscipit.', '', '2022-04-20 16:19:42'),
 	(5, 'Article test numéro...', 'Encore un autre... est-ce que tout ça aura une fin? Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vehicula ligula ut scelerisque pharetra. Suspendisse ullamcorper tristique porta. Cras in urna sed ligula placerat malesuada et id leo. Fusce neque justo, elementum et vehicula eu, imperdiet in lectus. Aliquam erat volutpat. Vestibulum feugiat mauris ac orci maximus eleifend. Cras nec commodo ante, quis mollis elit. Fusce congue tempus suscipit.', '', '2022-04-20 16:20:20'),
 	(6, 'Super Bowl de  Plouhinec', 'Venez faire semblant d\'assister au plus grand évènement de football américain avec en mi-temp From The Other Side!\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vehicula ligula ut scelerisque pharetra. Suspendisse ullamcorper tristique porta. Cras in urna sed ligula placerat malesuada et id leo. Fusce neque justo, elementum et vehicula eu, imperdiet in lectus. Aliquam erat volutpat. Vestibulum feugiat mauris ac orci maximus eleifend. Cras nec commodo ante, quis mollis elit. Fusce congue tempus suscipit.', '', '2022-04-20 16:21:13'),
@@ -68,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `bandmembers` (
   `info` text NOT NULL,
   `picture` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- Listage des données de la table otherside.bandmembers : ~4 rows (environ)
 /*!40000 ALTER TABLE `bandmembers` DISABLE KEYS */;
@@ -88,15 +65,17 @@ CREATE TABLE IF NOT EXISTS `calendar` (
   `location` varchar(255) NOT NULL,
   `price` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
--- Listage des données de la table otherside.calendar : ~4 rows (environ)
+-- Listage des données de la table otherside.calendar : ~5 rows (environ)
 /*!40000 ALTER TABLE `calendar` DISABLE KEYS */;
 INSERT INTO `calendar` (`id`, `title`, `date`, `location`, `price`) VALUES
 	(1, 'Vendredi soir aux Vieilles Charrues', '2022-07-15', 'Carhaix', 44),
 	(2, 'From The Other Side en concert pour la première fois au Hellfest!!\r\n', '2022-06-18', 'Clisson', 105),
 	(3, 'Vous en avez assez de la musique celtique, mais souhaitez profiter de la Ste-Patrick sous le signe du rock? C\'est par ici!', '2022-03-17', 'Le Bock, Rue Gustave Zédé, 56600 Lanester', 0),
-	(6, 'Bière et Metal au OktoberFest de Landévant, réservez votre place rapidement!', '2022-10-15', 'Bois du château, Landévant', 15);
+	(6, 'Bière et Metal au OktoberFest de Landévant, réservez votre place rapidement!', '2022-10-15', 'Bois du château, Landévant', 15),
+	(7, 'Test nouveau concert', '2022-12-23', 'test', 100),
+	(8, ' Kermess de Pleurtuit', '2022-07-02', 'Place de la mairie, Pleurtuit', 10);
 /*!40000 ALTER TABLE `calendar` ENABLE KEYS */;
 
 -- Listage de la structure de la table otherside. comments
@@ -112,14 +91,19 @@ CREATE TABLE IF NOT EXISTS `comments` (
   KEY `FK_comments_articles` (`idArticle`),
   CONSTRAINT `FK_comments_articles` FOREIGN KEY (`idArticle`) REFERENCES `articles` (`id`),
   CONSTRAINT `FK_comments_users` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
--- Listage des données de la table otherside.comments : ~3 rows (environ)
+-- Listage des données de la table otherside.comments : ~8 rows (environ)
 /*!40000 ALTER TABLE `comments` DISABLE KEYS */;
 INSERT INTO `comments` (`id`, `content`, `createdAt`, `idUser`, `idArticle`) VALUES
 	(1, 'Wow, trop hâte d&#039;être là pour en profiter!!', '2022-03-29 14:49:44', 13, 1),
 	(4, 'Je n&#039;arrive pas à y croire, c&#039;est stupéfiant!', '2022-03-31 09:05:02', 18, 2),
-	(5, 'super chouette', '2022-04-06 11:18:12', 16, 1);
+	(5, 'super chouette', '2022-04-06 11:18:12', 16, 1),
+	(6, 'bonjour', '2022-05-01 11:57:30', 16, 7),
+	(9, 'bonjour, magnifique article', '2022-05-14 15:18:52', 16, 6),
+	(10, 'hello tout monde', '2022-05-16 14:09:08', 13, 6),
+	(12, 'hello world', '2022-05-21 10:53:14', 13, 1),
+	(14, 'Hello; it is me DeNiro! Come to Brazil!', '2022-05-26 14:08:19', 19, 5);
 /*!40000 ALTER TABLE `comments` ENABLE KEYS */;
 
 -- Listage de la structure de la table otherside. contacts
@@ -134,15 +118,15 @@ CREATE TABLE IF NOT EXISTS `contacts` (
   `content` text NOT NULL,
   `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 -- Listage des données de la table otherside.contacts : ~4 rows (environ)
 /*!40000 ALTER TABLE `contacts` DISABLE KEYS */;
 INSERT INTO `contacts` (`id`, `lastname`, `firstname`, `mail`, `phone`, `subject`, `content`, `createdAt`) VALUES
-	(1, 'Guimond', 'Pierre-Luc', 'plguimond@gmail.com', '0601020301', '', 'Bonjour premier test de message', '2022-03-28 11:55:35'),
 	(4, 'Bowie', 'david', 'davidbowie@stardust.com', '0601020301', 'Bonjour je voudrais un devis', 'Bonjour, je voudrais un devis pour ma première partie au stade de France. Merci de me contacter au plus tôt.\r\n\r\nZiggy Stardust\r\n\r\n\r\n\r\n', '2022-04-04 16:21:55'),
 	(7, 'Ross', 'Bob', 'erze@hotmail.com', '', 'Festival Interceltique?', 'Bonjour, je voulais savoir si vous allez jouer au OFF du festival Interceltique de Lorient, ça manque cruellement de musique métal et vous êtes génial!\r\n\r\nCordialement,\r\n\r\nBob', '2022-04-06 11:12:50'),
-	(10, 'test', 'test', 'test@hotmail.com', '', '', 'test', '2022-04-25 09:50:43');
+	(16, 'ross', 'bob', 'bobross@happyaccident.com', '', '', 'bonjour', '2022-05-14 15:25:55'),
+	(19, 'Ross', 'Bob', 'erze@hotmail.com', '', '', 'vsqdgsqd', '2022-05-21 10:48:37');
 /*!40000 ALTER TABLE `contacts` ENABLE KEYS */;
 
 -- Listage de la structure de la table otherside. slider
@@ -152,7 +136,7 @@ CREATE TABLE IF NOT EXISTS `slider` (
   `slide` varchar(255) DEFAULT NULL,
   `title` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
 -- Listage des données de la table otherside.slider : ~3 rows (environ)
 /*!40000 ALTER TABLE `slider` DISABLE KEYS */;
@@ -161,6 +145,30 @@ INSERT INTO `slider` (`id`, `slide`, `title`) VALUES
 	(20, 'app/Public/front/images/slider/slider1.jpg', 'Petite salle de concert'),
 	(23, 'app/Public/front/images/slider/slider3.jpg', 'Concert au hellfest');
 /*!40000 ALTER TABLE `slider` ENABLE KEYS */;
+
+-- Listage de la structure de la table otherside. users
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `lastname` varchar(50) NOT NULL,
+  `firstname` varchar(50) NOT NULL,
+  `mail` varchar(100) NOT NULL,
+  `role` int(1) NOT NULL DEFAULT '0',
+  `password` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+
+-- Listage des données de la table otherside.users : ~7 rows (environ)
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` (`id`, `lastname`, `firstname`, `mail`, `role`, `password`) VALUES
+	(13, 'test', 'test', 'test@hotmail.com', 0, '$2y$10$DnR/i8lC6fcHSCl..k6t3.MrDyZw/6c89o8t3V3ity1f2iI04u4dy'),
+	(14, 'Ross', 'Bob', 'bob@gmail.com', 0, '$2y$10$Pd7XW4xEFAesiGXZSZvgn.mC1BKZcgJeTlqI7PK2Pd3ncILySwTbS'),
+	(15, 'guim', 'pluc', 'guim@hotmail.com', 0, '$2y$10$cVcyWHxM1idz6B7pgm52Qubk6b76hVuz1J7qFwp0IelL3xzNkbSnu'),
+	(16, 'admin', 'admin', 'admin@admin.com', 1, '$2y$10$VioORO9SmkryPjHH4Ef6MON7BYr4PchiXciFyqyxwudP4UtzeuYs2'),
+	(17, 'dylan', 'Bob', 'erze@hotmail.com', 0, '$2y$10$qgRSh69RNxMZB50oqIUm6O/SCr0jWwwvfjMANZu8IU0Vqzfpw.F3i'),
+	(18, 'Ross', 'Bob', 'bobross@ross.com', 0, '$2y$10$SZcwjXAZK5yimqWzr3hN7O1WywxvK06O2z2mPhRBo5lZkBhUfr98a'),
+	(19, 'DeNiro', 'robert', 'deniro@usa.com', 0, '$2y$10$45fsGg/vR1enkY40AkeYuu82QoRhJUyoNoZX926MuBZpWVurSSeFq');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
