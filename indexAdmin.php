@@ -38,7 +38,6 @@ try {
         }
 
         elseif ($_GET['action'] == 'disconnect') {
-            var_dump($connect);die;
             session_destroy();
             header('location: index.php');
         }

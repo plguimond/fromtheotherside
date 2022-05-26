@@ -12,32 +12,27 @@
         <h2>Ajouter un nouveau concert</h2>
         <div class="add-concert form-concert">
             <form action="indexAdmin.php?action=addConcert" method="POST">
+               
+                <p>Titre ou info sur le concert *<p>
+                
                 <p>
-                    <label for="title">Titre ou info sur le concert *</label>
+                    <textarea name="title" cols="37" rows="8" aria-label="Titre ou info sur le concert"> <?php if(isset($_POST["title"])) echo htmlspecialchars($_POST["title"]) ?></textarea>
                 </p>
+               
+                <p>Date *</p>
+               
                 <p>
-                    <textarea name="title" cols="37"
-                        rows="8"><?php if(isset($_POST["title"])) echo htmlspecialchars($_POST["title"]) ?></textarea>
-                </p>
-                <p>
-                    <label for="date">Date *</label>
-                </p>
-                <p>
-                    <input type="date" name="date" value="<?php if(isset($_POST["date"])) echo htmlspecialchars($_POST["date"]) ?>">
+                    <input type="date" name="date" aria-label="Date" value="<?php if(isset($_POST["date"])) echo htmlspecialchars($_POST["date"]) ?>">
                 </p>
 
+                <p>Lieux du concert *</p>
                 <p>
-                    <label for="location">Lieux du concert *</label>
-                </p>
-                <p>
-                    <input name="location" type="text"
+                    <input name="location" type="text" aria-label="Lieux de concert"
                         value="<?php if(isset($_POST["location"])) echo htmlspecialchars($_POST["location"]) ?>">
                 </p>
+                <p>Prix à partir de: </p>
                 <p>
-                    <label for="price">Prix à partir de:</label>
-                </p>
-                <p>
-                    <input name="price" type="number" value="<?php if(isset($_POST["price"])) echo htmlspecialchars($_POST["price"]) ?>"> €
+                    <input name="price" type="number" aria-label="Prix à partir de" value="<?php if(isset($_POST["price"])) echo htmlspecialchars($_POST["price"]) ?>"> €
                 </p>
                 <button class="admin-button" type="submit">Ajouter ce concert</button>
             </form>
@@ -49,29 +44,23 @@
 
             <div class="form-concert update-concerts">
                 <form action="indexAdmin.php?action=updateConcert&id=<?= $concert['id'] ?>" method="POST">
+                   
+                    <p>Titre ou info sur le concert</p>
                     <p>
-                        <label for="title">Titre ou info sur le concert</label>
+                        <textarea name="title" cols="37" rows="8" aria-label="Titre ou info sur le concert"><?= $concert['title'] ?></textarea>
                     </p>
+
+                    <p>Date *</p>
                     <p>
-                        <textarea name="title" cols="37" rows="8"><?= $concert['title'] ?></textarea>
+                        <input type="date" name="date" value="<?= $concert['date'] ?>" aria-label="Date">
                     </p>
+                    <p>Lieux du concert * </p>
                     <p>
-                        <label for="date">Date *</label>
+                        <input type="text" name="location" value="<?= $concert['location']  ?>" aria-label="Lieux de concert">
                     </p>
+                    <p>Prix à partir de:</p>
                     <p>
-                        <input type="date" name="date" value="<?= $concert['date'] ?>">
-                    </p>
-                    <p>
-                        <label for="location">Lieux du concert *</label>
-                    </p>
-                    <p>
-                        <input type="text" name="location" value="<?= $concert['location']  ?>">
-                    </p>
-                    <p>
-                        <label for="price">Prix à partir de:</label>
-                    </p>
-                    <p>
-                        <input type="text" name="price" value="<?= $concert['price']  ?>"> €
+                        <input type="text" name="price" value="<?= $concert['price']  ?>" aria-label="Prix à partir de"> €
                     </p>
                     <button class="admin-button" type="submit">Modifier</button>
                 </form>

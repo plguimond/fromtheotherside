@@ -17,10 +17,10 @@
             
             <form class="slider-form" action="indexAdmin.php?action=updateSlider&id=<?= $slide['id']; ?>" method="POST"
                 enctype="multipart/form-data">
-                <label class="label-file" for="file">Modifier une Image</label>
-                <input class="input-file" type="file" name="file">
-                <label for="title">Titre de l'image</label>
-                <input type="text" name="title" value="<?= $slide['title']; ?>">
+                <p class="label-file">Modifier une Image</p>
+                <input class="input-file" type="file" name="file" aria-label="Modifier une Image">
+                <p>Titre de l'image</p>
+                <input type="text" name="title" value="<?= $slide['title']; ?>" aria-label="Titre de l'image">
                 <div class="slide-form-buttons">
                     <button class="admin-button" type="submit">Modifier</button>
                     <a class="admin-button"
@@ -35,10 +35,10 @@
         <div class="add-slide">
             <form class="slider-form" action="indexAdmin.php?action=addSlide" method="POST"
                 enctype="multipart/form-data">
-                <label class="label-file" for="file">Ajouter une image</label>
-                <input class="input-file" type="file" name="file">
-                <label for="title">Titre de l'image</label>
-                <input type="text" name="title" placeholder="Insérer le titre de l'image">
+                <p class="label-file">Ajouter une Image</p>
+                <input class="input-file" type="file" name="file" aria-label="Ajouter une Image">
+                <p>Titre de l'image</p>
+                <input type="text" name="title" placeholder="Insérer le titre de l'image" aria-label="Titre de l'image">
                 <button class="admin-button" type="submit">Ajouter</button>
             </form>
         </div>

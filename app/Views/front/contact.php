@@ -23,7 +23,7 @@ include('app/Views/front/layouts/header.php');
       <input aria-label="Entrez votre numéro de téléphone si vous le souhaitez" type="tel" name="phone" id="phone" placeholder="06 01 02 03 04" value="<?php if(isset($_POST["phone"])) echo  htmlspecialchars($_POST["phone"]) ?>">
       <input aria-label="Entrez l'objet du message" type="text" name="subject" id="subject" placeholder="Objet du message" value="<?php if(isset($_POST["subject"])) echo  htmlspecialchars($_POST["subject"]) ?>">
       
-      <textarea aria-label="Entrez votre message" placeholder="Votre message *" name="content" id="content" cols="37" rows="8"><?php if(isset($_POST["content"])) echo  htmlspecialchars($_POST["content"]) ?></textarea></p>
+      <textarea aria-label="Entrez votre message" placeholder="Votre message *" name="content" id="content" cols="37" rows="8"><?php if(isset($_POST["content"])) echo  htmlspecialchars($_POST["content"]) ?></textarea>
       <!--  bouton envoyer et annuler  -->
       <p>
          <input type="checkbox" name="rgpd" id="rgpd">

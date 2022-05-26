@@ -1,33 +1,33 @@
 <?php include('app/Views/administration/layouts/header.php'); ?>
 
-<main class="admin-content" >
-<?php include('app/Views/administration/layouts/sidebar.php'); ?>
+<main class="admin-content">
+    <?php include('app/Views/administration/layouts/sidebar.php'); ?>
 
     <section class="admin-message">
-                    <h1 class="message-title">Emails</h1>
-                <!-- TABLE -->
-                <?php if (!empty($data['emails'])){ ?>
-                <div class="email-table">
-                    <table class="admin-table">
-                        <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Expéditeur</th>
-                                <th class="fullscreen">Téléphone</th>
-                                <th>Objet</th>
-                                <th><span class="fullscreen">Actions</span></th>
-                            </tr>
-                        </thead>
-                </div>
+        <h1 class="message-title">Emails</h1>
+        <!-- TABLE -->
+        <?php if (!empty($data['emails'])){ ?>
+        <div class="email-table">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Expéditeur</th>
+                        <th class="fullscreen">Téléphone</th>
+                        <th>Objet</th>
+                        <th><span class="fullscreen">Actions</span></th>
+                    </tr>
+                </thead>
+
                 <tbody>
-                <?php 
+                    <?php 
                 
                     foreach($data['emails'] as $email) { 
                 ?>
                     <tr>
-                        
+
                         <td>
-                        <?= $this->formatDate($email->createdAt); ?>
+                            <?= $this->formatDate($email->createdAt); ?>
                         </td>
                         <td>
                             <div>
@@ -39,22 +39,22 @@
                             <?= $email->phone; ?>
                         </td>
                         <td>
-                        <?php if ($email->subject != ""){?>
+                            <?php if ($email->subject != ""){?>
                             <p><?= $email->subject; ?></p>
-                        <?php 
+                            <?php 
                         }else{
                         ?>
                             <p>Pas d'objet</p>
-                        <?php 
+                            <?php 
                         }
                         ?>
 
 
                         </td>
-                        <td >
-                            <div class="action-icon"> 
+                        <td>
+                            <div class="action-icon">
                                 <div>
-                                    <a href="indexAdmin.php?action=viewMail&id=<?=$email->id;?>"> 
+                                    <a href="indexAdmin.php?action=viewMail&id=<?=$email->id;?>">
                                         <i class="fa-solid fa-eye show"></i>
                                     </a>
                                 </div>
@@ -70,15 +70,14 @@
                     <?php } ?>
 
                 </tbody>
-                </table>
-    </div>
-    <?php }else{ ?>
-    <div>
-        <p>Vous n'avez aucun mail enregistré</p>
-    </div>
-    <?php } ?>  
+            </table>
+        </div>
+        <?php }else{ ?>
+        <div>
+            <p>Vous n'avez aucun mail enregistré</p>
+        </div>
+        <?php } ?>
     </section>
 
 </main>
 <?php include('app/Views/administration/layouts/footer.php'); ?>
-

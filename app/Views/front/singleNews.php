@@ -41,8 +41,9 @@ include('app/Views/front/layouts/header.php');
                 <?php if ($_SESSION){
                     if ($_SESSION['id'] === $comment['idUser'] || $_SESSION['role'] == 1){?>
                 <a href="index.php?action=deleteUserComment&commentId=<?=$comment['id']?>&idUser=<?=$comment['idUser']?>&articleId=<?=$data['singleNews']['id']?>">Supprimer</a>
-            </div>
+            
                 <?php }} ?>
+            </div>
         </div>
         <?php }?>
 

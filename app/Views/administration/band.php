@@ -18,8 +18,8 @@
                 <div class="card">
                     <div class="card-header">
                         <img src="app/Public/front/images/default.jpg" alt="Photo générique d'une guitare">
-                        <label class="label-file" for="file">Ajouter une image</label>
-                        <input class="input-file" type="file" name="file">
+                        <p class="label-file">Ajouter une image</p>
+                        <input class="input-file" type="file" name="file" aria-label="Ajouter une image">
                     </div>
                     <div class="card-body">
                         <p class="member-name">
@@ -38,7 +38,7 @@
                     </div>
                     <div class="card-footer">
                         <p class="member-info">
-                            <textarea name="info" id="" cols="30" rows="10"
+                            <textarea name="info" cols="30" rows="10"
                                 placeholder="Information de votre choix sur le membre du groupe"><?php if(isset($_POST["info"])) echo htmlspecialchars($_POST["info"]) ?></textarea>
                         </p>
 
@@ -58,8 +58,8 @@
                 <div class="card">
                     <div class="card-header">
                         <img src="<?= $member->picture?>" alt="Photo du <?= $member->type ?>">
-                        <label class="label-file" for="file">Ajouter une image</label>
-                        <input class="input-file" type="file" name="file">
+                        <p class="label-file">Ajouter une image</p>
+                        <input class="input-file" type="file" name="file" aria-label="Ajouter une image">
                     </div>
                     <div class="card-body">
                         <p class="member-name">
@@ -72,7 +72,7 @@
                     </div>
                     <div class="card-footer">
                         <p class="member-info">
-                            <textarea name="info" id="" cols="30" rows="10"><?= $member->info;?></textarea>
+                            <textarea name="info" cols="30" rows="10"><?= $member->info;?></textarea>
                         </p>
 
                     </div>

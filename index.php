@@ -14,11 +14,18 @@ require 'app/Sanitizer/ContactSanitizer.php';
 
 try {
 
-    $frontController = new \Projet\Controllers\FrontController(); // objet controler
-
+    $frontController = new \Projet\Controllers\FrontController(); // objet Froncontroller
+    $controller = new \Projet\Controllers\Controller();
+    
     if (isset($_GET['action'])) {
 
-        if ($_GET['action'] == 'bandPage') {
+        if ($_GET['action'] == '404'){
+            return $controller->viewFront('404');
+        }
+        elseif ($_GET['action'] == 'errorLoading') {
+            return $controller->viewFront('errorLoading');
+        } 
+        elseif ($_GET['action'] == 'bandPage') {
             $frontController->bandFront();
         } 
 
@@ -164,10 +171,10 @@ try {
     }
 } catch (Exception $e) {
     if ($e->getCode() == 404){
-        require 'app/Views/front/404.php';
+        header('index.php?action=404');
     }
-    require 'app/Views/front/errorLoading.php';
+    header('index.php?action=errorLoading');
 }catch (Error $e) {
-    require 'app/Views/front/errorLoading.php';
+    header('index.php?action=errorLoading');
 }
 

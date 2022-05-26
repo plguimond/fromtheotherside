@@ -11,7 +11,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
 }
 /* ===========================*/
       /*réglages globaux*/
@@ -24,7 +23,7 @@ a{
     color: black;
 }
 body{
-  
+  font-family: 'Fjalla One', arial, sans-serif;
   font-size: 16px;
   display: flex;
   flex-wrap: wrap;
@@ -240,11 +239,39 @@ a.admin-button {
 }
 #dashboard h1{
   width: 100%;
+  text-transform: uppercase;
+  color: var(--darkgrey);
+}
+#dashboard article{
+  text-align: center;
+  height: 300px;
+  width: 95%;
+  margin: 0 auto 30px;
+}
+
+#dashboard h2{
+  margin-bottom: 10px;
+  
+  color: var(--darkgrey);
 }
 #dashboard .counter{
+  display: inline-block;
+  color: white;
+  background-color: var(--darkblue);
   width: 100%;
   height: 250px;
+  margin: 0 auto;
+  box-shadow: 3px 10px 20px 3px black;
 }
+#dashboard .counter:hover{
+  background-color: var(--lightblue);
+}
+
+.counter p{
+  padding: 70px;
+  height: 100%;
+  font-size: 5rem;
+} 
 
 /* ++++++++++++++++++++++ */
     /*ADMIN SLIDER */
@@ -686,6 +713,17 @@ border-radius: 8px;
   .admin-footer{
     color: white;
   }
+
+  /* ++++++++++++++++++++++ */
+    /*DASHBOARD */
+/* ++++++++++++++++++++++ */
+
+#dashboard article{
+  text-align: center;
+  height: 300px;
+  width: 40%;
+ 
+}
 
     /*ADMIN email */
   /* ++++++++++++++++++++++ */

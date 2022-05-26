@@ -808,6 +808,16 @@ footer{
     margin-bottom: 20px;
   }
 
+/* ========================================*/
+      /* pages 404 et erreur */
+/* ========================================*/
+
+#page404 a.blue-button,
+#error-page a.blue-button
+{
+  text-align: center;
+
+}
 /* ++++++++++++++++++++++++++++++++++++++++ */
 /*        Resolution ecran pc */
 /* ++++++++++++++++++++++++++++++++++++++++ */
@@ -835,10 +845,6 @@ footer{
     position: relative;
    
   }
-
- 
-
-
 
   #home-page section{
     margin-bottom: 50px;

@@ -20,7 +20,6 @@
                                 <th><span>Actions</span></th>
                             </tr>
                         </thead>
-                </div>
                 <tbody>
                 <?php 
                 

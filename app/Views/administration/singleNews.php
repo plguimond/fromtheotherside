@@ -15,7 +15,7 @@
                     <label for="title">Le titre de l'article</label>
                 </p>
                 <p>
-                    <input type="text" name="title" id="title" value="<?= $data['news']['title']?>"></h1>
+                    <input type="text" name="title" id="title" value="<?= $data['news']['title']?>">
                 </p>
             </div>
             <div id="singleNews-text">

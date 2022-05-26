@@ -1,16 +1,19 @@
-<!DOCTYPE html>
-<html lang="fr">
+<?php
+include('app/Views/front/layouts/header.php');
+?>
+<main id="error-page" class="container">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Erreur de chargement</title>
-</head>
+    <section>
+            <h1>Oups, il semblerait qu'une erreur s'est produite lors de votre navigation</h1>
+            
+            <a class="blue-button" href="index.php" >Retour à l'accueil</a>
+    </section>
 
-<body>
-    Erreur, aucune action ou page chargées.
-    <?= $e?>
-</body>
+    
+</main>
 
-</html>
+<?php
+include('app/Views/front/layouts/footer.php');
+?>
+
+
