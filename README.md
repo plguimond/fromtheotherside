@@ -1,7 +1,8 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/b1de6421d99a71a03388/maintainability)](https://codeclimate.com/github/plguimond/fromtheotherside/maintainability)
 
 
-
+Le site est majoritairement sur une base de PHP en architecture MVC.
+Une approche d'un ORM est présente sous la forme du fichier Manager.php
 
 Marche à suivre pour installer le site:
 
@@ -15,6 +16,23 @@ Marche à suivre pour installer le site:
 - connexion à l'espace admin via l'onglet "connectez-vous" 
     - email: admin@admin.com et password: admin 
     - ou en créant un nouvel utilisateur manuellement en base de donnée avec le rôle 1
+
+Structure des fichiers: 
+
+    CSS, JS et Image sont dans le dossier public
+    Les pages du site sont dans le dossiers views
+
+    Les routeur du site est index.php et celui du backoffice indexAdmin.php
+
+    Dossier controller avec Controller parent et FrontController pour le site et AdminController pour le backoffice
+
+    Dossier Models avec tous les models basé sur chaque table de ma bdd et un Manager.php qui fait office d'ORM
+
+    Un dossier sanitizer qui permet de sécurisé certains formulaires
+
+    Un dossier security avec un fichier connect qui permet de vérifier l'état de la session
+
+
 
 Le site web From The Other Side est un projet de fin de formation (Développeur intégrateur en réalisation d'applications web) pour but d'obtenir un diplôme de niveau 5.
 
@@ -35,8 +53,6 @@ L'Administrateur du site peut supprimer les commentaires sous les différents ar
 
 Diagramme UML disponible en version jpeg ou drawio sur la racine du projet.
 
-Le site est majoritairement sur une base de PHP en architecture MVC.
-Une approche d'un ORM est présente sous la forme du fichier Manager.php
 
 Merci de votre attention et n'hésitez pas à me faire parevenir vos retours.
 
