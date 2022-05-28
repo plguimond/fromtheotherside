@@ -56,13 +56,13 @@
                             <!-- boutons d'actions voir, supprimer  -->
                             <div class="action-icon">
                                 <div>
-                                    <a href="indexAdmin.php?action=viewMail&id=<?=$email->id;?>">
+                                    <a title="Lien vers le message complet" href="indexAdmin.php?action=viewMail&id=<?=$email->id;?>">
                                         <i class="fa-solid fa-eye show"></i>
                                     </a>
                                 </div>
 
                                 <div class="fullscreen">
-                                    <a href="indexAdmin.php?action=deleteMail&id=<?=$email->id;?>">
+                                    <a title="Bouton supprimer le message" href="indexAdmin.php?action=deleteMail&id=<?=$email->id;?>">
                                         <i class="fa-solid fa-trash-can trashcan"></i>
                                     </a>
                                 </div>

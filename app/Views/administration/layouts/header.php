@@ -32,14 +32,14 @@
                     <span id="burger"></span>
                     
                     <ul id="menu-list">
-                        <li><a href="indexAdmin.php">Dashboard</a></li>
-                        <li><a href="indexAdmin.php?action=sliderPage">Modifier le slider</a></li>
-                        <li><a href="indexAdmin.php?action=newsPage">Ajouter/modifier les news</a></li>
-                        <li><a href="indexAdmin.php?action=concertsPage">Ajouter/modifier les concerts</a></li>
-                        <li><a href="indexAdmin.php?action=bandPage">Membres du groupe</a></li>
-                        <li><a href="indexAdmin.php?action=emailPage">Messagerie</a></li>
-                        <li><a href="index.php" target="_blank">Visualiser le site internet</a></li>
-                        <li><a href="indexAdmin.php?action=disconnect">Déconnexion</a></li>
+                        <li><a href="indexAdmin.php" title="Lien vers le dashboard">Dashboard</a></li>
+                        <li><a href="indexAdmin.php?action=sliderPage" title="Page de modification du slider">Modifier le slider</a></li>
+                        <li><a href="indexAdmin.php?action=newsPage" title="Page de modification des articles">Ajouter/modifier les news</a></li>
+                        <li><a href="indexAdmin.php?action=concertsPage" title="Page de modification des concerts">Ajouter/modifier les concerts</a></li>
+                        <li><a href="indexAdmin.php?action=bandPage" title="Page de modification du groupe">Membres du groupe</a></li>
+                        <li><a href="indexAdmin.php?action=emailPage" title="Page vers la messagerie">Messagerie</a></li>
+                        <li><a href="index.php" target="_blank" title="Lien pour visiter le site public">Visualiser le site internet</a></li>
+                        <li><a href="indexAdmin.php?action=disconnect" title="Bouton de déconnexion">Déconnexion</a></li>
 
                     </ul>
                 </nav>

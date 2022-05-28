@@ -7,7 +7,7 @@
         <h1 class="news-title">Ajouter ou modifier un article</h1>
 
         <div class="add-news">
-            <a class="admin-button" href="indexAdmin.php?action=addNewsPage">Créer un nouvel article</a>
+            <a title="Liens vers la création d'un nouvel artile" class="admin-button" href="indexAdmin.php?action=addNewsPage">Créer un nouvel article</a>
         </div>
         <!-- tableau affichage des articles -->
         <?php if (!empty($data['news'])){ ?>
@@ -36,13 +36,13 @@
                         <td >
                             <div class="action-icon"> 
                                 <div>
-                                    <a href="indexAdmin.php?action=viewNews&id=<?=$news->id;?>"> 
+                                    <a  title="Lien vers la modification de cet article" href="indexAdmin.php?action=viewNews&id=<?=$news->id;?>"> 
                                         <i class="fa-solid fa-eye show"></i>
                                     </a>
                                 </div>
 
                                 <div>
-                                    <a class="trashcan" href="indexAdmin.php?action=deleteNews&id=<?=$news->id;?>">
+                                    <a title="Bouton supprimer cet article" class="trashcan" href="indexAdmin.php?action=deleteNews&id=<?=$news->id;?>">
                                     <i class="fa-solid fa-trash-can "></i>
                                     </a>
                                 </div>

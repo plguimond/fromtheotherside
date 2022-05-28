@@ -28,7 +28,7 @@ include('app/Views/front/layouts/header.php');
       <p>
          <!-- Case rgpd doit être cocher pour que le bouton envoyer apparaisse -->
          <input type="checkbox" name="rgpd" id="rgpd">
-         <label for="rgpd" class="petit_texte">J'accepte les <a class="underline" href="index.php?action=rgpd">conditions générales.</a></label>
+         <label for="rgpd" class="petit_texte">J'accepte les <a class="underline" href="index.php?action=rgpd"title="Lien vers la page des conditions générales">conditions générales.</a></label>
       </p>
       <p>
          <!-- Hidden et apparait selon checkbox rgpd -->

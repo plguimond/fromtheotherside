@@ -23,8 +23,7 @@
                 <input type="text" name="title" value="<?= $slide['title']; ?>" aria-label="Titre de l'image">
                 <div class="slide-form-buttons">
                     <button class="admin-button" type="submit">Modifier</button>
-                    <a class="admin-button"
-                        href="indexAdmin.php?action=deleteSlide&id=<?= $slide['id']; ?>">Supprimer</a>
+                    <a title="Supprimer cet image du slider" class="admin-button" href="indexAdmin.php?action=deleteSlide&id=<?= $slide['id']; ?>">Supprimer</a>
                 </div>
             </form>
             <img class="admin-slider-image" src="<?= $slide['slide']; ?>" alt="<?= $slide['title']; ?>">

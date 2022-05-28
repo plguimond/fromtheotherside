@@ -55,7 +55,7 @@ include('app/Views/front/layouts/header.php');
                 <div class="next-show-link">
                     <p>Impossible pour vous d'être parmis nous à cette date? Pas de panique, consultez nos autres dates!
                     </p>
-                    <a href="index.php?action=concertsPage">Nos prochain concerts</a>
+                    <a href="index.php?action=concertsPage" title="prochains concerts">Nos prochain concerts</a>
                 </div>
             </div>
             <!-- image de séparation -->
@@ -83,7 +83,7 @@ include('app/Views/front/layouts/header.php');
                     <p><?= $data['lastNews']['content'] ?></p>
                 </div>
                 <div class="card-footer">
-                    <a href="index.php?action=singleNews&id=<?=$data['lastNews']['id'];?>">Par ici pour la suite! </a>
+                    <a href="index.php?action=singleNews&id=<?=$data['lastNews']['id'];?>" title="Suite de l'article">Par ici pour la suite! </a>
                 </div>
             </article>
 

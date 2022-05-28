@@ -24,7 +24,7 @@ include('app/Views/front/layouts/header.php');
                 <p>
                     <input type="checkbox" name="rgpd" id="rgpd">
                     <label for="rgpd" class="petit_texte">J'accepte les <a class="underline"
-                            href="index.php?action=rgpd">conditions générales.</a></label>
+                            href="index.php?action=rgpd" title="lien vers la page des conditions générales">conditions générales.</a></label>
                 </p>
                 <button type="submit" id="sendForm" class="hidden">Création du compte</button>
             </form>

@@ -39,7 +39,7 @@
     <section>
             <h1>Oups, il semblerait que la page que vous esayez de joindre n'existe pas</h1>
             
-            <a class="blue-button" href="index.php" >Retour à l'accueil</a>
+            <a class="blue-button" href="index.php" title=" retour à la page d'accueil">Retour à l'accueil</a>
     </section>
 
     
@@ -50,22 +50,22 @@
         <nav id="menu_social">
                 
                     <ul>
-                        <li><a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="https://youtube.com"><i class="fab fa-youtube"></i></a></li>
-                        <li><a href="https://instagram.com"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="https://facebook.com" title="Lien vers facebook"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="https://youtube.com" title="Lien vers youtube"><i class="fab fa-youtube"></i></a></li>
+                        <li><a href="https://instagram.com" title="Lien vers instagram"><i class="fab fa-instagram"></i></a></li>
                     </ul>
                 
         </nav>
         <div class="footer-banner">
-            <p class="logo"><a href="index.php">From The Other Side</a> </p>
+            <p class="logo"><a href="index.php" title="Lien vers la page d'accueil">From The Other Side</a> </p>
         </div>
         <!--  bloc aside pour le contenu indirect au site  -->
         <aside id="foot-info">
             
                 <ul>
-                    <li><a href="index.php?action=contactPage">Nous écrire</a></li>
-                    <li><a href="tel:+330601020304">Nous appeler</a></li>
-                    <li><a href="index.php?action=rgpd">Mentions légales</a></li>
+                    <li><a href="index.php?action=contactPage" title="formulaire de contact">Nous écrire</a></li>
+                    <li><a href="tel:+330601020304" title="lien vers numéro de téléphone">Nous appeler</a></li>
+                    <li><a href="index.php?action=rgpd" title="Lien vers la page des mentions légales">Mentions légales</a></li>
                 </ul>
          </aside>
     </div>

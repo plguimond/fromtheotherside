@@ -34,7 +34,7 @@
             <div class="news-picture">
                 <img src="<?= $data['news']['picture1']?>" alt="première image de l'article">
                 <div class="delete-picture">
-                    <a href="indexAdmin.php?action=deletePicture&number=1&id=<?= $data['news']['id'] ?>" class="admin-button">Supprimer</a>
+                    <a title="Supprimer la photo de cet article" href="indexAdmin.php?action=deletePicture&number=1&id=<?= $data['news']['id'] ?>" class="admin-button">Supprimer</a>
                 </div>
 
             </div>

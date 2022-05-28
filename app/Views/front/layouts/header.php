@@ -38,23 +38,23 @@ $connect = isConnect();
                     <span id="burger"></span>
                
                 <ul id="menu-list">
-                    <li><a class="page-link" href="index.php">Accueil</a></li>
-                    <li><a class="page-link" href="index.php?action=bandPage">Le groupe</a></li>
-                    <li><a class="page-link" href="index.php?action=newsPage">Les news</a></li>
-                    <li><a class="page-link" href="index.php?action=concertsPage">Prochaines dates</a></li>
-                    <li><a class="page-link" href="index.php?action=contactPage">Nous contacter</a></li>
+                    <li><a class="page-link" href="index.php" title="Page d'accueil">Accueil</a></li>
+                    <li><a class="page-link" href="index.php?action=bandPage" title=" page membres du groupe">Le groupe</a></li>
+                    <li><a class="page-link" href="index.php?action=newsPage" title="Page des articles">Les news</a></li>
+                    <li><a class="page-link" href="index.php?action=concertsPage" title="page des dates de concert">Prochaines dates</a></li>
+                    <li><a class="page-link" href="index.php?action=contactPage" title="formulaire de contact">Nous contacter</a></li>
                   
                     <!-- Si admin, affichage lien dashboard, si user classique lien compte utilisateur -->
                     <?php if ($connect == true && $_SESSION['role'] == 1) { ?>
-                        <li><a href="index.php?action=userPage">Dashboard</a></li>
+                        <li><a href="index.php?action=userPage" title="Dashboard administrateur">Dashboard</a></li>
                     <?php } elseif($connect == true) { ?>
-                        <li><a href="index.php?action=userPage">Compte utilisateur</a></li>
+                        <li><a href="index.php?action=userPage" title="Page compte utilisateur">Compte utilisateur</a></li>
                    <?php }
                 //    Si connecté, lien déconnexion sinon lien vers connexion
                     if ($connect == true) { ?>
-                        <li><a href="index.php?action=disconnect">Se déconnecter</a></li>
+                        <li><a href="index.php?action=disconnect" title="bouton de déconnexion">Se déconnecter</a></li>
                     <?php } else{ ?>
-                        <li><a href="index.php?action=loginPage">Connectez-vous</a></li>
+                        <li><a href="index.php?action=loginPage" title="page de connexion">Connectez-vous</a></li>
                     <?php } ?>
                 </ul>
             </nav>

@@ -11,7 +11,7 @@ foreach($data['concerts'] as $concert){?>
       
       <div class="next-show-text bloc-content">
          <div class="show-info">
-            <h3><?= $concert['title']; ?></h3>
+            <h2><?= $concert['title']; ?></h2>
             <p>Adresse: <?= $concert['location']; ?></p>
             <p>Rendez-vous le : <?= $this->formatDate($concert['date']); ?></p>
             <p>Prix à partir de: <?= $concert['price']; ?>€</p>

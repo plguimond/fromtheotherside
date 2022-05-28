@@ -66,7 +66,7 @@ include('app/Views/front/layouts/header.php');
             <?php }
         else{ ?>
         <!-- Lien vers la page login si non connecté -->
-            <a class="blue-button" href="index.php?action=loginPage">Connectez-vous pour commentez</a>
+            <a class="blue-button" href="index.php?action=loginPage" title="Lien vers la page de connexion">Connectez-vous pour commentez</a>
             <?php } ?>
             <?php 
         if (isset($data['error'])){ ?>

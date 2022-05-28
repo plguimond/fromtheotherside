@@ -15,7 +15,7 @@
             <div class="single-mail-header">
                 <div class="contact-info">
                     <p><?= $data['email']['firstname'] . " " . $data['email']['lastname'] ?></p>
-                    <p><a href="mailto:<?= $data['email']['mail'] ?>"><?= $data['email']['mail'] ?></a></p>
+                    <p><a title="Répondre au mail" href="mailto:<?= $data['email']['mail'] ?>"><?= $data['email']['mail'] ?></a></p>
                     <p><?= $data['email']['phone'] ?></p>
                 </div>
                 <p><?= $this->formatDate($data['email']['createdAt']) ?></p>
@@ -28,13 +28,13 @@
             <!-- action répondre ou supprimer message -->
             <div class="single-mail-footer">
                 <div>
-                    <a href="mailto:<?= $data['email']['mail'] ?>">
+                    <a title="répondre au mail" href="mailto:<?= $data['email']['mail'] ?>">
                         <i class="fa-solid fa-reply reply"></i>
                     </a>
                 </div>
 
                 <div>
-                    <a href="indexAdmin.php?action=deleteMail&id=<?=$data['email']['id'];?>">
+                    <a title="Supprimer ce message" href="indexAdmin.php?action=deleteMail&id=<?=$data['email']['id'];?>">
                         <i class="fa-solid fa-trash-can trashcan"></i>
                     </a>
                 </div>

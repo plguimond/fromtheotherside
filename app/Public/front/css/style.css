@@ -981,7 +981,7 @@ footer{
 
   #band-cards .member-card p{
     overflow: visible;
-    display: contents;
+    display: block;
   }
 
 /* page concerts*/ 
@@ -990,6 +990,11 @@ footer{
     display: flex;
     flex-wrap: wrap;
   }
+
+  #concerts-page h2{
+    font-size: 1rem;
+  }
+
   #concerts-page .next-show-text{
 
     width: 30%;

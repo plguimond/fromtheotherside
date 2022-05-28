@@ -28,7 +28,7 @@ include('app/Views/front/layouts/header.php');
                 <span class="circle-text">OU</span>
             </div>
             <div class="login-title">
-                <a class="blue-button" href="index.php?action=newAccount">Créer un nouveau compte</a>
+                <a class="blue-button" href="index.php?action=newAccount" title="Lien vers la page de création d'un nouveau compte">Créer un nouveau compte</a>
             </div>
         </div>
     </section>

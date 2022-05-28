@@ -66,7 +66,7 @@
                     </p>
                     <button class="admin-button" type="submit">Modifier</button>
                 </form>
-                <a class="admin-button" href="indexAdmin.php?action=deleteConcert&id=<?= $concert['id']; ?>">Supprimer</a>
+                <a title="Bouton supprimer ce concert" class="admin-button" href="indexAdmin.php?action=deleteConcert&id=<?= $concert['id']; ?>">Supprimer</a>
             </div>
         <?php }?>
         </div>

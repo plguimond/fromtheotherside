@@ -80,8 +80,7 @@
 
                     </div>
                     <button class="admin-button" type="submit">Modifier</button>
-                    <a class="admin-button"
-                        href="indexAdmin.php?action=deleteMember&id=<?= $member->id; ?>">Supprimer</a>
+                    <a title="Bouton supprimer ce membre" class="admin-button" href="indexAdmin.php?action=deleteMember&id=<?= $member->id; ?>">Supprimer</a>
                 </div>
             </form>
 
